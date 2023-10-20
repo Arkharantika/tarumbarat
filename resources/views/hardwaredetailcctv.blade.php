@@ -39,7 +39,7 @@
 
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="tab1-tab" data-toggle="tab" href="#tab1" role="tab"
+                    <a class="nav-link" id="tab1-tab" data-toggle="tab" href="#tab1" role="tab"
                         aria-controls="tab1" aria-selected="true">Informasi</a>
                 </li>
                 <li class="nav-item">
@@ -51,26 +51,24 @@
                         aria-controls="tab3" aria-selected="false">Grafik</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="" data-toggle="" href="{{url('/hardwarecctv/'.$chance)}}" role="tab"
+                    <a class="nav-link active" id="tab1-tab" data-toggle="" href="#tab4" role="tab"
                         aria-controls="tab4" aria-selected="false">CCTV</a>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
+                <div class="tab-pane fade show active" id="tab4" role="tabpanel" aria-labelledby="tab4-tab">
                     <div class="container mt-3">
-                        <hr>
                         <div>
-                            Nama Pos &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: <span>{{$recorddetail->pos_name}}</span><br>
-                            Lokasi &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp :
-                            <span>{{$recorddetail->location}}</span><br>
-                            Koordinat LS &nbsp : <span>{{$recorddetail->latitude}}</span><br>
-                            Koordinat LU &nbsp : <span>{{$recorddetail->longitude}}</span><br>
-                            Provinsi &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:
-                            <span>{{$recorddetail->kd_provinsi}}</span><br>
-                            Kabupaten &nbsp&nbsp&nbsp&nbsp: <span>{{$recorddetail->kd_kabupaten}}</span><br>
-                            Kecamatan &nbsp&nbsp&nbsp: <span>{{$recorddetail->kd_kecamatan}}</span><br>
-                            Desa &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:
-                            <span>{{$recorddetail->kd_desa}}</span><br>
+                            <div class="card">
+                                <div class="card-header"></div>
+                                <div class="card-body">
+                                    @if($recorddetail->cctv == null)
+                                    tidak ada CCTV pada pos ini
+                                    @else
+                                    <img src="{{ url('../../contoh_pindahan/'.$recordcctv->img_name) }}" alt="">
+                                    @endif
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

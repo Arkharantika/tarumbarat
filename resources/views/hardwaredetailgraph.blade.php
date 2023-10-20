@@ -46,86 +46,16 @@
                     <a class="nav-link" id="" data-toggle="" href="{{url('/hardwaretable/'.$chance)}}" role="tab"
                         aria-controls="tab2" aria-selected="false">Data Telemetry</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" id="" data-toggle="tab" href="{{url('/hardwaregraph/'.$chance)}}" role="tab"
+                <li class="nav-item">
+                    <a class="nav-link active" id="tab3-tab" data-toggle="tab" href="#tab3" role="tab"
                         aria-controls="tab3" aria-selected="true">Grafik</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="" data-toggle="" href="#" role="" aria-controls=""
+                    <a class="nav-link" id="" data-toggle="" href="{{url('/hardwarecctv/'.$chance)}}" role="" aria-controls=""
                         aria-selected="false">CCTV</a>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade " id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
-                    <div class="container mt-3">
-                        <hr>
-                        <div>
-                            Nama Pos &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: <span>{{$recorddetail->pos_name}}</span><br>
-                            Lokasi &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp :
-                            <span>{{$recorddetail->location}}</span><br>
-                            Koordinat LS &nbsp : <span>{{$recorddetail->latitude}}</span><br>
-                            Koordinat LU &nbsp : <span>{{$recorddetail->longitude}}</span><br>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
-                    <div class="container mt-3">
-                        <!-- Content for Tab 2 -->
-                        <div style="display:flex; justify-content:space-between;">
-                            <button class="btn btn-success mb-3">Import Data</button>
-                            <!-- <input type="text"> -->
-                            <div style="display:flex;">
-                                <button class="btn btn-secondary mb-3" disabled>start date</button>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="date" class="form-control" id="fixedWidthInput"
-                                                placeholder="kampret" style="width: 200px;">
-                                        </div>
-                                    </div>
-                                </div>
-                                <button class="btn btn-secondary mb-3" disabled>End date</button>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <!-- <label for="fixedWidthInput">Fixed Width Input:</label> -->
-                                            <input type="date" class="form-control" id="fixedWidthInput"
-                                                style="width: 200px;">
-                                        </div>
-                                    </div>
-                                </div>
-                                &nbsp
-                                <!-- <button></button> -->
-                                <button class="btn btn-secondary mb-3"> Cari</button>
-
-                            </div>
-                        </div>
-                        <table id="example2" class="table table-striped table-bordered text-center">
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Waktu Record </th>
-                                    <th>Tinggi Air (cm)</th>
-                                    <th>debit (cm3) </th>
-                                    <th>Status Alarm </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php $no=1; ?>
-                                @foreach ($records as $row)
-                                <tr>
-                                    <td>{{$no++}}</td>
-                                    <td>{{$row->tlocal}}</td>
-                                    <td>{{$row->value}}</td>
-                                    <td></td>
-                                    <td>normal</td>
-                                </tr>
-                                @endforeach
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
                 <div class="tab-pane fade show active" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">
                     <div class="container mt-3">
 

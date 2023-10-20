@@ -70,6 +70,25 @@ class HardwareController extends Controller
         return view('hardwaredetailgraph',compact('records','chance','recorddetail','awal','akhir','pilihannya'));
     }
 
+    public function HardwareDetailCCTV($id)
+    {
+        $chance = strval($id);
+        $awal=null;
+        $akhir=null;
+        $pilihannya=null;
+        // $records = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('mst_hardware.kd_hardware',$id)->get();
+        $recorddetail = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('mst_hardware.kd_hardware',$id)->get()->last();
+        $records = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')
+                    ->where('mst_hardware.kd_hardware', $id)
+                    ->where('trs_raw_d_gpa.kd_sensor','waterlevel')
+                    ->select(DB::raw('(trs_raw_d_gpa.tlocal) as hari'), DB::raw('(trs_raw_d_gpa.value) as nilai'))
+                    ->get();
+        // return $records;
+        $recordcctv = Hardware::join('image_ftp','image_ftp.img_num','=','mst_hardware.cctv')->get()->last();
+        // return $recordcctv;
+        return view('hardwaredetailcctv',compact('records','chance','recorddetail','awal','akhir','pilihannya','recordcctv'));
+    }
+
     public function SelectGraphFromDateRange(Request $request,$id)
     {
         $chance = strval($id);

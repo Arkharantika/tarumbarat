@@ -42,8 +42,8 @@
                     <a class="nav-link" id="" data-toggle="" href="{{url('/hardware/'.$chance)}}" role="tab"
                         aria-controls="tab1">Informasi</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" id="" data-toggle="tab" href="{{url('/hardwaretable/'.$chance)}}" role="tab"
+                <li class="nav-item">
+                    <a class="nav-link active" id="tab2-tab" data-toggle="tab" href="#tab2" role="tab"
                         aria-controls="tab2" aria-selected="true">Data Telemetry</a>
                 </li>
                 <li class="nav-item">
@@ -51,23 +51,11 @@
                         aria-controls="tab3" aria-selected="false">Grafik</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="" data-toggle="" href="#" role="" aria-controls=""
+                    <a class="nav-link" id="" data-toggle="" href="{{url('/hardwarecctv/'.$chance)}}" role="" aria-controls=""
                         aria-selected="false">CCTV</a>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade " id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
-                    <div class="container mt-3">
-                        <hr>
-                        <div>
-                            Nama Pos &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: <span>{{$recorddetail->pos_name}}</span><br>
-                            Lokasi &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp :
-                            <span>{{$recorddetail->location}}</span><br>
-                            Koordinat LS &nbsp : <span>{{$recorddetail->latitude}}</span><br>
-                            Koordinat LU &nbsp : <span>{{$recorddetail->longitude}}</span><br>
-                        </div>
-                    </div>
-                </div>
                 <div class="tab-pane fade show active" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
                     <div class="container mt-3">
                         <!-- Content for Tab 2 -->
