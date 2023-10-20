@@ -69,9 +69,9 @@
                         <td>{{$row->longitude}}</td>
                         <td>{{$row->location}}</td>
                         <td>{{$row->no_gsm}}</td>
-                        <td style="display:flex;"><a href="" class="btn btn-sm btn-warning mr-5 mb-5">edit</a> &nbsp&nbsp
+                        <td><a href="" class="btn btn-sm btn-warning">edit</a>
                             <a href="" onclick="return confirm('Yakin untuk menghapus data ini?')"
-                                class="btn btn-sm btn-danger mr-5 mb-5">hapus</a>
+                                class="btn btn-sm btn-danger">hapus</a>
                         </td>
                     </tr>
                     @endforeach

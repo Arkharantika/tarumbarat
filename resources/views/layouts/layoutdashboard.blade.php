@@ -92,6 +92,22 @@
         .colorthead {
             background: #669cff;
         }
+
+        .swal-height{
+            height:7rem !important;
+        }
+
+        .swal2-styled{
+            height: 40px;
+            margin-top:0;
+        }
+        .swal2-actions{
+            height: 30px;
+            margin-top:0;
+        }
+        .swal2-select{
+            height: 35px;
+        }
     </style>
 </head>
 
@@ -228,14 +244,16 @@
     <script>
         function linkterkait() {
             Swal.fire({
-                title: 'Link Terkait',
+                // title: 'Link Terkait',
+                width: '13rem',
+                position: 'top-end',
                 input: 'select',
                 inputOptions: {
                     pjt: 'PJT II',
                     sihka: 'SIHKA'
                 },
-                // inputPlaceholder: 'Select a fruit',
-                showCancelButton: true,
+                heightAuto:false,
+                customClass: 'swal-height',
                 inputValidator: (value) => {
                     return new Promise((resolve) => {
                         if (value === 'pjt') {
