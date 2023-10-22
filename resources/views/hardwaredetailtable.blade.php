@@ -34,6 +34,19 @@
             </div>
         </div>
     </div>
+    
+    @if(session()->get('message'))
+    <div class="alert alert-info alert-dismissable mt-20 text-center" role="alert">
+        <h4>{{ session()->get('message') }} </h4>
+    </div>
+    @endif
+
+    @if(session()->get('warning'))
+    <div class="alert alert-danger alert-dismissable mt-20 text-center" role="alert">
+        <h4>{{ session()->get('warning') }} </h4>
+    </div>
+    @endif
+
     <div class="card">
         <div class="card-body">
 

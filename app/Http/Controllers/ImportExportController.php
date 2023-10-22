@@ -17,7 +17,7 @@ class ImportExportController extends Controller
     {
         Excel::import(new ImportExcel,request()->file('file'));
              
-        return back();
+        return back()->with('message','Data berhasil di import ! ');
     }
 
     public function export(Request $request,$id)

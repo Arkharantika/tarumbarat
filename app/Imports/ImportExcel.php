@@ -3,6 +3,7 @@
 namespace App\Imports;
 
 use App\Models\ImageFTP;
+use App\Models\RawGPA;
 
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
@@ -21,10 +22,18 @@ class ImportExcel implements ToCollection,ToModel, WithHeadingRow
 
     public function model(array $row)
     {
-        return new ImageFTP([
-            'img_name'     => $row['img_name'],
-            // 'email'    => $row['email'], 
-            // 'password' => \Hash::make($row['password']),
+        // return new ImageFTP([
+        //     'img_name'     => $row['img_name'],
+        //     // 'email'    => $row['email'], 
+        //     // 'password' => \Hash::make($row['password']),
+        // ]);
+
+        return new RawGPA([
+            'tlocal'=>$row['tlocal'],
+            'kd_hardware'=>$row['kd_hardware'],
+            'kd_sensor'=>$row['kd_sensor'],
+            'value'=>$row['value'],
         ]);
+
     }
 }
