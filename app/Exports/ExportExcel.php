@@ -8,8 +8,9 @@ use Maatwebsite\Excel\Concerns\WithStyles;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class ExportExcel implements FromArray,WithStyles,WithHeadings
+class ExportExcel implements FromArray,WithStyles,WithHeadings,ShouldAutoSize
 {
 
     protected $invoices;
@@ -17,19 +18,39 @@ class ExportExcel implements FromArray,WithStyles,WithHeadings
     protected $lokasi;
     protected $latitude;
     protected $longitude;
+    protected $provinsi;
 
-    public function __construct(array $invoices,$nama_pos,$lokasi,$latitude,$longitude)
+    public function __construct(array $invoices,$nama_pos,$lokasi,$latitude,$longitude,$provinsi,$kabupaten,$kecamatan,$desa)
     {
         $this->invoices = $invoices;
         $this->nama_pos = $nama_pos;
         $this->lokasi = $lokasi;
         $this->latitude = $latitude;
         $this->longitude = $longitude;
+        $this->provinsi = $provinsi;
+        $this->kabupaten = $kabupaten;
+        $this->kecamatan = $kecamatan;
+        $this->desa = $desa;
+
     }
 
     public function styles(Worksheet $sheet)
     {
-        $sheet->getStyle('B2')->getFont()->setBold(true);
+        $borderStyle = [
+            'borders' => [
+                'outline' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                    'color' => ['argb' => 'FF000000'],
+                ],
+            ],
+        ];
+        
+        // $sheet->getStyle('B2')->getFont()->setBold(true);
+        $sheet->getStyle('A10')->applyFromArray($borderStyle);
+        $sheet->getStyle('B10')->applyFromArray($borderStyle);
+        $sheet->getStyle('C10')->applyFromArray($borderStyle);
+        // $worksheet->getStyle('B2:G8')->applyFromArray($styleArray);
+        // $sheet->setBorder('A1', 'thin');
     }
 
     public function headings(): array
@@ -47,7 +68,19 @@ class ExportExcel implements FromArray,WithStyles,WithHeadings
         ],[
             'Longitude',
             $this->longitude,
-        ],['',''],['No','Nilai','Waktu']
+        ],[
+            'Provinsi',
+            $this->provinsi,
+        ],[
+            'Kabupaten',
+            $this->kabupaten,
+        ],[
+            'Kecamatan',
+            $this->kecamatan,
+        ],[
+            'Desa',
+            $this->desa,
+        ],['',''],['No','Waktu','Nilai']
     ];
     }
 
