@@ -69,8 +69,8 @@
                         <td>{{$row->longitude}}</td>
                         <td>{{$row->location}}</td>
                         <td>{{$row->no_gsm}}</td>
-                        <td width="15%"><a href="" class="btn btn-sm btn-warning">edit</a>
-                            <a href="" onclick="return confirm('Yakin untuk menghapus data ini?')"
+                        <td width="15%"><a href="{{url('/editpos/'.$row->kd_hardware)}}" class="btn btn-sm btn-warning">edit</a>
+                            <a href="{{url('/deletepos/'.$row->kd_hardware)}}" onclick="return confirm('Yakin untuk menghapus data ini?')"
                                 class="btn btn-sm btn-danger">hapus</a>
                         </td>
                     </tr>

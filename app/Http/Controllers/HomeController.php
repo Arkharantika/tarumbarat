@@ -20,6 +20,29 @@ class HomeController extends Controller
         return view('home');
     }
 
+    // public function dataposhidrologi()
+    // {
+    //     $ars=[];
+    //     $ars_max=[];
+    //     $ars_min=[];
+    //     $a=0;
+    //     $hardware = Hardware::all();
+    //     foreach($hardware as $now => $value)
+    //     {
+    //         $sink = $value->kd_hardware;
+    //         $records = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('mst_hardware.kd_hardware',$value->kd_hardware)->where('trs_raw_d_gpa.kd_sensor','waterlevel')->get()->last();
+    //         $valuemax = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('mst_hardware.kd_hardware',$value->kd_hardware)->where('trs_raw_d_gpa.kd_sensor','waterlevel')->max('value');;
+    //         $valuemin = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('mst_hardware.kd_hardware',$value->kd_hardware)->where('trs_raw_d_gpa.kd_sensor','waterlevel')->min('value');;
+    //         // $b = $value->kd_hardware;
+    //         if (isset($records)) {
+    //             $ars[$now] = $records; 
+    //             $ars_max[$now] = $valuemax; 
+    //             $ars_min[$now] = $valuemin; 
+    //         }
+    //     }
+    //     // return $ars;
+    //     return view('dataposhidrologi',compact('ars','ars_max','ars_min'));
+    // }
     public function dataposhidrologi()
     {
         $ars=[];
@@ -27,25 +50,58 @@ class HomeController extends Controller
         $ars_min=[];
         $a=0;
         $hardware = Hardware::all();
-        foreach($hardware as $now => $value)
-        {
-            $sink = $value->kd_hardware;
-            $records = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('mst_hardware.kd_hardware',$value->kd_hardware)->where('trs_raw_d_gpa.kd_sensor','waterlevel')->get()->last();
-            $valuemax = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('mst_hardware.kd_hardware',$value->kd_hardware)->where('trs_raw_d_gpa.kd_sensor','waterlevel')->max('value');;
-            $valuemin = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('mst_hardware.kd_hardware',$value->kd_hardware)->where('trs_raw_d_gpa.kd_sensor','waterlevel')->min('value');;
-            // $b = $value->kd_hardware;
-            if (isset($records)) {
-                $ars[$now] = $records; 
-                $ars_max[$now] = $valuemax; 
-                $ars_min[$now] = $valuemin; 
-            }
-        }
+        $ars = Hardware::all();
+        // foreach($hardware as $now => $value)
+        // {
+        //     $sink = $value->kd_hardware;
+        //     $records = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('mst_hardware.kd_hardware',$value->kd_hardware)->where('trs_raw_d_gpa.kd_sensor','waterlevel')->get()->last();
+        //     $valuemax = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('mst_hardware.kd_hardware',$value->kd_hardware)->where('trs_raw_d_gpa.kd_sensor','waterlevel')->max('value');;
+        //     $valuemin = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('mst_hardware.kd_hardware',$value->kd_hardware)->where('trs_raw_d_gpa.kd_sensor','waterlevel')->min('value');;
+        //     // $b = $value->kd_hardware;
+        //     if (isset($records)) {
+        //         $ars[$now] = $records; 
+        //         $ars_max[$now] = $valuemax; 
+        //         $ars_min[$now] = $valuemin; 
+        //     }
+        // }
         // return $ars;
-        return view('dataposhidrologi',compact('ars','ars_max','ars_min'));
+        return view('dataposhidrologi',compact('ars'));
     }
     
     public function neracaair()
     {
         return view('neracaair');
+    }
+
+    public function editpos($id)
+    {
+        // return $id;
+        $check = Hardware::where('kd_hardware',$id)->get()->last();
+        // return $check;
+        return view('editposhardware',compact('check'));
+    }
+    
+    public function changePos(Request $request,$id)
+    {
+        // return $request;
+        $check = Hardware::where('kd_hardware',$id)->get()->last();
+        $ganti = Hardware::where('kd_hardware',$id)->update([
+            "pos_name" => $request->pos_name,
+            "location" => $request->location,
+            "latitude" => $request->latitude,
+            "longitude" => $request->latitude
+        ]);
+
+        return redirect('/dataposhidrologi')->with('message','Data berhasil di update !');
+    }
+
+    public function deletepos($kd)
+    {
+        // return 0;
+        // return $kd;
+        $check = Hardware::where('kd_hardware',$kd)->delete();
+        // return $check;
+        // $check->delete();
+        return redirect('/dataposhidrologi')->with('warning','Data Berhasil Di Delete !');
     }
 }

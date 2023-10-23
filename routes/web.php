@@ -40,8 +40,14 @@ Route::post('/hardwaregraphrange/{id}', [HardwareController::class, 'SelectGraph
 
 // >>> FOR HOME
 Route::get('/home', [HomeController::class, 'index'])->name('index');
-Route::get('/dataposhidrologi', [HomeController::class, 'dataposhidrologi'])->name('dataposhidrologi');
 Route::get('/neracaair', [HomeController::class, 'neracaair'])->name('neracaair');
+
+Route::get('/dataposhidrologi', [HomeController::class, 'dataposhidrologi'])->name('dataposhidrologi');
+Route::get('/editpos/{id}', [HomeController::class, 'editpos'])->name('editpos');
+Route::post('/changepos/{id}', [HomeController::class, 'changepos'])->name('changepos');
+// Route::post('/changepos/{id}', [HomeController::class, 'changepos'])->name('changepos');
+Route::get('/deletepos/{id}', [HomeController::class, 'deletepos'])->name('deletepos');
+
 
 // >>> FOR IMPORT EXCEl DATA
 Route::post('/importdata', [ImportExportController::class, 'import'])->name('import');
