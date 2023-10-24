@@ -92,6 +92,46 @@
                         <input type="text" class="form-control" value="{{$check->longitude}}" name="longitude" id="nis" required>
                     </div>
                 </div>
+                <div class="row mb-3">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Nomor GSM</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        <input type="text" class="form-control" value="{{$check->no_gsm}}" name="no_gsm" id="nis" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Provinsi</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        <input type="text" class="form-control" value="{{$check->kd_provinsi}}" name="kd_provinsi" id="nis" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Kabupaten</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        <input type="text" class="form-control" value="{{$check->kd_kabupaten}}" name="kd_kabupaten" id="nis" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Kecamatan</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        <input type="text" class="form-control" value="{{$check->kd_kecamatan}}" name="kd_kecamatan" id="nis" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Desa</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        <input type="text" class="form-control" value="{{$check->kd_desa}}" name="kd_desa" id="nis" required>
+                    </div>
+                </div>
                 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
                     <button type="submit" id="covid" class="btn btn-primary"
                         onclick="return confirm('Yakin data sudah benar?')">Simpan</button>

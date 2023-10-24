@@ -89,7 +89,12 @@ class HomeController extends Controller
             "pos_name" => $request->pos_name,
             "location" => $request->location,
             "latitude" => $request->latitude,
-            "longitude" => $request->longitude
+            "longitude" => $request->longitude,
+            "no_gsm" => $request->no_gsm,
+            "kd_provinsi" => $request->kd_provinsi,
+            "kd_kabupaten" => $request->kd_kabupaten,
+            "kd_kecamatan" => $request->kd_kecamatan,
+            "kd_desa" => $request->kd_desa,
         ]);
 
         return redirect('/dataposhidrologi')->with('message','Data berhasil di update !');
