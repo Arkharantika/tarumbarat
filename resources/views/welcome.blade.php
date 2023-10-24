@@ -40,7 +40,7 @@
                                     <h5 id="demoname" class="card-title"></h5>
                                     <div>
                                     <i class='bx bxs-calendar text-danger' style="font-style:italic;"></i>
-                                        <span id="demodate" class="text-danger" style="font-style:italic;">15-10-2023 23:50:30</span>
+                                        <span id="demodate" class="text-danger" style="font-style:italic;"></span>
                                     </div>
                                     <div>
                                         <span id="demovalue" class="card-text"></span>  cm
@@ -54,9 +54,14 @@
                                 <!-- Card Content -->
                                 <div class="card-body text-center border border-secondary">
                                     <i class='bx bxs-map text-danger'></i>
-                                    <h5 class="card-title">BTB 2</h5>
-                                    <span class="text-danger" style="font-style:italic;"><i class='bx bxs-calendar'></i> 15-10-2023 23:50:30</span>
-                                    <p class="card-text">22 cm</p>
+                                    <h5 id="demoname2" class="card-title"></h5>
+                                    <div>
+                                    <i class='bx bxs-calendar text-danger' style="font-style:italic;"></i>
+                                        <span id="demodate2" class="text-danger" style="font-style:italic;"></span>
+                                    </div>
+                                    <div>
+                                        <span id="demovalue2" class="card-text"></span>  cm
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -66,9 +71,14 @@
                                 <!-- Card Content -->
                                 <div class="card-body text-center border border-secondary">
                                     <i class='bx bxs-map text-danger'></i>
-                                    <h5 class="card-title">BTB 3</h5>
-                                    <span class="text-danger" style="font-style:italic;"><i class='bx bxs-calendar'></i> 15-10-2023 23:50:30</span>
-                                    <p class="card-text">22 cm</p>
+                                    <h5 id="demoname3" class="card-title"></h5>
+                                    <div>
+                                    <i class='bx bxs-calendar text-danger' style="font-style:italic;"></i>
+                                        <span id="demodate3" class="text-danger" style="font-style:italic;"></span>
+                                    </div>
+                                    <div>
+                                        <span id="demovalue3" class="card-text"></span>  cm
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -78,9 +88,14 @@
                                 <!-- Card Content -->
                                 <div class="card-body text-center border border-secondary">
                                     <i class='bx bxs-map text-danger'></i>
-                                    <h5 class="card-title">BTB 4</h5>
-                                    <span class="text-danger" style="font-style:italic;"><i class='bx bxs-calendar'></i> 15-10-2023 23:50:30</span>
-                                    <p class="card-text">22 cm</p>
+                                    <h5 id="demoname4" class="card-title"></h5>
+                                    <div>
+                                    <i class='bx bxs-calendar text-danger' style="font-style:italic;"></i>
+                                        <span id="demodate4" class="text-danger" style="font-style:italic;"></span>
+                                    </div>
+                                    <div>
+                                        <span id="demovalue4" class="card-text"></span>  cm
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -353,7 +368,7 @@
     const valmin = @json($ars_min);
 
     var data_example = [
-        { lat: -6.2500114, lng: 106.9895103, name: 'Marker 1',vmax:20,vmin:20,daterecord:20, intivalue:30,kentang:4150 }
+        { lat: -10.2500114, lng: 123.9895103, name: 'Marker 1',vmax:20,vmin:20,daterecord:20, intivalue:30,kentang:4150 }
         // Add more data here...
     ];
     @foreach($ars as $kentang => $record)
@@ -371,17 +386,38 @@
     @endforeach
 
     console.log("kampret >>>")
-    console.log(data_example[0]["name"]);
+    //console.log(data_example[0]["name"]);
+
+    // <==== BAGIAN DEMO ===>
     var examplename = data_example[3]["name"];
     var exampledate = data_example[3]["daterecord"];
     var examplevalue = data_example[3]["intivalue"];
     document.getElementById("demoname").innerHTML = examplename;
     document.getElementById("demodate").innerHTML = exampledate;
     document.getElementById("demovalue").innerHTML = examplevalue;
+    var examplename2 = data_example[4]["name"];
+    var exampledate2 = data_example[4]["daterecord"];
+    var examplevalue2 = data_example[4]["intivalue"];
+    document.getElementById("demoname2").innerHTML = examplename2;
+    document.getElementById("demodate2").innerHTML = exampledate2;
+    document.getElementById("demovalue2").innerHTML = examplevalue2;
+    var examplename3 = data_example[5]["name"];
+    var exampledate3 = data_example[5]["daterecord"];
+    var examplevalue3 = data_example[5]["intivalue"];
+    document.getElementById("demoname3").innerHTML = examplename3;
+    document.getElementById("demodate3").innerHTML = exampledate3;
+    document.getElementById("demovalue3").innerHTML = examplevalue3;
+    var examplename4 = data_example[6]["name"];
+    var exampledate4 = data_example[6]["daterecord"];
+    var examplevalue4 = data_example[6]["intivalue"];
+    document.getElementById("demoname3").innerHTML = examplename4;
+    document.getElementById("demodate3").innerHTML = exampledate4;
+    document.getElementById("demovalue3").innerHTML = examplevalue4;
+    //  <==== END OF DEMO ===>
     
     const contoh = L.layerGroup();
     for (var i = 0; i < data_example.length; i++) {
-        var marker = L.marker([data_example[i].lat, data_example[i].lng]).bindPopup("<hr style='margin-bottom:5px;margin-top:5px;color:black;'><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Pos Name :<b>"+data_example[i].name+"</b></div><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Coordinate : "+data_example[i].lat+", "+data_example[i].lng+"</div><table class='table table-bordered' style='margin-bottom:5px;'><thead class='colorthead thead-dark'><tr><th scope=col'>Sensor</th><th scope='col'>Value</th><th scope='col'>Max</th><th scope='col'>Min</th></tr></thead><tbody><tr><td>Water Level</td><td>"+data_example[i].intivalue+" cm</td><td class='text-white' style='background:#a31919' >"+data_example[i].vmax+" cm</td><td class='text-white' style='background:#ff8c40;'>"+data_example[i].vmin+" cm</td></tr></tbody></table><div class='mt-1'><div class='text-danger' style='margin-bottom:15px;font-style:italic;font-size:12px;'>Last Update : "+data_example[i].daterecord+" &nbsp <i class='bx bxs-calendar'></i></div><a class='btn btn-sm btn-secondary text-light' href='{{ url('/hardware/') }}/"+data_example[i].kentang+"'>> check detail </div>",{closeButton: false}).on('mouseover', function () {
+        var marker = L.marker([data_example[i]["lat"], data_example[i]["lng"]]).bindPopup("<hr style='margin-bottom:5px;margin-top:5px;color:black;'><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Pos Name :<b>"+data_example[i]["name"]+"</b></div><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Coordinate : "+data_example[i].lat+", "+data_example[i].lng+"</div><table class='table table-bordered' style='margin-bottom:5px;'><thead class='colorthead thead-dark'><tr><th scope=col'>Sensor</th><th scope='col'>Value</th><th scope='col'>Max</th><th scope='col'>Min</th></tr></thead><tbody><tr><td>Water Level</td><td>"+data_example[i].intivalue+" cm</td><td class='text-white' style='background:#a31919' >"+data_example[i].vmax+" cm</td><td class='text-white' style='background:#ff8c40;'>"+data_example[i].vmin+" cm</td></tr></tbody></table><div class='mt-1'><div class='text-danger' style='margin-bottom:15px;font-style:italic;font-size:12px;'>Last Update : "+data_example[i].daterecord+" &nbsp <i class='bx bxs-calendar'></i></div><a class='btn btn-sm btn-secondary text-light' href='{{ url('/hardware/') }}/"+data_example[i].kentang+"'>> check detail </div>",{closeButton: false}).on('mouseover', function () {
                 this.openPopup();
             }).openPopup();
         marker.addTo(contoh);
