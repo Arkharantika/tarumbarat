@@ -348,6 +348,8 @@
 </div>
 
 @section('CustomScripts')
+<script src="{{asset('sungai.js')}}"></script>
+<script src="{{asset('wilayah.js')}}"></script>
 <script>
     var redPin = L.icon({
         iconUrl: "{{asset('images/redpin.png')}}",
@@ -429,10 +431,47 @@
         layers: [osm,contoh]
     });
 
+    /*==============================================
+                GEOJSON
+    ================================================*/
+    // var pointData = L.geoJSON(pointJson).addTo(map)
+    var lineData = L.geoJSON(kentang,{
+        // style: function (feature){
+        //     return {color: feature.style.fill}
+        // }
+        // style: {
+        //     // fillColor: 'red',
+        //     // fillOpacity: 1,
+        //     color: 'green',
+        //     // weight: '20';
+        // }
+        onEachFeature: function (feature, layer) {
+            if (layer instanceof L.Polyline) {
+            layer.setStyle({
+                'color': feature.style.fill,
+                'stroke-width': feature.style.width,
+            });
+            }
+        }
+    });
+    var polygonData = L.geoJSON(wilayah, {
+        // onEachFeature: function (feature, layer) {
+        //     layer.bindPopup(`<b>Name: </b>` + feature.properties.name)
+        // },
+        // style: {
+        //     fillColor: 'red',
+        //     fillOpacity: 1,
+        //     color: '#c0c0c0',
+        // }
+    })
+    // console.log("jungul woy"+kentang)
     const overlays = {
-        'PJT II': cities
+        'PJT II': cities,
+        'sungai': lineData,
+        'wilayah': polygonData
     };
 
+    // const layerControl = L.control.layers(null, overlays).addTo(map);
     const layerControl = L.control.layers(null, overlays).addTo(map);
 
     const openTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {

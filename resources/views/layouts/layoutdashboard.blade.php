@@ -108,6 +108,13 @@
         .swal2-select{
             height: 35px;
         }
+        .leaflet-control-layers-overlays>label>span{
+            font-size:20px;
+        }
+        .leaflet-control-layers-overlays>label>span>input{
+            width:40px;
+            height:auto;
+        }
     </style>
 </head>
 
