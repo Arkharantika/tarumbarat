@@ -13,15 +13,15 @@
     @endif
 
     <!-- Peta Google MAP -->
-    <hr />
-    <div class="card">
+    <!-- <hr /> -->
+    
+    <!-- <div class="card">
         <div class="card-body bg-light">
-            <div id="map" class="border border-light"></div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Informasi Tinggi Muka Air -->
-    <div>
+    <div class='mt-5'>
         <i class='bx bx-chevron-right'></i>Tinggi Muka Air Hari Ini
     </div>
     <hr>
@@ -351,16 +351,18 @@
 <script src="{{asset('sungai.js')}}"></script>
 <script src="{{asset('wilayah.js')}}"></script>
 <script>
-    var redPin = L.icon({
-        iconUrl: "{{asset('images/redpin.png')}}",
-        iconSize: [40, 40], 
-    });
+    // var redPin = L.icon({
+    //     iconUrl: "{{asset('images/redpin.png')}}",
+    //     iconSize: [40, 40], 
+    // });
+
+    var redIcon = L.divIcon({className: 'leaflet-div-ser',iconSize:'30'});
 
     const cities = L.layerGroup();
-    const mLittleton = L.marker([-6.483933471250634, 107.38204782273243],{icon: redPin}).bindPopup('BM 1, Jembatan Merah').addTo(cities);
-    const mDenver = L.marker([-6.354706, 107.304859],{icon: redPin}).bindPopup('BM 3, BTB 12').addTo(cities);
-    const mAurora = L.marker([-6.34177, 107.274299],{icon: redPin}).bindPopup('BM 4, BTB 18').addTo(cities);
-    const mGolden = L.marker([-6.345818, 107.214708],{icon: redPin}).bindPopup('BM 8, BTB 23').addTo(cities);
+    const mLittleton = L.marker([-6.483933471250634, 107.38204782273243],{icon: redIcon}).bindPopup('BM 1, Jembatan Merah').addTo(cities);
+    const mDenver = L.marker([-6.354706, 107.304859],{icon: redIcon}).bindPopup('BM 3, BTB 12').addTo(cities);
+    const mAurora = L.marker([-6.34177, 107.274299],{icon: redIcon}).bindPopup('BM 4, BTB 18').addTo(cities);
+    const mGolden = L.marker([-6.345818, 107.214708],{icon: redIcon}).bindPopup('BM 8, BTB 23').addTo(cities);
     const osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 15,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -412,23 +414,26 @@
     var examplename4 = data_example[6]["name"];
     var exampledate4 = data_example[6]["daterecord"];
     var examplevalue4 = data_example[6]["intivalue"];
-    document.getElementById("demoname3").innerHTML = examplename4;
-    document.getElementById("demodate3").innerHTML = exampledate4;
-    document.getElementById("demovalue3").innerHTML = examplevalue4;
+    document.getElementById("demoname4").innerHTML = examplename4;
+    document.getElementById("demodate4").innerHTML = exampledate4;
+    document.getElementById("demovalue4").innerHTML = examplevalue4;
     //  <==== END OF DEMO ===>
     
     const contoh = L.layerGroup();
     for (var i = 0; i < data_example.length; i++) {
-        var marker = L.marker([data_example[i]["lat"], data_example[i]["lng"]]).bindPopup("<hr style='margin-bottom:5px;margin-top:5px;color:black;'><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Pos Name :<b>"+data_example[i]["name"]+"</b></div><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Coordinate : "+data_example[i].lat+", "+data_example[i].lng+"</div><table class='table table-bordered' style='margin-bottom:5px;'><thead class='colorthead thead-dark'><tr><th scope=col'>Sensor</th><th scope='col'>Value</th><th scope='col'>Max</th><th scope='col'>Min</th></tr></thead><tbody><tr><td>Water Level</td><td>"+data_example[i].intivalue+" cm</td><td class='text-white' style='background:#a31919' >"+data_example[i].vmax+" cm</td><td class='text-white' style='background:#ff8c40;'>"+data_example[i].vmin+" cm</td></tr></tbody></table><div class='mt-1'><div class='text-danger' style='margin-bottom:15px;font-style:italic;font-size:12px;'>Last Update : "+data_example[i].daterecord+" &nbsp <i class='bx bxs-calendar'></i></div><a class='btn btn-sm btn-secondary text-light' href='{{ url('/hardware/') }}/"+data_example[i].kentang+"'>> check detail </div>",{closeButton: false}).on('mouseover', function () {
+        var marker = L.marker([data_example[i]["lat"], data_example[i]["lng"]],{icon:redIcon}).bindPopup("<hr style='margin-bottom:5px;margin-top:5px;color:black;'><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Pos Name :<b>"+data_example[i]["name"]+"</b></div><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Coordinate : "+data_example[i].lat+", "+data_example[i].lng+"</div><table class='table table-bordered' style='margin-bottom:5px;'><thead class='colorthead thead-dark'><tr><th scope=col'>Sensor</th><th scope='col'>Value</th><th scope='col'>Max</th><th scope='col'>Min</th></tr></thead><tbody><tr><td>Water Level</td><td>"+data_example[i].intivalue+" cm</td><td class='text-white' style='background:#a31919' >"+data_example[i].vmax+" cm</td><td class='text-white' style='background:#ff8c40;'>"+data_example[i].vmin+" cm</td></tr></tbody></table><div class='mt-1'><div class='text-danger' style='margin-bottom:15px;font-style:italic;font-size:12px;'>Last Update : "+data_example[i].daterecord+" &nbsp <i class='bx bxs-calendar'></i></div><a class='btn btn-sm btn-secondary text-light' href='{{ url('/hardware/') }}/"+data_example[i].kentang+"'>> check detail </div>",{closeButton: false}).on('mouseover', function () {
                 this.openPopup();
             }).openPopup();
         marker.addTo(contoh);
     }
 
+    const kentangGoreng = L.layerGroup();
+
+
     const map = L.map('map', {
         center: [-6.2500114, 106.9895103],
         zoom: 10,
-        layers: [osm,contoh]
+        layers: [osm,contoh,kentangGoreng]
     });
 
     /*==============================================
@@ -436,15 +441,6 @@
     ================================================*/
     // var pointData = L.geoJSON(pointJson).addTo(map)
     var lineData = L.geoJSON(kentang,{
-        // style: function (feature){
-        //     return {color: feature.style.fill}
-        // }
-        // style: {
-        //     // fillColor: 'red',
-        //     // fillOpacity: 1,
-        //     color: 'green',
-        //     // weight: '20';
-        // }
         onEachFeature: function (feature, layer) {
             if (layer instanceof L.Polyline) {
             layer.setStyle({
@@ -465,14 +461,15 @@
             }).on('mouseout', function (e) {
                 layer.setStyle({
                 fillOpacity: 0.2,
-                fillColor:'#1E90FF'
+                fillColor:'#7FFFD4'
                 });
             });
         },
         style: {
-            fillColor: '#1E90FF',
+            fillColor: '#7FFFD4',
+            color:'#20B2AA'
         }
-    })
+    }).addTo(kentangGoreng);
     // console.log("jungul woy"+kentang)
     const overlays = {
         'PJT II': cities,
@@ -481,7 +478,7 @@
     };
 
     // const layerControl = L.control.layers(null, overlays).addTo(map);
-    const layerControl = L.control.layers(null, overlays).addTo(map);
+    const layerControl = L.control.layers(null, overlays,{ collapsed: false }).addTo(map);
 
     const openTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
