@@ -116,7 +116,7 @@
                     <div class="col mb-4">
                             <div class="card">
                                 <div class="card-header text-center">
-                                    Tinggi Muka Air (cm)
+                                    Tinggi Muka Air (m)
                                 </div>
                                 <div class="card-body">
                                     <canvas id="chart2"></canvas>
@@ -126,7 +126,7 @@
                     <div class="col mb-4">
                             <div class="card">
                                 <div class="card-header text-center">
-                                    Debit Air (m3/s)
+                                    Debit Air (m<sup>3</sup>/s)
                                 </div>
                                 <div class="card-body">
                                     <canvas id="chart3"></canvas>
@@ -152,7 +152,7 @@
     var nilaihari = [];
     var nilaikosong = [];
     @foreach($records as $row => $kentang)
-        var nilainya = "{{$kentang->nilai}}"
+        var nilainya = "{{($kentang->nilai)/100}}"
         if (nilainya == null)
         {
             nilainya === 0;

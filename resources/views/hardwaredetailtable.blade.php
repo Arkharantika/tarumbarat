@@ -141,8 +141,8 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Waktu Record </th>
-                                    <th>Tinggi Air (cm)</th>
-                                    <th>debit (cm3) </th>
+                                    <th>Tinggi Air (m)</th>
+                                    <th>debit (m<sup>3</sup>/s) </th>
                                     <th>Status Alarm </th>
                                 </tr>
                             </thead>
@@ -155,7 +155,7 @@
                                     @if($row->nilai == null)
                                     <td> 0 </td>
                                     @else
-                                    <td>{{$row->nilai}}</td>
+                                    <td>{{($row->nilai)/100}}</td>
                                     @endif
                                     <td></td>
                                     <td>normal</td>

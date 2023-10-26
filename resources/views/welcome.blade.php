@@ -455,14 +455,23 @@
         }
     });
     var polygonData = L.geoJSON(wilayah, {
-        // onEachFeature: function (feature, layer) {
-        //     layer.bindPopup(`<b>Name: </b>` + feature.properties.name)
-        // },
-        // style: {
-        //     fillColor: 'red',
-        //     fillOpacity: 1,
-        //     color: '#c0c0c0',
-        // }
+        onEachFeature: function (feature, layer) {
+            layer.bindPopup(`<b>Name: </b>` + feature.properties.Nama_Das).on('mouseover', function () {
+                layer.setStyle({
+                    fillOpacity: 0.4,
+                    fillColor:'yellow'
+                })
+                this.openPopup();
+            }).on('mouseout', function (e) {
+                layer.setStyle({
+                fillOpacity: 0.2,
+                fillColor:'#1E90FF'
+                });
+            });
+        },
+        style: {
+            fillColor: '#1E90FF',
+        }
     })
     // console.log("jungul woy"+kentang)
     const overlays = {

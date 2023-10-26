@@ -111,7 +111,7 @@
                     <a href="#" class="">
                         <div class="parent-icon"><i class='bx bx-dialpad-alt'></i>
                         </div>
-                        <div class="menu-title">Hardware</div>
+                        <div class="menu-title">Raw Data</div>
                     </a>
                 </li>
                 <li>
