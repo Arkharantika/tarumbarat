@@ -25,8 +25,11 @@ use App\Http\Controllers\ImportExportController;
 // >>> DIR FOR AUTHENTICATION
 require __DIR__.'/auth.php';
 
+// >>> PERUBAHAN SKEMA
+Route::get('/map', [WelcomeController::class, 'index'])->name('index');
+
 // >>> WELCOME DASHBOARD
-Route::get('/', [WelcomeController::class, 'index'])->name('index');
+Route::get('/', [WelcomeController::class, 'LandingPage'])->name('LandingPage');
 
 // >>> FOR HARDWARE DETAIL
 Route::get('/hardware/{id}', [HardwareController::class, 'HardwareDetailData'])->name('HardwareDetailData');

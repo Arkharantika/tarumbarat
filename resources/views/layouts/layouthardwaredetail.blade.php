@@ -32,18 +32,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-- <script src="http://code.jquery.com/jquery-2.0.3.min.js" data-semver="2.0.3" data-require="jquery"></script>
-    <link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables_themeroller.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
-    <link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
-    <link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_table_jui.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
-    <link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_table.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
-    <link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_page.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
-    <link data-require="jqueryui@*" data-semver="1.10.0" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/css/smoothness/jquery-ui-1.10.0.custom.min.css" />
-    <script data-require="jqueryui@*" data-semver="1.10.0" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/jquery-ui.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.js" data-semver="1.9.4" data-require="datatables@*"></script>
-    <link href="style.css" rel="stylesheet" />
-    <script src="script.js"></script> -->
-
     <title>SISIRUMBA</title>
     <style>
         .swal-height{
@@ -116,21 +104,20 @@
                             SISTEM INFORMASI SALURAN IRIGASI TARUM BARAT
                         </h3>
                     </div>
-                    <div style="margin-top:0;margin-left: auto;margin-right: 0;font-size:12px;">
-                        <!-- <a type="button" class="btn btn-outline-light " href="{{url('/login')}}">
-                            <i class='bx bx-log-in-circle'></i> </a><br> -->
-                        <a class="text-white" href="{{url('/')}}">Beranda</a> &nbsp
-                        <a class="text-white" href="javascript:linkterkait()">Link Terkait</a> &nbsp
-                        <a class="text-white" href="login">Admin</a> &nbsp
-                        <a class="text-white" href="#">Kontak Kami</a>
-                        <!-- <ul class="nav nav-tabs mr-1" style="">
-                            <li class="nav-item">
-                                <a class="nav-link text-light" aria-current="page" href="#">Beranda</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" aria-current="page" href="#">admin <i class='bx bxs-down-arrow'></i></a>
-                            </li>
-                        </ul> -->
+                    <div style="margin-top:0;margin-left: auto;margin-right: 0;font-size:12px;display: flex;justify-content: flex-start;">
+                        <a class="text-white nav-link active" href="{{url('/')}}">Beranda</a> &nbsp
+                        <a class="text-white nav-link active" href="{{url('/map')}}">Peta</a> &nbsp
+                        <!-- <a class="text-white nav-link active" href="javascript:linkterkait()">Link Terkait</a> &nbsp -->
+                        <div class="nav-item dropdown">
+                            <a class="text-white nav-link active dropdown-toggle" href="#" id="dropdown01"
+                                data-bs-toggle="dropdown" aria-expanded="false">Link Terkait</a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                                <li><a class="dropdown-item" href="#">PJT II</a></li>
+                                <li><a class="dropdown-item" href="#">SIHKA</a></li>
+                            </ul>
+                        </div>
+                        <a class="text-white nav-link active" href="{{url('/login')}}">Admin</a> &nbsp
+                        <a class="text-white nav-link active" href="#">Kontak Kami</a>
                     </div>
                 </nav>
             </div>
@@ -156,7 +143,7 @@
         
         <div class="wrapper">
             <nav class="navbar navbar-expand-lg navbar-light card-body "
-                style="display: flex;justify-content: flex-start; background:linear-gradient(to right, #0033cc 50%, #ccffff 100%);">
+                style="display: flex;justify-content: flex-start; background:linear-gradient(to right, #000080 50%, #ccffff 100%);">
                 <!-- <img src="{{asset('images/pjt2.png')}}" class="card-img-top" alt="..."
                     style="max-width: 10%;height: auto;"> -->
                 <iframe
@@ -174,11 +161,14 @@
                 <div class="" style="margin-top:0;margin-left: auto;margin-right: 0;display:flex;">
                     <div style="">
                         <div class="text-white mt-2" style="">
+                        <u>
                             <b style="font-size:17px;">Menu</b>
-                        </div><br>
+                        </u>
+                        </div>
                         <a href="{{url('/')}}" class="text-white">Beranda</a><br>
+                        <a href="{{url('/map')}}" class="text-white">Peta</a><br>
                         <a href="{{url('/login')}}" class="text-white">admin</a><br>
-                        <a href="javascript:linkterkait()" class="text-white">Link Terkait</a><br>
+                        <!-- <a href="javascript:linkterkait()" class="text-white">Link Terkait</a><br> -->
                         <a href="#" class="text-white">Kontak Kami</a>
                     </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     <div>
@@ -190,21 +180,6 @@
                 </div>
             </nav>
         </div>
-        <!-- <div class="wrapper">
-                <nav class="navbar card-body " style="display: flex;justify-content: flex-start; background:#000080;">
-                    <div>
-                        <h3 class="text-light"> 
-                            SISTEM INFORMASI SALURAN IRIGASI TARUM BARAT
-                        </h3>
-                    </div>
-                    <div style="margin-top:0;margin-left: auto;margin-right: 0;font-size:12px;">
-                        <a class="text-white" href="{{url('/')}}">Beranda</a> &nbsp
-                        <a class="text-white" href="#">Link Terkait</a> &nbsp
-                        <a class="text-white" href="login">Admin</a> &nbsp
-                        <a class="text-white" href="#">Kontak Kami</a> 
-                    </div>
-                </nav>
-            </div> -->
     </div>
     <!--end wrapper-->
     <!-- Additional Css -->

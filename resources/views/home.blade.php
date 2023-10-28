@@ -86,10 +86,10 @@
                     <div class="d-flex align-items-center">
                         <div>
                             <p class="mb-0 text-secondary">Informasi</p>
-                            <h4 class="my-1">Location</h4>
+                            <h4 class="my-1">Raw Data</h4>
                             <p class="mb-0 font-13 text-light"><i class='bx bxs-up-arrow align-middle'></i></p>
                         </div>
-                        <div class="widgets-icons bg-light-success text-success ms-auto"><i class='bx bxs-map'></i>
+                        <div class="widgets-icons bg-light-success text-success ms-auto"><i class='bx bxs-grid'></i>
                         </div>
                     </div>
                     <!-- <div id="chart3"></div> -->

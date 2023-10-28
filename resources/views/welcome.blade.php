@@ -15,244 +15,15 @@
     <!-- Peta Google MAP -->
     <!-- <hr /> -->
     
-    <!-- <div class="card">
+    <!-- <div class="card mt-3">
         <div class="card-body bg-light">
         </div>
     </div> -->
 
     <!-- Informasi Tinggi Muka Air -->
-    <div class='mt-5'>
-        <i class='bx bx-chevron-right'></i>Tinggi Muka Air Hari Ini
-    </div>
-    <hr>
-    <div class="card card-body container ">
-        <div id="cardCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <!-- Carousel Item 1 -->
-                <div class="carousel-item active">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <!-- Card 2 -->
-                            <div class="card">
-                                <!-- Card Content -->
-                                <div class="card-body text-center border border-secondary">
-                                    <i class='bx bxs-map text-danger'></i>
-                                    <h5 id="demoname" class="card-title"></h5>
-                                    <div>
-                                    <i class='bx bxs-calendar text-danger' style="font-style:italic;"></i>
-                                        <span id="demodate" class="text-danger" style="font-style:italic;"></span>
-                                    </div>
-                                    <div>
-                                        <span id="demovalue" class="card-text"></span>  cm
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <!-- Card 2 -->
-                            <div class="card">
-                                <!-- Card Content -->
-                                <div class="card-body text-center border border-secondary">
-                                    <i class='bx bxs-map text-danger'></i>
-                                    <h5 id="demoname2" class="card-title"></h5>
-                                    <div>
-                                    <i class='bx bxs-calendar text-danger' style="font-style:italic;"></i>
-                                        <span id="demodate2" class="text-danger" style="font-style:italic;"></span>
-                                    </div>
-                                    <div>
-                                        <span id="demovalue2" class="card-text"></span>  cm
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <!-- Card 2 -->
-                            <div class="card">
-                                <!-- Card Content -->
-                                <div class="card-body text-center border border-secondary">
-                                    <i class='bx bxs-map text-danger'></i>
-                                    <h5 id="demoname3" class="card-title"></h5>
-                                    <div>
-                                    <i class='bx bxs-calendar text-danger' style="font-style:italic;"></i>
-                                        <span id="demodate3" class="text-danger" style="font-style:italic;"></span>
-                                    </div>
-                                    <div>
-                                        <span id="demovalue3" class="card-text"></span>  cm
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <!-- Card 2 -->
-                            <div class="card">
-                                <!-- Card Content -->
-                                <div class="card-body text-center border border-secondary">
-                                    <i class='bx bxs-map text-danger'></i>
-                                    <h5 id="demoname4" class="card-title"></h5>
-                                    <div>
-                                    <i class='bx bxs-calendar text-danger' style="font-style:italic;"></i>
-                                        <span id="demodate4" class="text-danger" style="font-style:italic;"></span>
-                                    </div>
-                                    <div>
-                                        <span id="demovalue4" class="card-text"></span>  cm
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <!-- Card 2 -->
-                            <div class="card">
-                                <!-- Card Content -->
-                                <div class="card-body text-center border border-secondary">
-                                    <i class='bx bxs-map text-danger'></i>
-                                    <h5 class="card-title">BTB 5</h5>
-                                    <span class="text-danger" style="font-style:italic;"><i class='bx bxs-calendar'></i> 15-10-2023 23:50:30</span>
-                                    <p class="card-text">22 cm</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <!-- Card 2 -->
-                            <div class="card">
-                                <!-- Card Content -->
-                                <div class="card-body text-center border border-secondary">
-                                    <i class='bx bxs-map text-danger'></i>
-                                    <h5 class="card-title">BTB 6</h5>
-                                    <span class="text-danger" style="font-style:italic;"><i class='bx bxs-calendar'></i> 15-10-2023 23:50:30</span>
-                                    <p class="card-text">22 cm</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Carousel Item 2 -->
-                <div class="carousel-item">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <!-- Card 2 -->
-                            <div class="card">
-                                <!-- Card Content -->
-                                <div class="card-body text-center border border-secondary">
-                                    <i class='bx bxs-map text-danger'></i>
-                                    <h5 class="card-title">BTB 7</h5>
-                                    <span class="text-danger" style="font-style:italic;"><i class='bx bxs-calendar'></i> 15-10-2023 23:50:30</span>
-                                    <p class="card-text">22 cm</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <!-- Card 2 -->
-                            <div class="card">
-                                <!-- Card Content -->
-                                <div class="card-body text-center border border-secondary">
-                                    <i class='bx bxs-map text-danger'></i>
-                                    <h5 class="card-title">BTB 8</h5>
-                                    <span class="text-danger" style="font-style:italic;"><i class='bx bxs-calendar'></i> 15-10-2023 23:50:30</span>
-                                    <p class="card-text">22 cm</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <!-- Card 2 -->
-                            <div class="card">
-                                <!-- Card Content -->
-                                <div class="card-body text-center border border-secondary">
-                                    <i class='bx bxs-map text-danger'></i>
-                                    <h5 class="card-title">BTB 9</h5>
-                                    <span class="text-danger" style="font-style:italic;"><i class='bx bxs-calendar'></i> 15-10-2023 23:50:30</span>
-                                    <p class="card-text">22 cm</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <!-- Card 2 -->
-                            <div class="card">
-                                <!-- Card Content -->
-                                <div class="card-body text-center border border-secondary">
-                                    <i class='bx bxs-map text-danger'></i>
-                                    <h5 class="card-title">BTB 10</h5>
-                                    <span class="text-danger" style="font-style:italic;"><i class='bx bxs-calendar'></i> 15-10-2023 23:50:30</span>
-                                    <p class="card-text">22 cm</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <!-- Card 2 -->
-                            <div class="card">
-                                <!-- Card Content -->
-                                <div class="card-body text-center border border-secondary">
-                                    <i class='bx bxs-map text-danger'></i>
-                                    <h5 class="card-title">BTB 11</h5>
-                                    <span class="text-danger" style="font-style:italic;"><i class='bx bxs-calendar'></i> 15-10-2023 23:50:30</span>
-                                    <p class="card-text">22 cm</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <!-- Card 2 -->
-                            <div class="card">
-                                <!-- Card Content -->
-                                <div class="card-body text-center border border-secondary">
-                                    <i class='bx bxs-map text-danger'></i>
-                                    <h5 class="card-title">BTB 12</h5>
-                                    <span class="text-danger" style="font-style:italic;"><i class='bx bxs-calendar'></i> 15-10-2023 23:50:30</span>
-                                    <p class="card-text">22 cm</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Carousel Item 3 -->
-                <div class="carousel-item">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <!-- Card 2 -->
-                            <div class="card">
-                                <!-- Card Content -->
-                                <div class="card-body text-center border border-secondary">
-                                    <i class='bx bxs-map text-danger'></i>
-                                    <h5 class="card-title">BTB 13</h5>
-                                    <span class="text-danger" style="font-style:italic;"><i class='bx bxs-calendar'></i> 15-10-2023 23:50:30</span>
-                                    <p class="card-text">22 cm</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <!-- Card 2 -->
-                            <div class="card">
-                                <!-- Card Content -->
-                                <div class="card-body text-center border border-secondary">
-                                    <i class='bx bxs-map text-danger'></i>
-                                    <h5 class="card-title">BTB 13</h5>
-                                    <span class="text-danger" style="font-style:italic;"><i class='bx bxs-calendar'></i> 15-10-2023 23:50:30</span>
-                                    <p class="card-text">22 cm</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Add more carousel items with sets of 3 cards -->
-            </div>
-
-            <!-- Controls -->
-            <a class="carousel-control-prev" href="#cardCarousel" role="button" data-bs-slide="prev"
-                style="background:#008080;margin-bottom:1.5rem;width:30px;border-radius:10%;">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#cardCarousel" role="button" data-bs-slide="next"
-                style="background:#008080;margin-bottom:1.5rem;width:30px;border-radius:10%;">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </a>
-        </div>
-    </div>
 
     <!-- Informasi Sistem -->
-    <div>
+    <!-- <div>
         <i class='bx bx-chevron-right'></i>Informasi Platform Sistem
     </div>
     <hr>
@@ -262,10 +33,10 @@
             Pemenuhan Kualitas dan kuantitas pasokan air baku menjadi kendala yang dihadapi dalam pengelolaan Saluran Irigasi Tarum Barat, Dengan adanya perkembangan teknologi saat ini dibidang sistem informasi Internet of think (IoT) diharapkan dapat memberikan solusi dari permasalahan tersebut
             Sistem Informasi Saluran Irigasi Tarum Barat merupakan sistem informasi pengamatan muka air pada 22 titik yang dukungan perangkat IoT untuk mengukur kedalaman air yang akurat dan handal dengan sensor ultrasonic dan dilengkapi data pengukuran debit untuk mendapatkan rating curve pada setiap titik. Dashboard yang responsive dan desain yang baik dan modern menampilkan visualisasi data serta sinkronisasi ke website di PUPR maupun PJT II
         </div>
-    </div>
+    </div> -->
 
-    
-    <div>
+    <!-- Fitur Platform -->
+    <!-- <div>
         <i class='bx bx-chevron-right'></i>Fitur Platform
     </div>
     <hr>
@@ -343,7 +114,7 @@
                 </div>
             </div>
         </a>
-    </div>
+    </div> -->
 
 </div>
 
@@ -393,30 +164,30 @@
     //console.log(data_example[0]["name"]);
 
     // <==== BAGIAN DEMO ===>
-    var examplename = data_example[3]["name"];
-    var exampledate = data_example[3]["daterecord"];
-    var examplevalue = data_example[3]["intivalue"];
-    document.getElementById("demoname").innerHTML = examplename;
-    document.getElementById("demodate").innerHTML = exampledate;
-    document.getElementById("demovalue").innerHTML = examplevalue;
-    var examplename2 = data_example[4]["name"];
-    var exampledate2 = data_example[4]["daterecord"];
-    var examplevalue2 = data_example[4]["intivalue"];
-    document.getElementById("demoname2").innerHTML = examplename2;
-    document.getElementById("demodate2").innerHTML = exampledate2;
-    document.getElementById("demovalue2").innerHTML = examplevalue2;
-    var examplename3 = data_example[5]["name"];
-    var exampledate3 = data_example[5]["daterecord"];
-    var examplevalue3 = data_example[5]["intivalue"];
-    document.getElementById("demoname3").innerHTML = examplename3;
-    document.getElementById("demodate3").innerHTML = exampledate3;
-    document.getElementById("demovalue3").innerHTML = examplevalue3;
-    var examplename4 = data_example[6]["name"];
-    var exampledate4 = data_example[6]["daterecord"];
-    var examplevalue4 = data_example[6]["intivalue"];
-    document.getElementById("demoname4").innerHTML = examplename4;
-    document.getElementById("demodate4").innerHTML = exampledate4;
-    document.getElementById("demovalue4").innerHTML = examplevalue4;
+    // var examplename = data_example[3]["name"];
+    // var exampledate = data_example[3]["daterecord"];
+    // var examplevalue = data_example[3]["intivalue"];
+    // document.getElementById("demoname").innerHTML = examplename;
+    // document.getElementById("demodate").innerHTML = exampledate;
+    // document.getElementById("demovalue").innerHTML = examplevalue;
+    // var examplename2 = data_example[4]["name"];
+    // var exampledate2 = data_example[4]["daterecord"];
+    // var examplevalue2 = data_example[4]["intivalue"];
+    // document.getElementById("demoname2").innerHTML = examplename2;
+    // document.getElementById("demodate2").innerHTML = exampledate2;
+    // document.getElementById("demovalue2").innerHTML = examplevalue2;
+    // var examplename3 = data_example[5]["name"];
+    // var exampledate3 = data_example[5]["daterecord"];
+    // var examplevalue3 = data_example[5]["intivalue"];
+    // document.getElementById("demoname3").innerHTML = examplename3;
+    // document.getElementById("demodate3").innerHTML = exampledate3;
+    // document.getElementById("demovalue3").innerHTML = examplevalue3;
+    // var examplename4 = data_example[6]["name"];
+    // var exampledate4 = data_example[6]["daterecord"];
+    // var examplevalue4 = data_example[6]["intivalue"];
+    // document.getElementById("demoname4").innerHTML = examplename4;
+    // document.getElementById("demodate4").innerHTML = exampledate4;
+    // document.getElementById("demovalue4").innerHTML = examplevalue4;
     //  <==== END OF DEMO ===>
     
     const contoh = L.layerGroup();

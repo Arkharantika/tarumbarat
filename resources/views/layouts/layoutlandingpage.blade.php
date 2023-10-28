@@ -27,7 +27,9 @@
     <link rel="stylesheet" href="{{asset('CostumStyle/css/header-colors.css')}}" />
     <!-- Additional CSS -->
     <link rel="stylesheet" href="{{asset('CostumStyle/style.css')}}">
+    <!-- <link href="{{asset('carousel/carousel.css')}}" rel="stylesheet"> -->
     <!-- Page Title -->
+    <link href="{{asset('assets/dist/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -38,11 +40,12 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
+
     <title>SISIRUMBA</title>
 
     <style>
         #map {
-            height: 700px;
+            height: 600px;
             width: 100%;
             border-radius: 0.5rem;
         }
@@ -93,31 +96,31 @@
             background: #669cff;
         }
 
-        .swal-height{
-            height:7rem !important;
+        .swal-height {
+            height: 7rem !important;
         }
 
-        .swal2-styled{
+        .swal2-styled {
             height: 40px;
-            margin-top:0;
+            margin-top: 0;
         }
 
-        .swal2-actions{
+        .swal2-actions {
             height: 30px;
-            margin-top:0;
+            margin-top: 0;
         }
 
-        .swal2-select{
+        .swal2-select {
             height: 35px;
         }
 
-        .leaflet-control-layers-overlays>label>span{
-            font-size:20px;
+        .leaflet-control-layers-overlays>label>span {
+            font-size: 20px;
         }
 
-        .leaflet-control-layers-overlays>label>span>input{
-            width:40px;
-            height:auto;
+        .leaflet-control-layers-overlays>label>span>input {
+            width: 40px;
+            height: auto;
         }
 
         .ring-container {
@@ -164,16 +167,87 @@
         }
 
         .leaflet-div-ser {
-            background:blue;
-            border:3px solid rgba(255,255,255,0.5);
-            color:blue;
-            font-weight:bold;
-            text-align:center;
+            background: blue;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+            color: blue;
+            font-weight: bold;
+            text-align: center;
             /* border-radius:50%; */
             /* line-height:30px;
             line-width:30px; */
-            height:30px;
-            width:30px;
+            height: 30px;
+            width: 30px;
+        }
+
+        .carousel {
+            margin-bottom: 4rem;
+        }
+
+        /* Since positioning the image, we need to help out the caption */
+        .carousel-caption {
+            bottom: 3rem;
+            z-index: 10;
+        }
+
+        /* Declare heights because of positioning of img element */
+        .carousel-item {
+            height: 50rem;
+        }
+
+        .carousel-item-a {
+            height: 25rem;
+        }
+
+        .carousel-item>img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            height: 50rem;
+        }
+
+        @media (min-width: 40em) {
+
+            /* Bump up size of carousel content */
+            .carousel-caption p {
+                margin-bottom: 1.25rem;
+                font-size: 1.25rem;
+                line-height: 1.4;
+            }
+
+            .featurette-heading {
+                font-size: 50px;
+            }
+        }
+
+        @media (min-width: 62em) {
+            .featurette-heading {
+                margin-top: 7rem;
+            }
+        }
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .filtered {
+            /* filter: contrast(100%); */
+            filter: brightness(70%);
+            /* filter: grayscale(140%); */
+        }
+        
+        a {
+        text-decoration: none;
         }
     </style>
 </head>
@@ -182,44 +256,30 @@
 
 <body>
     <!--wrapper-->
-    <div class="wrapper">
+    <div class="wrapper" style="background:#f8f9fa">
 
         <!--start header (Bagian Atas (Topbar)) -->
         <header>
-            <div class="wrapper">
-                <nav class="navbar navbar-expand-lg navbar-light card-body "
+            <!-- <div class="wrapper">
+                <nav class="navbar navbar-expand-lg navbar-light card-body fixed-top"
                     style="display: flex;justify-content: flex-start; background:#4169E1;">
-                    <!-- <div> -->
-                    <!-- <a class="btn btn-outline-dark" href="{{url('/maps')}}">
-                            <i class='bx bx-map'></i>
-                            Buka Map
-                        </a>
-                        <a class="btn btn-outline-dark" href="{{url('/cctv')}}">
-                            <i class='bx bx-webcam'></i>
-                            Buka CCTV
-                        </a> -->
                     <img src="{{asset('images/pupr.png')}}" class="card-img-top" alt="..."
                         style="max-width: 4%;height: auto;">
                     <div style="margin-left:20px; font-size:10px;" class="text-light">
                         Direktorat Bina Teknik Sumber Daya Air <br> Direktorat Jendral Sumber Daya Air <br> Kementrian
                         Pekerjaan Umum dan Perumahan Rakyat
                     </div>
-                    <!-- </div> -->
                     <div class="" style="margin-top:0;margin-left: auto;margin-right: 0;">
                         <div class="btn-group text-light">
                             <i class='bx bx-calendar'></i> &nbsp
                             <p id="nowdate"></p>
                         </div><br>
-                        <!-- <a type="button" class="btn btn-outline-light " href="{{url('/login')}}">
-                            <i class='bx bx-log-in-circle'></i> </a><br> -->
-                        <!-- <a type="button" class="btn btn-outline-light " href="">
-                            <i class='bx bx-log-in-circle'></i> </a> -->
                     </div>
                 </nav>
-            </div>
+            </div> -->
             <div class="wrapper">
                 <!-- <hr> -->
-                <nav class="navbar card-body " style="display: flex;justify-content: flex-start; background:#000080;">
+                <nav class="navbar card-body navbar-dark bg-dark fixed-top" style="display: flex;justify-content: flex-start;">
                     <!-- <div class="mt-1" style="display: flex;justify-content: flex-start;">
                     
                 </div> -->
@@ -249,19 +309,78 @@
                 </nav>
             </div>
             <div class="wrapper">
-                <!-- <hr> -->
-                <nav class="navbar card-body " style="display: flex;justify-content: flex-start; background:white;">
-                <div id="map" class="border border-light"></div>
-                </nav>
+                <div id="myCarousel" class="carousel slide bg-light" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{{asset('images/pintuair.jpg')}}" class="bd-placeholder-img filtered" width="100%"
+                                height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <rect width="100%" height="100%" fill="#777" /></img>
+
+                            <div class="container">
+                                <div class="carousel-caption text-start">
+                                    <h1 style="font-size:60px;color:white">Sistem Monitoring Hidrologi untuk Saluran Irigasi Tarum Barat</h1>
+                                    <p>Sistem informasi untuk monitoring aliran irigasi tarum barat Provinsi Jawa Barat</p>
+                                    <p><a class="btn btn-lg btn-outline-light" href="#">Lihat Peta</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{asset('images/citarum.jpeg')}}" class="bd-placeholder-img filtered" width="100%"
+                                height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <rect width="100%" height="100%" fill="#777" /></img>
+
+                            <div class="container">
+                                <div class="carousel-caption">
+                                    <h1 style="font-size:60px;color:white">Sistem Monitoring Hidrologi untuk Saluran Irigasi Tarum Barat</h1>
+                                    <p>Sistem informasi untuk monitoring aliran irigasi tarum barat Provinsi Jawa Barat</p>
+                                    <p><a class="btn btn-lg btn-outline-light" href="#">Lihat Peta</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{asset('images/citarum2.jpeg')}}" class="bd-placeholder-img filtered" width="100%"
+                                    height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                <rect width="100%" height="100%" fill="#777" /></img>
+
+                            <div class="container">
+                                <div class="carousel-caption text-end">
+                                    <h1 style="font-size:60px;color:white">Sistem Monitoring Hidrologi untuk Saluran Irigasi Tarum Barat</h1>
+                                    <p>Sistem informasi untuk monitoring aliran irigasi tarum barat Provinsi Jawa Barat</p>
+                                    <p><a class="btn btn-lg btn-outline-light" href="#">Lihat Peta</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             </div>
         </header>
         <!--end header -->
+        <main class="bg-light">
 
-        <!--start page wrapper (Bagian Isi Utama)-->
+            <!--start page wrapper (Bagian Isi Utama)-->
 
-        <!-- <div class="page-content"> -->
-        @yield('content')
-        <!-- </div> -->
+            <!-- <div class="page-content"> -->
+            @yield('content')
+            <!-- </div> -->
+        </main>
 
         <!--end page wrapper -->
 
@@ -294,9 +413,9 @@
                 <div class="" style="margin-top:0;margin-left: auto;margin-right: 0;display:flex;">
                     <div style="">
                         <div class="text-white mt-2" style="">
-                        <u>
-                            <b style="font-size:17px;">Menu</b>
-                        </u>
+                            <u>                                
+                                <b style="font-size:17px;">Menu</b>
+                            </u> 
                         </div>
                         <a href="{{url('/')}}" class="text-white">Beranda</a><br>
                         <a href="{{url('/map')}}" class="text-white">Peta</a><br>
@@ -328,7 +447,7 @@
                     pjt: 'PJT II',
                     sihka: 'SIHKA'
                 },
-                heightAuto:false,
+                heightAuto: false,
                 customClass: 'swal-height',
                 inputValidator: (value) => {
                     return new Promise((resolve) => {
@@ -348,6 +467,7 @@
     </script>
 
     <!-- Bootstrap JS -->
+    <!-- <script src="../assets/dist/js/bootstrap.bundle.min.js"></script> -->
     <script src="{{asset('CostumStyle/js/bootstrap.bundle.min.js')}}"></script>
     <!--plugins-->
     <script src="{{asset('CostumStyle/js/jquery.min.js')}}"></script>
