@@ -127,7 +127,7 @@
     //     iconSize: [40, 40], 
     // });
 
-    var redIcon = L.divIcon({className: 'leaflet-div-ser',iconSize:'30'});
+    var redIcon = L.divIcon({className: 'leaflet-div-ser',iconSize:[20,20]});
 
     const cities = L.layerGroup();
     const mLittleton = L.marker([-6.483933471250634, 107.38204782273243],{icon: redIcon}).bindPopup('BM 1, Jembatan Merah').addTo(cities);
@@ -223,7 +223,7 @@
     });
     var polygonData = L.geoJSON(wilayah, {
         onEachFeature: function (feature, layer) {
-            layer.bindPopup(`<b>Name: </b>` + feature.properties.Nama_Das).on('mouseover', function () {
+            layer.bindPopup("<hr style='margin-bottom:5px;margin-top:5px;color:black;'><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Wilayah :<b> " +feature.properties.Nama_Das+" </b></div><table class='table table-bordered' style='margin-bottom:5px;'><thead class='colorthead thead-dark'><tr><th></th><th></th></tr></thead><tbody><tr><td style='font-size:10px;background:white;height:15px'>Xodex </td><td style='font-size:10px;background:white;height:15px'> "+feature.properties.XODEX+"</td></tr><tr><td style='font-size:10px;background:white;height:15px'>Kode Das </td><td style='font-size:10px;background:white;height:15px'> "+feature.properties.Kode_Das+"</td></tr><tr><td style='font-size:10px;background:white;height:15px'>Nama WS </td><td style='font-size:10px;background:white;height:15px'> "+feature.properties.Nama_WS+"</td></tr><tr><td style='font-size:10px;background:white;height:15px'>Kode WS </td><td style='font-size:10px;background:white;height:15px'> "+feature.properties.Kode_WS+"</td></tr></tbody></table>",{closeButton: false}).on('mouseover', function () {
                 layer.setStyle({
                     fillOpacity: 0.4,
                     fillColor:'yellow'
@@ -243,9 +243,10 @@
     }).addTo(kentangGoreng);
     // console.log("jungul woy"+kentang)
     const overlays = {
-        'PJT II': cities,
-        'sungai': lineData,
-        'wilayah': polygonData
+        'POS Tatonas':contoh,
+        'POS PJT II': cities,
+        'Area Kerja': polygonData,
+        'Area Saluran': lineData,
     };
 
     // const layerControl = L.control.layers(null, overlays).addTo(map);
@@ -256,7 +257,7 @@
         attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
     });
 
-    layerControl.addOverlay(contoh, 'Tatonas Mfg');
+    // layerControl.addOverlay(contoh, 'POS Tatonas Mfg');
     
     
 </script>

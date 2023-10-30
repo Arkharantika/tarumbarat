@@ -112,7 +112,7 @@
         }
 
         .leaflet-control-layers-overlays>label>span{
-            font-size:20px;
+            font-size:15px;
         }
 
         .leaflet-control-layers-overlays>label>span>input{
@@ -174,6 +174,12 @@
             line-width:30px; */
             height:30px;
             width:30px;
+        }
+
+        .leaflet-control-layers-expanded{
+            height: 140px;
+            padding-top:30px;
+            background: linear-gradient(to bottom, #6c757d 10%, white 10%);
         }
     </style>
 </head>
