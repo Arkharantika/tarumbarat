@@ -118,7 +118,7 @@
                                 <div class="card-header text-center">
                                     Tinggi Muka Air (m)
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body" style="height: 400px;">
                                     <canvas id="chart2"></canvas>
                                 </div>
                             </div>
@@ -128,7 +128,7 @@
                                 <div class="card-header text-center">
                                     Debit Air (m<sup>3</sup>/s)
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body" style="height: 400px;">
                                     <canvas id="chart3"></canvas>
                                 </div>
                             </div>
@@ -142,6 +142,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection
 
@@ -181,6 +182,7 @@
             }]
         },
         options: {
+            maintainAspectRatio: false,
             scales: {
                 y: {
                     beginAtZero: false
@@ -204,6 +206,7 @@
             }]
         },
         options: {
+            maintainAspectRatio: false,
             scales: {
                 y: {
                     beginAtZero: false

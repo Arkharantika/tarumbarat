@@ -223,7 +223,7 @@
     });
     var polygonData = L.geoJSON(wilayah, {
         onEachFeature: function (feature, layer) {
-            layer.bindPopup("<hr style='margin-bottom:5px;margin-top:5px;color:black;'><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Wilayah :<b> " +feature.properties.Nama_Das+" </b></div><table class='table table-bordered' style='margin-bottom:5px;'><thead class='colorthead thead-dark'><tr><th></th><th></th></tr></thead><tbody><tr><td style='font-size:10px;background:white;height:15px'>Xodex </td><td style='font-size:10px;background:white;height:15px'> "+feature.properties.XODEX+"</td></tr><tr><td style='font-size:10px;background:white;height:15px'>Kode Das </td><td style='font-size:10px;background:white;height:15px'> "+feature.properties.Kode_Das+"</td></tr><tr><td style='font-size:10px;background:white;height:15px'>Nama WS </td><td style='font-size:10px;background:white;height:15px'> "+feature.properties.Nama_WS+"</td></tr><tr><td style='font-size:10px;background:white;height:15px'>Kode WS </td><td style='font-size:10px;background:white;height:15px'> "+feature.properties.Kode_WS+"</td></tr></tbody></table>",{closeButton: false}).on('mouseover', function () {
+            layer.bindPopup("<hr style='margin-bottom:5px;margin-top:5px;color:black;'><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Wilayah :<b> " +feature.properties.Nama_Das+" </b></div><table class='table table-bordered' style='margin-bottom:5px;'><thead class='colorthead thead-dark'><tr><th></th><th></th></tr></thead><tbody><tr><td style='font-size:10px;background:white;height:15px'>Xodex </td><td style='font-size:10px;background:white;height:15px'> "+feature.properties.XODEX+"</td></tr><tr><td style='font-size:10px;background:white;height:15px'>Kode Das </td><td style='font-size:10px;background:white;height:15px'> "+feature.properties.Kode_Das+"</td></tr><tr><td style='font-size:10px;background:white;height:15px'>Nama WS </td><td style='font-size:10px;background:white;height:15px'> "+feature.properties.Nama_WS+"</td></tr><tr><td style='font-size:10px;background:white;height:15px'>Luas </td><td style='font-size:10px;background:white;height:15px'> "+feature.properties.Luas+"</td></tr><tr><td style='font-size:10px;background:white;height:15px'>Kode WS </td><td style='font-size:10px;background:white;height:15px'> "+feature.properties.Kode_WS+"</td></tr><tr><td style='font-size:10px;background:white;height:15px'>Kewenangan </td><td style='font-size:10px;background:white;height:15px'> "+feature.properties.KEWENANGAN+"</td></tr></tbody></table>",{closeButton: false}).on('mouseover', function () {
                 layer.setStyle({
                     fillOpacity: 0.4,
                     fillColor:'yellow'
@@ -246,7 +246,7 @@
         'POS Tatonas':contoh,
         'POS PJT II': cities,
         'Area Kerja': polygonData,
-        'Area Saluran': lineData,
+        // 'Area Saluran': lineData,
     };
 
     // const layerControl = L.control.layers(null, overlays).addTo(map);

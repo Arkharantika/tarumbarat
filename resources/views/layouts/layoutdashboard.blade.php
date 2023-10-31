@@ -177,7 +177,7 @@
         }
 
         .leaflet-control-layers-expanded{
-            height: 140px;
+            height: 120px;
             padding-top:30px;
             background: linear-gradient(to bottom, #6c757d 10%, white 10%);
         }
@@ -205,7 +205,7 @@
                             Buka CCTV
                         </a> -->
                     <img src="{{asset('images/pupr.png')}}" class="card-img-top" alt="..."
-                        style="max-width: 4%;height: auto;">
+                        style="max-width: 3%;height: auto;">
                     <div style="margin-left:20px; font-size:10px;" class="text-light">
                         Direktorat Bina Teknik Sumber Daya Air <br> Direktorat Jendral Sumber Daya Air <br> Kementrian
                         Pekerjaan Umum dan Perumahan Rakyat

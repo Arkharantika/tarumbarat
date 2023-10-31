@@ -109,4 +109,9 @@ class HomeController extends Controller
         // $check->delete();
         return redirect('/dataposhidrologi')->with('warning','Data Berhasil Di Delete !');
     }
+
+    public function Testing()
+    {
+        return view('layouts.layoutnewlandingpage');
+    }
 }
