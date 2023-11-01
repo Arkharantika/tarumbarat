@@ -61,9 +61,14 @@
                         <div>
                             <div class="card">
                                 <div class="card-header"></div>
-                                <div class="card-body">
+                                <div class="card-body text-center">
                                     @if($recorddetail->cctv == null)
-                                    tidak ada CCTV pada pos ini
+                                    <h3>
+                                        Tidak ada CCTV pada pos ini 
+                                    </h3>
+                                    <br>
+                                    <!-- c:\Users\M S I\Downloads\no-internet.png -->
+                                    <img src="{{ asset('images/no-internet.png') }}" alt="" class="rounded border border-dark" style="width:400px;">
                                     @else
                                     <img src="{{ url('../../contoh_pindahan/'.$recordcctv->img_name) }}" alt="">
                                     @endif
