@@ -39,8 +39,8 @@
 
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link" id="tab1-tab" data-toggle="tab" href="#tab1" role="tab"
-                        aria-controls="tab1" aria-selected="true">Informasi</a>
+                    <a class="nav-link" id="" data-toggle="" href="{{url('/hardware/'.$chance)}}" role="tab"
+                        aria-controls="tab1" aria-selected="false">Informasi</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="" data-toggle="" href="{{url('/hardwaretable/'.$chance)}}" role="tab"
@@ -52,7 +52,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" id="tab1-tab" data-toggle="" href="#tab4" role="tab"
-                        aria-controls="tab4" aria-selected="false">CCTV</a>
+                        aria-controls="tab4" aria-selected="true">CCTV</a>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">

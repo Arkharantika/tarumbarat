@@ -108,10 +108,10 @@
                     </a>
                 </li> -->
                 <li>
-                    <a href="#" class="">
+                    <a href="{{url('/datasensor')}}" class="">
                         <div class="parent-icon"><i class='bx bx-dialpad-alt'></i>
                         </div>
-                        <div class="menu-title">Raw Data</div>
+                        <div class="menu-title">Data Sensor</div>
                     </a>
                 </li>
                 <li>
@@ -123,7 +123,7 @@
                 </li>
                 <li>
                     <a href="{{url('/neracaair')}}" class="">
-                        <div class="parent-icon"><i class='bx bxs-grid'></i>
+                        <div class="parent-icon"><i class='bx bx-stats'></i>
                         </div>
                         <div class="menu-title">Neraca Air</div>
                     </a>

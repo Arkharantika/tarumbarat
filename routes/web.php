@@ -25,7 +25,7 @@ use App\Http\Controllers\ImportExportController;
 // >>> DIR FOR AUTHENTICATION
 require __DIR__.'/auth.php';
 
-// >>> Testing
+// >>> TESTING
 Route::get('/', [HomeController::class, 'Testing'])->name('Testing');
 
 // >>> PERUBAHAN SKEMA
@@ -54,6 +54,8 @@ Route::post('/changepos/{id}', [HomeController::class, 'changepos'])->name('chan
 // Route::post('/changepos/{id}', [HomeController::class, 'changepos'])->name('changepos');
 Route::get('/deletepos/{id}', [HomeController::class, 'deletepos'])->name('deletepos');
 
+Route::get('/tambahpos', [HomeController::class, 'tambahpos'])->name('tambahpos');
+Route::post('/addnewpos', [HomeController::class, 'addnewpos'])->name('addnewpos');
 
 // >>> FOR IMPORT EXCEl DATA
 Route::post('/importdata', [ImportExportController::class, 'import'])->name('import');

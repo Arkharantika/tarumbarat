@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Hardware;
 use App\Models\RawData;
+use App\Imports\ImportExcel;
+use Maatwebsite\Excel\Facades\Excel;
 
 use Illuminate\Http\Request;
 
@@ -113,5 +115,75 @@ class HomeController extends Controller
     public function Testing()
     {
         return view('layouts.layoutnewlandingpage');
+    }
+
+    public function tambahpos()
+    {
+        return view('tambahpos');
+        // return 3344;
+    }
+
+    public function addnewpos(Request $request)
+    {
+        // return $request;
+        $check = Hardware::where('kd_hardware',$request->kd_hardware)->get()->count();
+        // $checkist = $check->no_gsm;
+        if($check > 0)
+        {
+            // return $check;
+            $masuk = Hardware::where('kd_hardware',$request->kd_hardware)->update([
+                //Add unique field combo to match here
+                //For example, perhaps you only want one entry per user:
+                'kd_hardware'   => $request->kd_hardware,
+                'kd_logger'     => $request->kd_logger,
+                'uid' => $request->uid,
+                'tlocal'    => $request->tlocal,
+                'tzone'   => $request->tzone,
+                'latitude'       => $request->latitude,
+                'longitude'   => $request->longitude,
+                'location'    => $request->location,
+                'pos_name'    => $request->pos_name,
+                'send_interval'    => $request->send_interval,
+                'kd_provinsi'    => $request->kd_provinsi,
+                'kd_kabupaten'    => $request->kd_kabupaten,
+                'kd_kecamatan'    => $request->kd_kecamatan,
+                'kd_desa'    => $request->kd_desa,
+                'no_gsm'    => $request->no_gsm,
+                'type'    => 'manual',
+    
+            ]);
+    
+            Excel::import(new ImportExcel,request()->file('file'));
+
+            return redirect('/dataposhidrologi')->with('message','Pos berhasil di Tambah !');
+        }
+        else{
+            // return $check;
+            $masuk = Hardware::create([
+                //Add unique field combo to match here
+                //For example, perhaps you only want one entry per user:
+                'kd_hardware'   => $request->kd_hardware,
+                'kd_logger'     => $request->kd_logger,
+                'uid' => $request->uid,
+                'tlocal'    => $request->tlocal,
+                'tzone'   => $request->tzone,
+                'latitude'       => $request->latitude,
+                'longitude'   => $request->longitude,
+                'location'    => $request->location,
+                'pos_name'    => $request->pos_name,
+                'send_interval'    => $request->send_interval,
+                'kd_provinsi'    => $request->kd_provinsi,
+                'kd_kabupaten'    => $request->kd_kabupaten,
+                'kd_kecamatan'    => $request->kd_kecamatan,
+                'kd_desa'    => $request->kd_desa,
+                'no_gsm'    => $request->no_gsm,
+                'type'    => 'manual',
+    
+            ]);
+    
+            Excel::import(new ImportExcel,request()->file('file'));
+
+            return redirect('/dataposhidrologi')->with('message','Pos berhasil di Tambah !');
+        }
     }
 }

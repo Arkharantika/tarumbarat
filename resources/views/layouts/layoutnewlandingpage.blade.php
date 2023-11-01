@@ -233,12 +233,12 @@
             text-decoration: none;
         }
 
-        .carousel-control-next:hover{
-            background:transparent;
+        .carousel-control-next:hover {
+            background: transparent;
         }
 
-        .carousel-control-prev:hover{
-            background:transparent;
+        .carousel-control-prev:hover {
+            background: transparent;
         }
     </style>
 
@@ -268,60 +268,61 @@
             <nav class="navbar navbar-expand-lg">
                 <!-- <div class="container-fluid container-padding"> -->
                 <img src="{{asset('images/pupr.png')}}" class="card-img-top" alt="..."
-                        style="margin-left:20px;max-width: 4%;height: auto;">
-                    <div style="margin-left:20px; font-size:17px;" class="text-dark">
-                        Direktorat Bina Teknik Sumber Daya Air <br> Direktorat Jendral Sumber Daya Air <br> Kementrian
-                        Pekerjaan Umum dan Perumahan Rakyat
-                    </div>
+                    style="margin-left:20px;max-width: 4%;height: auto;">
+                <div style="margin-left:20px; font-size:17px;" class="text-dark">
+                    Direktorat Bina Teknik Sumber Daya Air <br> Direktorat Jendral Sumber Daya Air <br> Kementrian
+                    Pekerjaan Umum dan Perumahan Rakyat
+                </div>
 
-                    <!-- Toggler -->
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu"
-                        aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="fa fa-bars"></span>
-                    </button>
+                <!-- Toggler -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu"
+                    aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="fa fa-bars"></span>
+                </button>
 
-                    <!-- Collapse -->
-                    <div class="collapse navbar-collapse d-flex" id="navbarMenu">
+                <!-- Collapse -->
+                <div class="collapse navbar-collapse d-flex" id="navbarMenu">
 
-                        <ul class="navbar-nav mx-auto">
-                            <li class="nav-item ">
-                                <a href="{{url('/')}}" class="nav-link js-scroll-trigger" style="font-size:17px;">
-                                    Home
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item ">
+                            <a href="{{url('/')}}" class="nav-link js-scroll-trigger" style="font-size:17px;">
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="{{url('/map')}}" class="nav-link js-scroll-trigger" style="font-size:17px;">
+                                Peta
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="{{url('/home')}}" class="nav-link js-scroll-trigger" style="font-size:17px;">
+                                Admin
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbar3" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                style="font-size:17px;">
+                                Link Terkait<i class="fa fa-angle-down" style="font-size:17px;"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbar3" style="font-size:17px;">
+                                <a class="dropdown-item" href="{{url('https://www.jasatirta2.co.id/')}}">
+                                    PJT II
                                 </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a href="{{url('/map')}}" class="nav-link js-scroll-trigger" style="font-size:17px;">
-                                    Peta
+                                <a class="dropdown-item " href="{{url('https://sihka.pusair-pu.go.id/')}}">
+                                    SIHKA
                                 </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a href="{{url('/home')}}" class="nav-link js-scroll-trigger" style="font-size:17px;">
-                                    Admin
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbar3" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size:17px;">
-                                    Link Terkait<i class="fa fa-angle-down" style="font-size:17px;"></i>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbar3" style="font-size:17px;">
-                                    <a class="dropdown-item" href="{{url('https://www.jasatirta2.co.id/')}}">
-                                        PJT II
-                                    </a>
-                                    <a class="dropdown-item " href="{{url('https://sihka.pusair-pu.go.id/')}}">
-                                        SIHKA
-                                    </a>
-                                </div>
-                            </li>
+                            </div>
+                        </li>
 
-                            <li class="nav-item ">
-                                <a href="#" class="nav-link" style="font-size:17px;">
-                                    Kontak Kami
-                                </a>
-                            </li>
-                        </ul>
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link" style="font-size:17px;">
+                                Kontak Kami
+                            </a>
+                        </li>
+                    </ul>
 
-                        <!-- <div class="d-flex align-items-center">
+                    <!-- <div class="d-flex align-items-center">
                             <div class="header-socials social-links d-none d-lg-none d-xl-block">
                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -330,7 +331,7 @@
                             </div>
                         </div> -->
 
-                    </div> <!-- / .navbar-collapse -->
+                </div> <!-- / .navbar-collapse -->
                 <!-- </div> / .container -->
             </nav>
         </div>
@@ -466,7 +467,13 @@
         </div>
     </section>
     <!-- Feature section End -->
-    <section class="counter-block section-padding" style="background:#6495ED;">
+    <section class="counter-block section-padding text-center" style="background:#6495ED;">
+        <div class="section-heading center-heading">
+            <span class="subheading text-white">PAPAN INFORMASI</span>
+            <h3>STATUS KENDALI MUTU</h3>
+            <p class="text-white">Sistem Informasi Terpadu untuk Monitoring Hidrologi Saluran Irigasi Tarum
+                Barat</p>
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-xl-12 counter-inner bg-grey">
@@ -486,28 +493,63 @@
                                 <div class="count">
                                     <span class="counter">22</span>
                                 </div>
-                                <h6 class="text-black">Total Pos Hidrologi</h6>
+                                <h6 class="text-black">Total Pos Telemetry</h6>
                             </div>
                         </div>
-
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="counter-item text-center">
+                                <img src="{{asset('images/station.png')}}" alt="">
+                                <div class="count">
+                                    <span class="counter">5</span>
+                                </div>
+                                <h6 class="text-black">Total Pos Non-Telemetry</h6>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="counter-item text-center border-0">
                                 <img src="{{asset('images/comment.png')}}" alt="">
                                 <div class="count">
-                                    <span class="counter">22</span>
+                                    <span class="counter">19</span>
                                 </div>
-                                <h6 class="text-black">Pos Status Aman</h6>
+                                <h6 class="text-black">Pos Status Baik</h6>
                             </div>
                         </div>
 
                         <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="counter-item text-center border-0">
+                            <!-- <div class="counter-item text-center border-0">
                                 <img src="{{asset('images/danger.png')}}" alt="">
                                 <div class="count">
                                     <span class="counter">0</span>%
                                 </div>
                                 <h6 class="text-black">Pos Status Bahaya</h6>
+                            </div> -->
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 mt-2">
+                            <div class="counter-item text-center border-0">
+                                <img src="{{asset('images/comment.png')}}" alt="">
+                                <div class="count">
+                                    <span class="counter">3</span>
+                                </div>
+                                <h6 class="text-black">Pos Status Sedang</h6>
                             </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 mt-2">
+                            <div class="counter-item text-center border-0">
+                                <img src="{{asset('images/danger.png')}}" alt="">
+                                <div class="count">
+                                    <span class="counter">0</span>
+                                </div>
+                                <h6 class="text-black">Pos Status Jelek</h6>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <!-- <div class="counter-item text-center border-0">
+                                <img src="{{asset('images/danger.png')}}" alt="">
+                                <div class="count">
+                                    <span class="counter">0</span>%
+                                </div>
+                                <h6 class="text-black">Pos Status Bahaya</h6>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -544,7 +586,7 @@
                         </li>
                     </ul>
 
-                    <a href="#" class="btn btn-main">Contoh Gambar</a>
+                    <!-- <a href="#" class="btn btn-main">Contoh Gambar</a> -->
                 </div>
             </div>
         </div>
@@ -555,8 +597,8 @@
                 <div class="col-xl-6 pl-5 col-lg-6">
                     <div class="section-heading mt-4 mt-lg-0 ">
                         <span class="subheading">Fitur Unggulan</span>
-                        <h3>Data Pos Hidrologi dan Admin panel</h3>
-                        <p>Management data untuk pos hidrologi disertai dengan tampilan admin yang menarik</p>
+                        <h3>Management Data Pos</h3>
+                        <p>Disertai fitur untuk management data untuk pos hidrologi disertai dengan tampilan admin yang menarik</p>
 
                     </div>
                     <ul class="about-features">
@@ -570,11 +612,11 @@
                         </li>
                     </ul>
 
-                    <a href="#" class="btn btn-main">Contoh Admin</a>
+                    <!-- <a href="#" class="btn btn-main">Contoh Admin</a> -->
                 </div>
                 <div class="col-xl-6 col-lg-6">
                     <!-- <div class="video-block"> -->
-                    <img src="{{asset('images/dataposhidro.png')}}" alt="" class="img-fluid">
+                    <img src="{{asset('images/managementpos.png')}}" alt="" class="img-fluid">
                     <!-- <a href="#" class="video-icon"><i class="fa fa-play"></i></a> -->
                     <!-- </div> -->
                 </div>
@@ -586,15 +628,15 @@
             <div class="row align-items-center">
                 <div class="col-xl-6 col-lg-6">
                     <!-- <div class="video-block"> -->
-                    <img src="{{asset('images/chartexcel.jpg')}}" alt="" class="img-fluid">
+                    <img src="{{asset('images/neracaair.png')}}" alt="" class="img-fluid">
                     <!-- <a href="#" class="video-icon"><i class="fa fa-play"></i></a> -->
                     <!-- </div> -->
                 </div>
                 <div class="col-xl-6 pl-5 col-lg-6">
                     <div class="section-heading mt-4 mt-lg-0 ">
                         <span class="subheading">Fitur Unggulan</span>
-                        <h3>Data Excel dan Grafik</h3>
-                        <p>Disertai fasilitas untuk download data berupa file excel dan grafik</p>
+                        <h3>Neraca Air</h3>
+                        <p>Sistem ini juga memilki fitur untuk melihat data neraca air</p>
 
                     </div>
                     <ul class="about-features">
@@ -608,7 +650,39 @@
                         </li>
                     </ul>
 
-                    <a href="#" class="btn btn-main">Contoh Data</a>
+                    <!-- <a href="#" class="btn btn-main">Contoh Data</a> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="about-section section-padding" style="background:#e6fff9;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-6 pl-5 col-lg-6">
+                    <div class="section-heading mt-4 mt-lg-0 ">
+                        <span class="subheading">Kegiatan Unggulan</span>
+                        <h3>Visit Lokasi</h3>
+                        <p>Pihak PJT II maupun dari dinas, melakukan cek fisik secara berkala terhadap pos - pos yg terpasang</p>
+
+                    </div>
+                    <ul class="about-features">
+                        <li>
+                            <i class="fa fa-check"></i>
+                            <h5>Pemeriksaan Rutin</h5>
+                        </li>
+                        <li>
+                            <i class="fa fa-check"></i>
+                            <h5>Maintenance Terjadwal</h5>
+                        </li>
+                    </ul>
+
+                    <!-- <a href="#" class="btn btn-main">Contoh Admin</a> -->
+                </div>
+                <div class="col-xl-6 col-lg-6">
+                    <!-- <div class="video-block"> -->
+                    <img style="width: 550px; height: 400px; object-fit: none;" src="{{asset('images/cekair.jpg')}}" alt="" class="img-fluid">
+                    <!-- <a href="#" class="video-icon"><i class="fa fa-play"></i></a> -->
+                    <!-- </div> -->
                 </div>
             </div>
         </div>
@@ -901,7 +975,7 @@
                     height="200" width="250" style="border-radius:2.5%; padding-left:20px;"></iframe>
                 <div class="widget footer-widget mb-5 mb-lg-0 text-white" style="padding-left:20px">
                     <!-- <p class="">Veniam Sequi molestias </p> -->
-                    <b style="font-size:17px;">Perusahaan Umum Jasa Tirta II</b>
+                    <b style="font-size:17px;">Direktorat Bina Teknik Sumber Daya Air</b>
                     <p class="text-white" style="font-size:15px;margin-top:10px;">Direktorat Jendral Sumber Daya Air<br>
                         Jl. Lurah Kawi No. 1 Jatiluhur, Kab. Purwakarta, Jawa Barat<br>
                         <i class="fa fa-phone"></i> Telp: (0264) 201972 <br>
@@ -934,26 +1008,27 @@
                     </ul>
                 </div> -->
             </div>
-            <div class="col-lg-2 col-sm-6 col-md-6 col-xl-2 d-flex" style="margin-top:0;margin-left: auto;margin-right: 0;display:flex;">
-                    <div style="    ">
-                        <div class="text-dark mt-2" style="">
+            <div class="col-lg-2 col-sm-6 col-md-6 col-xl-2 d-flex"
+                style="margin-top:0;margin-left: auto;margin-right: 0;display:flex;">
+                <div style="    ">
+                    <div class="text-dark mt-2" style="">
                         <u>
                             <b style="font-size:17px;">Menu</b>
                         </u>
-                        </div>
-                        <a href="{{url('/')}}" class="text-dark">Beranda</a><br>
-                        <a href="{{url('/map')}}" class="text-dark">Peta</a><br>
-                        <a href="{{url('/login')}}" class="text-dark">admin</a><br>
-                        <!-- <a href="javascript:linkterkait()" class="text-white">Link Terkait</a><br> -->
-                        <a href="#" class="text-dark">Kontak Kami</a>
-                    </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    <div style="margin: right 20px;">
-                        <img src="{{asset('images/pjt2.png')}}" height="auto" width="175"
-                            style="border-radius:2.5%;margin:10px;"></img>
-                        <!-- <img src="{{asset('images/pjt2.png')}}" class="" alt="..."
-                    style="max-width: 10%;height: auto;"> -->
                     </div>
+                    <a href="{{url('/')}}" class="text-dark">Beranda</a><br>
+                    <a href="{{url('/map')}}" class="text-dark">Peta</a><br>
+                    <a href="{{url('/login')}}" class="text-dark">admin</a><br>
+                    <!-- <a href="javascript:linkterkait()" class="text-white">Link Terkait</a><br> -->
+                    <a href="#" class="text-dark">Kontak Kami</a>
+                </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <div style="margin: right 20px;">
+                    <img src="{{asset('images/pjt2.png')}}" height="auto" width="175"
+                        style="border-radius:2.5%;margin:10px;"></img>
+                    <!-- <img src="{{asset('images/pjt2.png')}}" class="" alt="..."
+                    style="max-width: 10%;height: auto;"> -->
                 </div>
+            </div>
         </div>
         <!-- </div> -->
 

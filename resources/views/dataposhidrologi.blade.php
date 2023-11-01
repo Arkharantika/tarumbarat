@@ -41,10 +41,13 @@
     @endif
 
     <hr />
-    <p class="mb-0 text-uppercase display-6 text-center">List Pos Hidrologi</p>
+    <p class="mb-0 text-uppercase display-6 text-center">Manajemen Data Pos Hidrologi</p>
     <hr />
     <div class="card">
         <div class="card-body">
+            <a href="{{url('tambahpos')}}" class="btn btn-success"> Tambah Pos Manual</a>
+            <br>
+            <br>
             <table id="example2" class="table table-striped table-bordered text-center">
                 <thead>
                     <tr>

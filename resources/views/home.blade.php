@@ -19,7 +19,7 @@
             </nav>
         </div>
 
-        <div class="ms-auto">
+        <!-- <div class="ms-auto">
             <div class="btn-group">
                 <button type="button" class="btn btn-outline-secondary btn-lg ">
                     <i class='bx bxs-bell '></i> Notifications</button>
@@ -28,7 +28,7 @@
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
             </div>
-        </div>
+        </div> -->
         <!--end breadcrumb-->
     </div>
     <!--end Container-->
@@ -86,10 +86,10 @@
                     <div class="d-flex align-items-center">
                         <div>
                             <p class="mb-0 text-secondary">Informasi</p>
-                            <h4 class="my-1">Raw Data</h4>
+                            <h4 class="my-1">Neraca Air</h4>
                             <p class="mb-0 font-13 text-light"><i class='bx bxs-up-arrow align-middle'></i></p>
                         </div>
-                        <div class="widgets-icons bg-light-success text-success ms-auto"><i class='bx bxs-grid'></i>
+                        <div class="widgets-icons bg-light-success text-success ms-auto"><i class='bx bx-stats'></i>
                         </div>
                     </div>
                     <!-- <div id="chart3"></div> -->
