@@ -88,7 +88,7 @@
                                         </div>
                                     </div>
                                     &nbsp&nbsp
-                                    <button class="btn btn-secondary mb-3" disabled>start date</button>
+                                    <button class="btn btn-secondary mb-3" disabled>Tanggal awal</button>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <div class="form-group">
@@ -98,7 +98,7 @@
                                         </div>
                                     </div>
                                     &nbsp&nbsp
-                                    <button class="btn btn-secondary mb-3" disabled>End date</button>
+                                    <button class="btn btn-secondary mb-3" disabled>Tanggal akhir</button>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <div class="form-group">

@@ -75,10 +75,10 @@
                         <div style="display:flex; justify-content:space-between;">
                             <!-- <a href="#" class="btn btn-success mb-3">Import Data</a> -->
                             <div style="display:flex;">
-                                <button type="button" class="btn btn-secondary mb-3" data-toggle="modal"
+                                <!-- <button type="button" class="btn btn-secondary mb-3" data-toggle="modal"
                                     data-target="#importData">
                                     Import Data
-                                </button>&nbsp
+                                </button>&nbsp -->
                                 <!-- <button type="button" class="btn btn-success mb-3" data-toggle=""
                                     data-target="">
                                     Import Data
@@ -110,7 +110,7 @@
                                         </div>
                                     </div>
                                     &nbsp&nbsp
-                                    <button class="btn btn-secondary mb-3" disabled>start date</button>
+                                    <button class="btn btn-secondary mb-3" disabled>Tanggal awal</button>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <div class="form-group">
@@ -120,7 +120,7 @@
                                         </div>
                                     </div>
                                     &nbsp&nbsp
-                                    <button class="btn btn-secondary mb-3" disabled>End date</button>
+                                    <button class="btn btn-secondary mb-3" disabled>Tanggal akhir</button>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <div class="form-group">
@@ -146,7 +146,7 @@
                                     <th>Waktu Record </th>
                                     <th>Tinggi Air (m)</th>
                                     <th>debit (m<sup>3</sup>/s) </th>
-                                    <th>Status Alarm </th>
+                                    <th>Status </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -158,10 +158,10 @@
                                     @if($row->nilai == null)
                                     <td> 0 </td>
                                     @else
-                                    <td>{{($row->nilai)/100}}</td>
+                                    <td>{{number_format(($row->nilai)/100,4)}}</td>
                                     @endif
                                     <td></td>
-                                    <td>normal</td>
+                                    <td></td>
                                 </tr>
                                 @endforeach
 
