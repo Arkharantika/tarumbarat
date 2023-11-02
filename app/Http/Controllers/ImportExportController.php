@@ -125,5 +125,104 @@ class ImportExportController extends Controller
         
             return Excel::download($export, 'Donwload.xlsx');
         }
+
+        if($request->pilihan == 'interval 10')
+        {
+            $startDate = Carbon::parse($request->startdate)->startOfMinute();
+            $endDate = Carbon::parse($request->enddate)->endOfMinute();
+            $records = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')
+                ->where('mst_hardware.kd_hardware', $id)
+                ->where('trs_raw_d_gpa.kd_sensor', 'waterlevel')
+                ->whereBetween('trs_raw_d_gpa.tlocal', [$startDate, $endDate])
+                ->select(DB::raw('FROM_UNIXTIME(CEIL(UNIX_TIMESTAMP(trs_raw_d_gpa.tlocal) / (60*10)) * 60 * 10) as hari'), DB::raw('AVG(trs_raw_d_gpa.value) as nilai'))
+                ->groupBy('hari')
+                ->get();
+
+            $data = [];
+            $count = 0;
+            foreach($records as $kampret => $jungul)
+            {
+                $count++;
+                $data[$count]= [strval($count),strval($jungul->hari),strval($jungul->nilai)];
+            }
+            // $recorddetail = Hardware::join('trs_raw_d_wl', 'trs_raw_d_wl.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('mst_hardware.kd_hardware',$id)->get()->last();
+            $nama_pos = $recorddetail->pos_name;
+            $lokasi = $recorddetail->location;
+            $latitude = $recorddetail->latitude;
+            $longitude = $recorddetail->longitude;
+            $provinsi = $recorddetail->kd_provinsi;
+            $kabupaten = $recorddetail->kd_kabupaten;
+            $kecamatan = $recorddetail->kd_kecamatan;
+            $desa = $recorddetail->kd_desa;
+            $export = new ExportExcel($data,$nama_pos,$lokasi,$latitude,$longitude,$provinsi,$kabupaten,$kecamatan,$desa);
+        
+            return Excel::download($export, 'Donwload.xlsx');
+        }
+
+        if($request->pilihan == 'interval 30mnt')
+        {
+            $startDate = Carbon::parse($request->startdate)->startOfMinute();
+            $endDate = Carbon::parse($request->enddate)->endOfMinute();
+            $records = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')
+                ->where('mst_hardware.kd_hardware', $id)
+                ->where('trs_raw_d_gpa.kd_sensor', 'waterlevel')
+                ->whereBetween('trs_raw_d_gpa.tlocal', [$startDate, $endDate])
+                ->select(DB::raw('FROM_UNIXTIME(CEIL(UNIX_TIMESTAMP(trs_raw_d_gpa.tlocal) / (60*30)) * 60 * 30) as hari'), DB::raw('AVG(trs_raw_d_gpa.value) as nilai'))
+                ->groupBy('hari')
+                ->get();
+
+            $data = [];
+            $count = 0;
+            foreach($records as $kampret => $jungul)
+            {
+                $count++;
+                $data[$count]= [strval($count),strval($jungul->hari),strval($jungul->nilai)];
+            }
+            // $recorddetail = Hardware::join('trs_raw_d_wl', 'trs_raw_d_wl.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('mst_hardware.kd_hardware',$id)->get()->last();
+            $nama_pos = $recorddetail->pos_name;
+            $lokasi = $recorddetail->location;
+            $latitude = $recorddetail->latitude;
+            $longitude = $recorddetail->longitude;
+            $provinsi = $recorddetail->kd_provinsi;
+            $kabupaten = $recorddetail->kd_kabupaten;
+            $kecamatan = $recorddetail->kd_kecamatan;
+            $desa = $recorddetail->kd_desa;
+            $export = new ExportExcel($data,$nama_pos,$lokasi,$latitude,$longitude,$provinsi,$kabupaten,$kecamatan,$desa);
+        
+            return Excel::download($export, 'Donwload.xlsx');
+        }
+
+        if($request->pilihan == 'interval jam')
+        {
+            $startDate = Carbon::parse($request->startdate)->startOfHour(); // Convert to datetime object and set to start of the hour
+            $endDate = Carbon::parse($request->enddate)->endOfHour();
+            $records = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')
+                ->where('mst_hardware.kd_hardware', $id)
+                ->where('trs_raw_d_gpa.kd_sensor', 'waterlevel')
+                ->whereBetween('trs_raw_d_gpa.tlocal', [$startDate, $endDate])
+                ->select(DB::raw('DATE_FORMAT(trs_raw_d_gpa.tlocal, "%Y-%m-%d %H:00:00") as hari'), DB::raw('AVG(trs_raw_d_gpa.value) as nilai'))
+                ->groupBy('hari')
+                ->get();
+
+            $data = [];
+            $count = 0;
+            foreach($records as $kampret => $jungul)
+            {
+                $count++;
+                $data[$count]= [strval($count),strval($jungul->hari),strval($jungul->nilai)];
+            }
+            // $recorddetail = Hardware::join('trs_raw_d_wl', 'trs_raw_d_wl.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('mst_hardware.kd_hardware',$id)->get()->last();
+            $nama_pos = $recorddetail->pos_name;
+            $lokasi = $recorddetail->location;
+            $latitude = $recorddetail->latitude;
+            $longitude = $recorddetail->longitude;
+            $provinsi = $recorddetail->kd_provinsi;
+            $kabupaten = $recorddetail->kd_kabupaten;
+            $kecamatan = $recorddetail->kd_kecamatan;
+            $desa = $recorddetail->kd_desa;
+            $export = new ExportExcel($data,$nama_pos,$lokasi,$latitude,$longitude,$provinsi,$kabupaten,$kecamatan,$desa);
+        
+            return Excel::download($export, 'Donwload.xlsx');
+        }
     }
 }

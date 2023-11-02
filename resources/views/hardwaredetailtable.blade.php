@@ -95,8 +95,11 @@
                                             <select class="form-select" aria-label="" name="pilihan" id="option"
                                                 value="" required>
                                                 <option value="interval kirim">interval kirim</option>
-                                                <option value="harian">harian</option>
-                                                <option value="bulanan">bulanan</option>
+                                                <option value="interval 10">interval 10 menit</option>
+                                                <option value="interval 30mnt">interval 30 menit</option>
+                                                <option value="interval jam">interval jam</option>
+                                                <option value="harian">interval harian</option>
+                                                <option value="bulanan">interval bulanan</option>
                                                 @if ($pilihannya==null)
                                                 <option value="interval kirim" selected >interval kirim</option>
                                                 @else
