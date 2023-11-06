@@ -996,19 +996,31 @@
                     </ul>
                 </div> -->
             </div>
+            <div class="col-lg-2 col-sm-6 col-md-6 col-xl-2 mt-3    " style="width:150px;">
+                <div class="footer-widget mb-5 mb-lg-0">
+                    <h5 class="widget-title text-white">Menu</h5>
+                    <a href="{{url('/')}}" class="text-white">Beranda</a><br>
+                    <a href="{{url('/map')}}" class="text-white">Peta</a><br>
+                    <a href="{{url('/login')}}" class="text-white">admin</a><br>
+                    <a href="#" class="text-white">Kontak Kami</a>
+                </div>
+            </div>
             <div class="col-lg-2 col-sm-6 col-md-6 col-xl-2">
-                <!-- <div class="footer-widget mb-5 mb-lg-0">
-                    <h5 class="widget-title">Courses</h5>
+                <div class="footer-widget mb-5 mb-lg-0">
+                    <!-- <h5 class="widget-title">Courses</h5>
                     <ul class="list-unstyled footer-links">
                         <li><a href="#">SEO Business</a></li>
                         <li><a href="#">Digital Marketing</a></li>
                         <li><a href="#">Graphic Design</a></li>
                         <li><a href="#">Site Development</a></li>
                         <li><a href="#">Social Marketing</a></li>
-                    </ul>
-                </div> -->
+                    </ul> -->
+                    <img src="{{asset('images/pjt2.png')}}" height="auto" width="175"
+                        style="border-radius:2.5%;margin:10px;"></img>
+                </div>
+                
             </div>
-            <div class="col-lg-2 col-sm-6 col-md-6 col-xl-2 d-flex"
+            <!-- <div class="col-lg-2 col-sm-6 col-md-6 col-xl-2 d-flex"
                 style="margin-top:0;margin-left: auto;margin-right: 0;display:flex;">
                 <div style="    ">
                     <div class="text-dark mt-2" style="">
@@ -1019,16 +1031,13 @@
                     <a href="{{url('/')}}" class="text-dark">Beranda</a><br>
                     <a href="{{url('/map')}}" class="text-dark">Peta</a><br>
                     <a href="{{url('/login')}}" class="text-dark">admin</a><br>
-                    <!-- <a href="javascript:linkterkait()" class="text-white">Link Terkait</a><br> -->
                     <a href="#" class="text-dark">Kontak Kami</a>
                 </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 <div style="margin: right 20px;">
                     <img src="{{asset('images/pjt2.png')}}" height="auto" width="175"
                         style="border-radius:2.5%;margin:10px;"></img>
-                    <!-- <img src="{{asset('images/pjt2.png')}}" class="" alt="..."
-                    style="max-width: 10%;height: auto;"> -->
                 </div>
-            </div>
+            </div> -->
         </div>
         <!-- </div> -->
 
