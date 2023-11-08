@@ -54,13 +54,13 @@
                     <div class="d-flex align-items-center">
                         <div>
                             <p class="mb-0 text-secondary">Informasi</p>
-                            <h4 class="my-1">Sensor</h4>
+                            <h4 class="my-1">Data Pos Hidrologi</h4>
                             <p class="mb-0 font-13 text-light"><i class='bx bxs-up-arrow align-middle'></i></p>
                         </div>
-                        <div class="widgets-icons bg-light-primary text-primary ms-auto"><i class='bx bx-dialpad-alt'></i>
+                        <div class="widgets-icons bg-light-warning text-warning ms-auto"><i class='bx bx-border-all'></i>
                         </div>
                     </div>
-                    <!-- <div id="chart1"></div> -->
+                    <!-- <div id="chart2"></div> -->
                 </div>
             </div>
         </a>
@@ -70,13 +70,13 @@
                     <div class="d-flex align-items-center">
                         <div>
                             <p class="mb-0 text-secondary">Informasi</p>
-                            <h4 class="my-1">Hardware</h4>
+                            <h4 class="my-1">Kendali Mutu Data</h4>
                             <p class="mb-0 font-13 text-light"><i class='bx bxs-up-arrow align-middle'></i></p>
                         </div>
-                        <div class="widgets-icons bg-light-warning text-warning ms-auto"><i class='bx bx-border-all'></i>
+                        <div class="widgets-icons bg-light-primary text-primary ms-auto"><i class='bx bx-dialpad-alt'></i>
                         </div>
                     </div>
-                    <!-- <div id="chart2"></div> -->
+                    <!-- <div id="chart1"></div> -->
                 </div>
             </div>
         </a>
