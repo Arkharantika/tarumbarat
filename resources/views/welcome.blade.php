@@ -192,7 +192,7 @@
     
     const contoh = L.layerGroup();
     for (var i = 0; i < data_example.length; i++) {
-        var marker = L.marker([data_example[i]["lat"], data_example[i]["lng"]],{icon:redIcon}).bindPopup("<hr style='margin-bottom:5px;margin-top:5px;color:black;'><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Nama Pos :<b>"+data_example[i]["name"]+"</b></div><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Koordinat : BT "+data_example[i].lat+", LS "+data_example[i].lng+"</div><table class='table table-bordered' style='margin-bottom:5px;'><thead class='colorthead thead-dark'><tr><th scope=col' style='vertical-align: text-top;'>Parameter</th><th style='vertical-align: text-top;width:10rem;'>Nilai</th><th scope='col'>Data Max Sesaat</th><th scope='col'>Data Min Sesaat</th></tr></thead><tbody><tr><td>TMA</td><td>"+(data_example[i].intivalue/100).toFixed(2)+" m</td><td class='text-white' style='background:#a31919' >"+(data_example[i].vmax).toFixed(2)+" m</td><td class='text-white' style='background:#ff8c40;'>"+(data_example[i].vmin).toFixed(2)+" m</td></tr><tr><td>Debit</td><td> m<sup>3</sup>/s</td><td class='text-white' style='background:#a31919' > m<sup>3</sup>/s</td><td class='text-white' style='background:#ff8c40;'> m<sup>3</sup>/s</td></tr></tbody></table><div class='mt-1'><div class='text-danger' style='margin-bottom:15px;font-style:italic;font-size:12px;'>Data Terakhir : "+data_example[i].daterecord+" &nbsp <i class='bx bxs-calendar'></i></div><a class='btn btn-sm btn-secondary text-light' href='{{ url('/hardware/') }}/"+data_example[i].kentang+"'>> check detail </div>",{closeButton: false}).on('mouseover', function () {
+        var marker = L.marker([data_example[i]["lat"], data_example[i]["lng"]],{icon:redIcon}).bindPopup("<hr style='margin-bottom:5px;margin-top:5px;color:black;'><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Nama Pos :<b>"+data_example[i]["name"]+"</b></div><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Koordinat : BT "+data_example[i].lat+", LS "+data_example[i].lng+"</div><table class='table table-bordered' style='margin-bottom:5px;'><thead class='colorthead thead-dark'><tr><th scope=col' style='vertical-align: text-top;'>Parameter</th><th style='vertical-align: text-top;width:10rem;'>Nilai</th><th scope='col'>Data Max Sesaat</th><th scope='col'>Data Min Sesaat</th></tr></thead><tbody><tr><td>TMA</td><td>"+(data_example[i].intivalue/100).toFixed(2)+" m</td><td class='text-white' style='background:#a31919' >"+(data_example[i].vmax).toFixed(2)+" m</td><td class='text-white' style='background:#ff8c40;'>"+(data_example[i].vmin).toFixed(2)+" m</td></tr><tr><td>Debit</td><td> m<sup>3</sup>/s</td><td class='text-white' style='background:#a31919' > m<sup>3</sup>/s</td><td class='text-white' style='background:#ff8c40;'> m<sup>3</sup>/s</td></tr></tbody></table><div class='mt-1'><div class='text-danger' style='margin-bottom:15px;font-style:italic;font-size:12px;'>Data Terakhir : "+data_example[i].daterecord+" &nbsp <i class='bx bxs-calendar'></i></div><a class='btn btn-sm btn-secondary text-light' href='{{ url('/hardwaretable/') }}/"+data_example[i].kentang+"'>> check detail </div>",{closeButton: false}).on('mouseover', function () {
                 this.openPopup();
             }).openPopup();
         marker.addTo(contoh);
@@ -244,9 +244,9 @@
     }).addTo(kentangGoreng);
     // console.log("jungul woy"+kentang)
     const overlays = {
-        'POS Tatonas':contoh,
-        'POS PJT II': cities,
-        'Area Kerja': polygonData,
+        // 'POS Tatonas':contoh,
+        // 'POS PJT II': cities,
+        'Area Kerja BWS': polygonData,
         // 'Area Saluran': lineData,
     };
 
@@ -260,7 +260,7 @@
 
     // layerControl.addOverlay(contoh, 'POS Tatonas Mfg');
 
-    var kentangMarkers = [
+        var kentangMarkers = [
             L.marker([51.5, -0.09]).addTo(map),
             L.marker([51.51, -0.1]).addTo(map),
             L.marker([51.52, -0.08]).addTo(map),
@@ -273,25 +273,26 @@
         ];
     
         function toggleMarkers() {
-            var kentangVisible = document.getElementById('kentangCheckbox').checked;
-            var goyangVisible = document.getElementById('goyangCheckbox').checked;
+            // var kentangVisible = document.getElementById('kentangCheckbox').checked;
+            // var goyangVisible = document.getElementById('goyangCheckbox').checked;
             var tatonasVisible = document.getElementById('tatonasCheckbox').checked;
+            var manualVisible = document.getElementById('manualCheckbox').checked;
 
-            kentangMarkers.forEach(marker => {
-                if (kentangVisible) {
-                    map.addLayer(marker);
-                } else {
-                    map.removeLayer(marker);
-                }
-            });
+            // kentangMarkers.forEach(marker => {
+            //     if (kentangVisible) {
+            //         map.addLayer(marker);
+            //     } else {
+            //         map.removeLayer(marker);
+            //     }
+            // });
 
-            goyangMarkers.forEach(marker => {
-                if (goyangVisible) {
-                    map.addLayer(marker);
-                } else {
-                    map.removeLayer(marker);
-                }
-            });
+            // goyangMarkers.forEach(marker => {
+            //     if (goyangVisible) {
+            //         map.addLayer(marker);
+            //     } else {
+            //         map.removeLayer(marker);
+            //     }
+            // });
 
             if (tatonasVisible) {
                 map.addLayer(contoh);
@@ -299,12 +300,19 @@
                 map.removeLayer(contoh);
             }
 
+            if (manualVisible) {
+                map.addLayer(cities);
+            } else {
+                map.removeLayer(cities);
+            }
+
         }
 
         // Add event listeners to the checkboxes
-        document.getElementById('kentangCheckbox').addEventListener('change', toggleMarkers);
-        document.getElementById('goyangCheckbox').addEventListener('change', toggleMarkers);
+        // document.getElementById('kentangCheckbox').addEventListener('change', toggleMarkers);
+        // document.getElementById('goyangCheckbox').addEventListener('change', toggleMarkers);
         document.getElementById('tatonasCheckbox').addEventListener('change', toggleMarkers);
+        document.getElementById('manualCheckbox').addEventListener('change', toggleMarkers);
 
         // Initial marker visibility
         toggleMarkers();

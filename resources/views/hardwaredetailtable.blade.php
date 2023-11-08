@@ -22,14 +22,70 @@
 
             <div class="container mt-1 " style="">
                 <div>
-                    <hr>HARDWARE POS DETAIL
+                    <hr>INFORMASI POS
                 </div>
                 <div style="">
                     <div>
-                        <h1>{{$recorddetail->pos_name}}</h1>
-                        <h3>ID: {{$chance}}</h3>
+                        <h1>POS {{$recorddetail->pos_name}}</h1>
+                        <!-- <h3>ID: {{$chance}}</h3> -->
                     </div>
-
+                </div>
+                <br>
+                <div class="row row-cols-6">
+                    <div><b>> Nomor Pos</b></div>
+                    <div>: 06.14.02060010089</div>
+                    <!-- <div></div> -->
+                    <div><b>> ID Hardware :</b></div>
+                    <div>: {{$chance}}</div>
+                    <div></div>
+                </div>
+                <div class="row row-cols-6">
+                    <div><b>> Desa </b></div>
+                    <div>: {{$recorddetail->kd_desa}}</div>
+                    <!-- <div></div> -->
+                    <div><b>> Tahun Dibangun</b></div>
+                    <div>: 2023</div>
+                    <div></div>
+                </div>
+                <div class="row row-cols-6">
+                    <div><b>> Kecamatan </b></div>
+                    <div>: {{$recorddetail->kd_kecamatan}}</div>
+                    <!-- <div></div> -->
+                    <div><b>> Didirikan Oleh </b></div>
+                    <div>: BINTEK SDA</div>
+                    <div></div>
+                </div>
+                <div class="row row-cols-6">
+                    <div><b>> Kabupaten </b></div>
+                    <div>: {{$recorddetail->kd_kabupaten}}</div>
+                    <!-- <div></div> -->
+                    <div><b>> Wilayah Sungai </b></div>
+                    <div style="width:200px;">: Ciliwung - Cisadane</div>
+                    <div></div>
+                </div>
+                <div class="row row-cols-6">
+                    <div><b>> Provinsi </b></div>
+                    <div>: {{$recorddetail->kd_provinsi}}</div>
+                    <!-- <div></div> -->
+                    <div><b>> Elevasi </b></div>
+                    <div>: </div>
+                    <div></div>
+                </div>
+                <div class="row row-cols-6">
+                    <div><b>> Koordinat </b></div>
+                    <div>: LU {{$recorddetail->latitude}}</div>
+                    <!-- <div></div> -->
+                    <!-- <div>kampret :</div>
+                    <div>yuhu</div> -->
+                    <div></div>
+                </div>
+                <div class="row row-cols-6">
+                    <div></div>
+                    <div>: LS {{$recorddetail->longitude}}</div>
+                    <!-- <div></div> -->
+                    <!-- <div>kampret :</div>
+                    <div>yuhu</div> -->
+                    <div></div>
                 </div>
             </div>
         </div>
@@ -51,10 +107,10 @@
         <div class="card-body">
 
             <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" id="" data-toggle="" href="{{url('/hardware/'.$chance)}}" role="tab"
                         aria-controls="tab1">Informasi</a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a class="nav-link active" id="tab2-tab" data-toggle="tab" href="#tab2" role="tab"
                         aria-controls="tab2" aria-selected="true">Data Telemetry</a>

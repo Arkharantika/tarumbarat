@@ -44,6 +44,7 @@
     <p class="mb-0 text-uppercase display-6 text-center">Manajemen Data Pos Hidrologi</p>
     <hr />
     <div class="card">
+        <div class="card-header"></div>
         <div class="card-body">
             <a href="{{url('tambahpos')}}" class="btn btn-success"> Tambah Pos Manual</a>
             <br>
@@ -72,8 +73,10 @@
                         <td>{{$row->longitude}}</td>
                         <td>{{$row->location}}</td>
                         <td>{{$row->no_gsm}}</td>
-                        <td width="15%"><a href="{{url('/editpos/'.$row->kd_hardware)}}" class="btn btn-sm btn-warning">edit</a>
-                            <a href="{{url('/deletepos/'.$row->kd_hardware)}}" onclick="return confirm('Yakin untuk menghapus data ini?')"
+                        <td width="15%"><a href="{{url('/editpos/'.$row->kd_hardware)}}"
+                                class="btn btn-sm btn-warning">edit</a>
+                            <a href="{{url('/deletepos/'.$row->kd_hardware)}}"
+                                onclick="return confirm('Yakin untuk menghapus data ini?')"
                                 class="btn btn-sm btn-danger">hapus</a>
                         </td>
                     </tr>
@@ -81,6 +84,40 @@
 
                 </tbody>
             </table>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header"></div>
+        <div class="card-body">
+            <span>
+                RUMUS RATING CURVE DEBIT AIR
+            </span>
+            <hr>
+            <form action="">
+                <div class="row align-items-start">
+                    <div class="col">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-text">K1</span>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-text">K2</span>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-text">K3</span>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-sm btn-outline-primary">simpan</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>

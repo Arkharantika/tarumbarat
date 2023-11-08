@@ -93,31 +93,31 @@
             background: #669cff;
         }
 
-        .swal-height{
-            height:7rem !important;
+        .swal-height {
+            height: 7rem !important;
         }
 
-        .swal2-styled{
+        .swal2-styled {
             height: 40px;
-            margin-top:0;
+            margin-top: 0;
         }
 
-        .swal2-actions{
+        .swal2-actions {
             height: 30px;
-            margin-top:0;
+            margin-top: 0;
         }
 
-        .swal2-select{
+        .swal2-select {
             height: 35px;
         }
 
-        .leaflet-control-layers-overlays>label>span{
-            font-size:15px;
+        .leaflet-control-layers-overlays>label>span {
+            font-size: 15px;
         }
 
-        .leaflet-control-layers-overlays>label>span>input{
-            width:40px;
-            height:auto;
+        .leaflet-control-layers-overlays>label>span>input {
+            width: 40px;
+            height: auto;
         }
 
         .ring-container {
@@ -164,22 +164,66 @@
         }
 
         .leaflet-div-ser {
-            background:blue;
-            border:3px solid rgba(255,255,255,0.5);
-            color:blue;
-            font-weight:bold;
-            text-align:center;
+            background: blue;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+            color: blue;
+            font-weight: bold;
+            text-align: center;
             /* border-radius:50%; */
             /* line-height:30px;
             line-width:30px; */
-            height:30px;
-            width:30px;
+            height: 30px;
+            width: 30px;
         }
 
-        .leaflet-control-layers-expanded{
-            height: 120px;
-            padding-top:30px;
-            background: linear-gradient(to bottom, #6c757d 10%, white 10%);
+        .leaflet-control-layers-expanded {
+            height: 80px;
+            width: 250px;
+            padding-top: 30px;
+            background: linear-gradient(to bottom, #6c757d 15%, white 15%);
+        }
+
+        .card-bar {
+            position: absolute;
+            top: 120px;
+            right: 25px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            z-index: 1000; /* Ensure the card-bar appears above the map */
+            width:250px;
+        }
+
+        .tombolmenu{
+            position: absolute;
+            top: 120px;
+            right: 25px;
+            /* background-color: rgba(255, 255, 255, 0.8); */
+            /* padding: 10px; */
+            /* border: 1px solid #ccc; */
+            /* border-radius: 5px; */
+            z-index: 1000; /* Ensure the card-bar appears above the map */
+            width:180px;
+            padding: 10px 15px;
+            font-size: 15px;
+            text-align: center;
+            cursor: pointer;
+            outline: none;
+            color: #fff;
+            background-color: #04AA6D;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 3px #999;
+        }
+
+        .tombolmenu:hover {background-color: #3e8e41}
+
+        .tombolmenu:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+            outline: none;
         }
     </style>
 </head>
@@ -257,7 +301,165 @@
             <div class="wrapper">
                 <!-- <hr> -->
                 <nav class="navbar card-body " style="display: flex;justify-content: flex-start; background:white;">
-                <div id="map" class="border border-light"></div>
+                    <div id="map" class="border border-light"></div>
+
+                    <!-- test card -->
+                    <!-- <div class="tombolmenu">
+                        menu >>
+                    </div> -->
+
+                    <button class="tombolmenu " onclick="openize()" id="openmenu">menu navigasi >></button>
+
+                    <div class="card-bar" id="cardnyadong" style="display:none;">
+                        <div class="row row-cols-6 mb-2">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div style="width:10px;"></div>
+                            <div><button onclick="minimize()" id="btnminimize" class="btn btn-sm btn-outline-secondary" > >> </button></div>
+                        </div>
+                        <div class="card-header text-center">
+                            <h2>PJT PUPR</h2>
+                        </div>
+                        <div class="card-body">
+                            <label>
+                                <input type="checkbox" id="tombolTMA" onclick="tampilTMA()" > <b>POS TMA</b> 
+                            </label>
+                            <br>
+                            <div id="showTMA" style="display:none;margin-left:20px;">
+                                <label>
+                                    <input type="checkbox" id="tatonasCheckbox"> POS Telemetry
+                                </label>
+                                <br>
+                                <label>
+                                    <input type="checkbox" id="manualCheckbox"> POS Manual
+                                </label>
+                                <br>
+                                <!-- <label>
+                                    <input type="checkbox" id="kentangCheckbox" checked> Kentang
+                                </label>
+                                <br> -->
+                                <!-- <label>
+                                    <input type="checkbox" id="goyangCheckbox" checked> Goyang
+                                </label> -->
+                            </div>
+                            <label>
+                                <input type="checkbox" id="tombolCurahHujan" onclick="tampilCurahHujan()" > <b>POS Curah Hujan</b> 
+                            </label>
+                            <br>
+                            <div id="showCurahHujan" style="display:none;margin-left:20px;">
+                                <label>
+                                    <input type="checkbox" id=""> POS Telemetry
+                                </label>
+                                <br>
+                                <label>
+                                    <input type="checkbox" id=""> POS Manual
+                                </label>
+                                <br>
+                                <!-- <label>
+                                    <input type="checkbox" id="kentangCheckbox" checked> Kentang
+                                </label>
+                                <br> -->
+                                <!-- <label>
+                                    <input type="checkbox" id="goyangCheckbox" checked> Goyang
+                                </label> -->
+                            </div>
+                            <label>
+                                <input type="checkbox" id="tombolKlimatologi" onclick="tampilKlimatologi()" > <b>POS Klimatologi</b> 
+                            </label>
+                            <br>
+                            <div id="showKlimatologi" style="display:none;margin-left:20px;">
+                                <label>
+                                    <input type="checkbox" id=""> POS Telemetry
+                                </label>
+                                <br>
+                                <label>
+                                    <input type="checkbox" id=""> POS Manual
+                                </label>
+                                <br>
+                                <!-- <label>
+                                    <input type="checkbox" id="kentangCheckbox" checked> Kentang
+                                </label>
+                                <br> -->
+                                <!-- <label>
+                                    <input type="checkbox" id="goyangCheckbox" checked> Goyang
+                                </label> -->
+                            </div>
+                        </div>
+                        <br>
+                        <div class="card-header text-center">
+                            <h2>PJT II</h2>
+                        </div>
+                        <div class="card-body">
+                            <label>
+                                <input type="checkbox" id="" onclick="" > <b>POS TMA</b> 
+                            </label>
+                            <br>
+                            <div id="" style="display:none;margin-left:20px;">
+                                <label>
+                                    <input type="checkbox" id=""> POS Telemetry
+                                </label>
+                                <br>
+                                <label>
+                                    <input type="checkbox" id=""> POS Manual
+                                </label>
+                                <br>
+                                <!-- <label>
+                                    <input type="checkbox" id="kentangCheckbox" checked> Kentang
+                                </label>
+                                <br> -->
+                                <!-- <label>
+                                    <input type="checkbox" id="goyangCheckbox" checked> Goyang
+                                </label> -->
+                            </div>
+                            <label>
+                                <input type="checkbox" id="" onclick="" > <b>POS Curah Hujan</b> 
+                            </label>
+                            <br>
+                            <div id="" style="display:none;margin-left:20px;">
+                                <label>
+                                    <input type="checkbox" id=""> POS Telemetry
+                                </label>
+                                <br>
+                                <label>
+                                    <input type="checkbox" id=""> POS Manual
+                                </label>
+                                <br>
+                                <!-- <label>
+                                    <input type="checkbox" id="kentangCheckbox" checked> Kentang
+                                </label>
+                                <br> -->
+                                <!-- <label>
+                                    <input type="checkbox" id="goyangCheckbox" checked> Goyang
+                                </label> -->
+                            </div>
+                            <label>
+                                <input type="checkbox" id="" onclick="" > <b>POS Klimatologi</b> 
+                            </label>
+                            <br>
+                            <div id="" style="display:none;margin-left:20px;">
+                                <label>
+                                    <input type="checkbox" id=""> POS Telemetry
+                                </label>
+                                <br>
+                                <label>
+                                    <input type="checkbox" id=""> POS Manual
+                                </label>
+                                <br>
+                                <!-- <label>
+                                    <input type="checkbox" id="kentangCheckbox" checked> Kentang
+                                </label>
+                                <br> -->
+                                <!-- <label>
+                                    <input type="checkbox" id="goyangCheckbox" checked> Goyang
+                                </label> -->
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+
+                    <!--  -->
                 </nav>
             </div>
         </header>
@@ -300,9 +502,9 @@
                 <div class="" style="margin-top:0;margin-left: auto;margin-right: 0;display:flex;">
                     <div style="">
                         <div class="text-white mt-2" style="">
-                        <u>
-                            <b style="font-size:17px;">Menu</b>
-                        </u>
+                            <u>
+                                <b style="font-size:17px;">Menu</b>
+                            </u>
                         </div>
                         <a href="{{url('/')}}" class="text-white">Beranda</a><br>
                         <a href="{{url('/map')}}" class="text-white">Peta</a><br>
@@ -334,7 +536,7 @@
                     pjt: 'PJT II',
                     sihka: 'SIHKA'
                 },
-                heightAuto:false,
+                heightAuto: false,
                 customClass: 'swal-height',
                 inputValidator: (value) => {
                     return new Promise((resolve) => {
@@ -350,6 +552,55 @@
                     })
                 }
             })
+        }
+        function tampilTMA()
+        {
+            var checktomboltma = document.getElementById("tombolTMA");
+            var listCBXtma = document.getElementById("showTMA");
+
+            if(checktomboltma.checked){
+                listCBXtma.style.display = "block";
+            }else{
+                listCBXtma.style.display = "none";
+            }
+        }
+        function tampilCurahHujan()
+        {
+            var checktombolCH= document.getElementById("tombolCurahHujan");
+            var listCBXch = document.getElementById("showCurahHujan");
+
+            if(checktombolCH.checked){
+                listCBXch.style.display = "block";
+            }else{
+                listCBXch.style.display = "none";
+            }
+        }
+        function tampilKlimatologi()
+        {
+            var checktombolKlm= document.getElementById("tombolKlimatologi");
+            var listCBXklm = document.getElementById("showKlimatologi");
+
+            if(checktombolKlm.checked){
+                listCBXklm.style.display = "block";
+            }else{
+                listCBXklm.style.display = "none";
+            }
+        }
+        
+        function minimize()
+        {
+            var cardnya = document.getElementById("cardnyadong");
+            var tombolopen = document.getElementById("openmenu");
+            cardnya.style.display = "none";
+            tombolopen.style.display = "block";
+        }
+
+        function openize()
+        {
+            var cardnya = document.getElementById("cardnyadong");
+            var tombolopen = document.getElementById("openmenu");
+            cardnya.style.display = "block";
+            tombolopen.style.display = "none";
         }
     </script>
 
