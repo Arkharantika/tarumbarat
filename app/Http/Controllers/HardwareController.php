@@ -48,6 +48,7 @@ class HardwareController extends Controller
                     ->where('mst_hardware.kd_hardware', $id)
                     ->where('trs_raw_d_gpa.kd_sensor','waterlevel')
                     ->select(DB::raw('(trs_raw_d_gpa.tlocal) as hari'), DB::raw('(trs_raw_d_gpa.value) as nilai'))
+                    ->orderBy('hari', 'desc')
                     ->get();
         // return $records;
         return view('hardwaredetailtable',compact('records','chance','recorddetail','awal','akhir','pilihannya'));
@@ -217,6 +218,7 @@ class HardwareController extends Controller
                     ->whereBetween('trs_raw_d_gpa.tlocal', [$startDate, $endDate])
                     ->select(DB::raw('DATE(trs_raw_d_gpa.tlocal) as hari'), DB::raw('AVG(trs_raw_d_gpa.value) as nilai'))
                     ->groupBy('hari')
+                    ->orderBy('hari', 'desc')
                     ->get();
 
             return view('hardwaredetailtable',compact('records','chance','recorddetail','awal','akhir','pilihannya'));
@@ -231,6 +233,7 @@ class HardwareController extends Controller
                 ->whereBetween('trs_raw_d_gpa.tlocal', [$startDate, $endDate])
                 ->select(DB::raw('DATE_FORMAT(trs_raw_d_gpa.tlocal, "%Y-%m-%d %H:00:00") as hari'), DB::raw('AVG(trs_raw_d_gpa.value) as nilai'))
                 ->groupBy('hari')
+                ->orderBy('hari', 'desc')
                 ->get();
             // return $records;
 
@@ -246,6 +249,7 @@ class HardwareController extends Controller
                 ->whereBetween('trs_raw_d_gpa.tlocal', [$startDate, $endDate])
                 ->select(DB::raw('FROM_UNIXTIME(CEIL(UNIX_TIMESTAMP(trs_raw_d_gpa.tlocal) / (60*10)) * 60 * 10) as hari'), DB::raw('AVG(trs_raw_d_gpa.value) as nilai'))
                 ->groupBy('hari')
+                ->orderBy('hari', 'desc')
                 ->get();
 
                 // return $records;
@@ -262,6 +266,7 @@ class HardwareController extends Controller
                 ->whereBetween('trs_raw_d_gpa.tlocal', [$startDate, $endDate])
                 ->select(DB::raw('FROM_UNIXTIME(CEIL(UNIX_TIMESTAMP(trs_raw_d_gpa.tlocal) / (60*30)) * 60 * 30) as hari'), DB::raw('AVG(trs_raw_d_gpa.value) as nilai'))
                 ->groupBy('hari')
+                ->orderBy('hari', 'desc')
                 ->get();
 
                 // return $records;
@@ -278,7 +283,8 @@ class HardwareController extends Controller
                     ->where('trs_raw_d_gpa.kd_sensor', 'waterlevel')
                     ->whereBetween('trs_raw_d_gpa.tlocal', [$startDate, $endDate])
                     ->select(DB::raw('(trs_raw_d_gpa.tlocal) as hari'), DB::raw('(trs_raw_d_gpa.value) as nilai'))
-                    // ->groupBy('hari')
+                    ->groupBy('hari')
+                    ->orderBy('hari', 'desc')
                     ->get();
     
                     return view('hardwaredetailtable',compact('records','chance','recorddetail','awal','akhir','pilihannya'));
@@ -296,6 +302,7 @@ class HardwareController extends Controller
                     DB::raw('AVG(trs_raw_d_gpa.value) as nilai')
                 )
                 ->groupBy('hari')
+                ->orderBy('hari', 'desc')
                 ->get();
             // return $records;
             return view('hardwaredetailtable',compact('records','chance','recorddetail','awal','akhir','pilihannya'));
