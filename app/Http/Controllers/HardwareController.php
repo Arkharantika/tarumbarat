@@ -224,7 +224,7 @@ class HardwareController extends Controller
         }
         if ($request->pilihan == 'interval jam') {
             $startDate = Carbon::parse($request->startdate)->startOfHour(); // Convert to datetime object and set to start of the hour
-            $endDate = Carbon::parse($request->enddate)->endOfHour();
+            $endDate = Carbon::parse($request->enddate)->endOfHour()->addDay();
             $records = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')
                 ->where('mst_hardware.kd_hardware', $id)
                 ->where('trs_raw_d_gpa.kd_sensor', 'waterlevel')
@@ -239,7 +239,7 @@ class HardwareController extends Controller
 
         if ($request->pilihan == 'interval 10') {
             $startDate = Carbon::parse($request->startdate)->startOfMinute();
-            $endDate = Carbon::parse($request->enddate)->endOfMinute();
+            $endDate = Carbon::parse($request->enddate)->endOfMinute()->addDay();
             $records = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')
                 ->where('mst_hardware.kd_hardware', $id)
                 ->where('trs_raw_d_gpa.kd_sensor', 'waterlevel')
@@ -255,7 +255,7 @@ class HardwareController extends Controller
 
         if ($request->pilihan == 'interval 30mnt') {
             $startDate = Carbon::parse($request->startdate)->startOfMinute();
-            $endDate = Carbon::parse($request->enddate)->endOfMinute();
+            $endDate = Carbon::parse($request->enddate)->endOfMinute()->addDay();
             $records = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')
                 ->where('mst_hardware.kd_hardware', $id)
                 ->where('trs_raw_d_gpa.kd_sensor', 'waterlevel')

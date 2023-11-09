@@ -33,47 +33,47 @@
                 <br>
                 <div class="row row-cols-6">
                     <div><b>> Nomor Pos</b></div>
-                    <div>: 06.14.02060010089</div>
+                    <div style="width:250px;">: 06.14.02060010089</div>
                     <!-- <div></div> -->
-                    <div><b>> ID Hardware :</b></div>
-                    <div>: {{$chance}}</div>
+                    <div style="width:200px;"><b>> ID Hardware </b></div>
+                    <div style="width:200px;">: {{$chance}}</div>
                     <div></div>
                 </div>
                 <div class="row row-cols-6">
                     <div><b>> Desa </b></div>
-                    <div>: {{$recorddetail->kd_desa}}</div>
+                    <div style="width:250px;">: {{$recorddetail->kd_desa}}</div>
                     <!-- <div></div> -->
-                    <div><b>> Tahun Dibangun</b></div>
-                    <div>: 2023</div>
+                    <div style="width:200px;"><b>> Tahun Dibangun</b></div>
+                    <div style="width:200px;">: 2023</div>
                     <div></div>
                 </div>
                 <div class="row row-cols-6">
                     <div><b>> Kecamatan </b></div>
-                    <div>: {{$recorddetail->kd_kecamatan}}</div>
+                    <div style="width:250px;">: {{$recorddetail->kd_kecamatan}}</div>
                     <!-- <div></div> -->
-                    <div><b>> Didirikan Oleh </b></div>
-                    <div>: BINTEK SDA</div>
+                    <div style="width:200px;"><b>> Didirikan Oleh </b></div>
+                    <div style="width:200px;">: BINTEK SDA</div>
                     <div></div>
                 </div>
                 <div class="row row-cols-6">
                     <div><b>> Kabupaten </b></div>
-                    <div>: {{$recorddetail->kd_kabupaten}}</div>
+                    <div style="width:250px;">: {{$recorddetail->kd_kabupaten}}</div>
                     <!-- <div></div> -->
-                    <div><b>> Wilayah Sungai </b></div>
+                    <div style="width:200px;"><b>> Wilayah Sungai </b></div>
                     <div style="width:200px;">: Ciliwung - Cisadane</div>
                     <div></div>
                 </div>
                 <div class="row row-cols-6">
                     <div><b>> Provinsi </b></div>
-                    <div>: {{$recorddetail->kd_provinsi}}</div>
+                    <div style="width:250px;">: {{$recorddetail->kd_provinsi}}</div>
                     <!-- <div></div> -->
-                    <div><b>> Elevasi </b></div>
-                    <div>: </div>
+                    <div style="width:200px;"><b>> Elevasi </b></div>
+                    <div style="width:200px;">: </div>
                     <div></div>
                 </div>
                 <div class="row row-cols-6">
                     <div><b>> Koordinat </b></div>
-                    <div>: LU {{$recorddetail->latitude}}</div>
+                    <div style="width:250px;">: LU {{$recorddetail->latitude}}</div>
                     <!-- <div></div> -->
                     <!-- <div>kampret :</div>
                     <div>yuhu</div> -->
@@ -81,7 +81,7 @@
                 </div>
                 <div class="row row-cols-6">
                     <div></div>
-                    <div>: LS {{$recorddetail->longitude}}</div>
+                    <div style="width:250px;">: LS {{$recorddetail->longitude}}</div>
                     <!-- <div></div> -->
                     <!-- <div>kampret :</div>
                     <div>yuhu</div> -->
@@ -214,7 +214,7 @@
                                     @if($row->nilai == null)
                                     <td> 0 </td>
                                     @else
-                                    <td>{{$row->nilai}}</td>
+                                    <td>{{number_format(($row->nilai),4)}}</td>
                                     @endif
                                     <td></td>
                                     <td></td>
@@ -254,12 +254,12 @@
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <form method="post" action="{{url('/importdata')}}" enctype="multipart/form-data">
-                <div class="modal-content">
+            <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Import Data Excel</h5>
                     </div>
                     <div class="modal-body">
-
+                    
                         {{ csrf_field() }}
 
                         <label>Pilih file excel</label>
