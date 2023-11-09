@@ -214,7 +214,7 @@
                                     @if($row->nilai == null)
                                     <td> 0 </td>
                                     @else
-                                    <td>{{number_format(($row->nilai)/100,4)}}</td>
+                                    <td>{{$row->nilai}}</td>
                                     @endif
                                     <td></td>
                                     <td></td>
