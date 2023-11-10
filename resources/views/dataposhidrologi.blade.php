@@ -46,6 +46,45 @@
     <div class="card">
         <div class="card-header"></div>
         <div class="card-body">
+            <span>
+                RUMUS RATING CURVE DEBIT AIR : 
+                <button class="btn btn-outline-primary" disabled>
+                    <b>Q</b><sub>Debit</sub> = <b>K<sub>1</sub></b>*(TMA+<b>K<sub>2</sub></b>)<sup><b>K<sub>3</sub></b></sup>
+                </button>
+            </span>
+            <hr>
+            <form method="post" action="{{url('/editrating/')}}" enctype="multipart/form-data">
+                @method('POST')
+                @csrf
+                <div class="row align-items-start">
+                    <div class="col">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-text">K1</span>
+                            <input type="number" step=".0001" class="form-control" name="k1" placeholder="{{$rumus->k1}}" required>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-text">K2</span>
+                            <input type="number" step=".0001" class="form-control" name="k2" placeholder="{{$rumus->k2}}" required>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-text">K3</span>
+                            <input type="number" step=".0001" class="form-control" name="k3" placeholder="{{$rumus->k3}}" required>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <button type="submit" class="btn btn-sm btn-outline-primary">simpan</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header"></div>
+        <div class="card-body">
             <a href="{{url('tambahpos')}}" class="btn btn-success"> Tambah Pos Manual</a>
             <br>
             <br>
@@ -84,42 +123,6 @@
 
                 </tbody>
             </table>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-header"></div>
-        <div class="card-body">
-            <span>
-                RUMUS RATING CURVE DEBIT AIR
-            </span>
-            <hr>
-            <form method="post" action="{{url('/editrating/')}}" enctype="multipart/form-data">
-                @method('POST')
-                @csrf
-                <div class="row align-items-start">
-                    <div class="col">
-                        <div class="input-group input-group-sm">
-                            <span class="input-group-text">K1</span>
-                            <input type="number" step=".0001" class="form-control" name="k1" placeholder="{{$rumus->k1}}" required>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="input-group input-group-sm">
-                            <span class="input-group-text">K2</span>
-                            <input type="number" step=".0001" class="form-control" name="k2" placeholder="{{$rumus->k2}}" required>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="input-group input-group-sm">
-                            <span class="input-group-text">K3</span>
-                            <input type="number" step=".0001" class="form-control" name="k3" placeholder="{{$rumus->k3}}" required>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <button type="submit" class="btn btn-sm btn-outline-primary">simpan</button>
-                    </div>
-                </div>
-            </form>
         </div>
     </div>
 </div>
