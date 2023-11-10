@@ -82,10 +82,13 @@
                 <div class="row row-cols-6">
                     <div></div>
                     <div style="width:250px;">: LS {{$recorddetail->longitude}}</div>
-                    <!-- <div></div> -->
+                    <div></div>
                     <!-- <div>kampret :</div>
                     <div>yuhu</div> -->
-                    <div></div>
+                    <div style="width:250px;text-align: right;">
+                    <a href="#" class="btn btn-primary btn-sm">Edit Data</a>
+                    </div>
+                    <!-- <div></div> -->
                 </div>
             </div>
         </div>
@@ -195,12 +198,15 @@
                                 </div>
                             </form>
                         </div>
+                        <div class="text-center mt-1 mb-1">
+                            <button class="btn btn-outline-dark" disabled><b>Q</b><sub>Debit</sub> = <b>K<sub>1</sub></b>*(TMA+<b>K<sub>2</sub></b>)<sup><b>K<sub>3</sub></b></sup> &nbsp&nbsp || &nbsp&nbsp <b>K</b> saat ini = (K<sub>1</sub> : <b>{{$rumus->k1}}</b>), (K<sub>2</sub> : <b>{{$rumus->k2}}</b>),(K<sub>3</sub> : <b>{{$rumus->k3}}</b>)</button>
+                        </div>
                         <table id="example2" class="table table-striped table-bordered text-center">
                             <thead>
                                 <tr>
                                     <th>No</th>
                                     <th>Waktu Record </th>
-                                    <th>Tinggi Air (m)</th>
+                                    <th>Tinggi Muka Air (m)</th>
                                     <th>debit (m<sup>3</sup>/s) </th>
                                     <th>Status </th>
                                 </tr>

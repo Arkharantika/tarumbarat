@@ -82,10 +82,13 @@
                 <div class="row row-cols-6">
                     <div></div>
                     <div style="width:250px;">: LS {{$recorddetail->longitude}}</div>
-                    <!-- <div></div> -->
+                    <div></div>
                     <!-- <div>kampret :</div>
                     <div>yuhu</div> -->
-                    <div></div>
+                    <div style="width:250px;text-align: right;">
+                    <a href="#" class="btn btn-primary btn-sm">Edit Data</a>
+                    </div>
+                    <!-- <div></div> -->
                 </div>
             </div>
         </div>
