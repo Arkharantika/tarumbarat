@@ -127,22 +127,21 @@
                                 <div style="display:flex;">
                                     <div class="row">
                                         <!-- <div class="col-sm-3"> -->
-                                            <div class="form-group">
-                                                <select class="form-select"
-                                                    aria-label="" name="pilihan" id="option"
-                                                    value="" required>   
-                                                    <option value="interval kirim">interval kirim</option>
-                                                    <option value="interval 10">interval 10 menit</option>
-                                                    <option value="interval 30mnt">interval 30 menit</option>
-                                                    <option value="interval jam">interval jam</option>
-                                                    <option value="harian">interval harian</option>
-                                                    <option value="bulanan">interval bulanan</option>
-                                                    @if ($pilihannya==null)
-                                                    <option value="" selected >interval kirim</option>
-                                                    @else
-                                                    <option value="" selected >{{$pilihannya}}</option>
-                                                    @endif
-                                                </select>
+                                        <div class="form-group">
+                                            <select class="form-select" aria-label="" name="pilihan" id="option"
+                                                value="" required>
+                                                <option value="interval kirim">interval kirim</option>
+                                                <option value="interval 10">interval 10 menit</option>
+                                                <option value="interval 30mnt">interval 30 menit</option>
+                                                <option value="interval jam">interval jam</option>
+                                                <option value="harian">interval harian</option>
+                                                <option value="bulanan">interval bulanan</option>
+                                                @if ($pilihannya==null)
+                                                <option value="interval kirim" selected >interval kirim</option>
+                                                @else
+                                                <option value="{{$pilihannya}}" selected >{{$pilihannya}}</option>
+                                                @endif
+                                            </select>
                                             <!-- </div> -->
                                         </div>
                                     </div>
@@ -151,8 +150,8 @@
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <div class="form-group">
-                                                <input type="date" class="form-control" id="fixedWidthInput" value="{{$awal}}"
-                                                    name="startdate" style="width: 200px;" required>
+                                                <input type="date" class="form-control" id="fixedWidthInput"
+                                                    value="{{$awal}}" name="startdate" style="width: 200px;" required>
                                             </div>
                                         </div>
                                     </div>
@@ -162,15 +161,14 @@
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <!-- <label for="fixedWidthInput">Fixed Width Input:</label> -->
-                                                <input type="date" class="form-control" id="fixedWidthInput" value="{{$akhir}}"
-                                                    name="enddate" style="width: 200px;" required>
+                                                <input type="date" class="form-control" id="fixedWidthInput"
+                                                    value="{{$akhir}}" name="enddate" style="width: 200px;" required>
                                             </div>
                                         </div>
                                     </div>
                                     &nbsp&nbsp
                                     <!-- <button></button> -->
                                     <button type="submit" class="btn btn-primary mb-3"> Cari <i class='bx bx-search'></i></button>
-
                                 </div>
                             </form>
                         </div>
@@ -240,7 +238,7 @@
                 borderColor: 'rgba(255, 99, 132, 1)',
                 borderWidth: 2,
                 pointBackgroundColor: 'rgba(255, 99, 132, 1)',
-                pointRadius: 5
+                pointRadius: 1
             }]
         },
         options: {
@@ -264,7 +262,7 @@
                 borderColor: 'rgba(100, 0, 120, 0.5)',
                 borderWidth: 2,
                 pointBackgroundColor: 'rgba(100, 0, 120, 0.5)',
-                pointRadius: 5
+                pointRadius: 1
             }]
         },
         options: {
