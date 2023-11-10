@@ -112,7 +112,7 @@
                     <div class="col">
                         <div class="input-group input-group-sm">
                             <span class="input-group-text">K3</span>
-                            <input type="number" step=".0001" class="form-control" name="k1" placeholder="{{$rumus->k1}}" required>
+                            <input type="number" step=".0001" class="form-control" name="k3" placeholder="{{$rumus->k3}}" required>
                         </div>
                     </div>
                     <div class="col">
