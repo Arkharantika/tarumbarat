@@ -66,4 +66,9 @@ class WelcomeController extends Controller
         return view('landingpage',compact('ars','ars_max','ars_min'));
         // return view('landingpage');
     }
+
+    public function Testing()
+    {
+        return view('layouts.layoutnewlandingpage');
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hardware;
+use App\Models\RumusRatingCurve;
 use App\Models\RawData;
 use App\Imports\ImportExcel;
 use Maatwebsite\Excel\Facades\Excel;
@@ -11,10 +12,10 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function index()
     {
@@ -53,6 +54,7 @@ class HomeController extends Controller
         $a=0;
         $hardware = Hardware::all();
         $ars = Hardware::all();
+        $rumus = RumusRatingCurve::all()->last();
         // foreach($hardware as $now => $value)
         // {
         //     $sink = $value->kd_hardware;
@@ -67,7 +69,7 @@ class HomeController extends Controller
         //     }
         // }
         // return $ars;
-        return view('dataposhidrologi',compact('ars'));
+        return view('dataposhidrologi',compact('ars','rumus'));
     }
     
     public function neracaair()
@@ -185,5 +187,18 @@ class HomeController extends Controller
 
             return redirect('/dataposhidrologi')->with('message','Pos berhasil di Tambah !');
         }
+    }
+
+    public function editrating(Request $request)
+    {
+        $rumus = RumusRatingCurve::updateOrCreate([
+            'id'=>1
+        ],[
+            'k1'=>$request->k1,
+            'k2'=>$request->k2,
+            'k3'=>$request->k3,
+        ]);
+
+        return redirect('/dataposhidrologi')->with('message','Rumus K berhasil di Update !');
     }
 }

@@ -93,28 +93,30 @@
                 RUMUS RATING CURVE DEBIT AIR
             </span>
             <hr>
-            <form action="">
+            <form method="post" action="{{url('/editrating/')}}" enctype="multipart/form-data">
+                @method('POST')
+                @csrf
                 <div class="row align-items-start">
                     <div class="col">
                         <div class="input-group input-group-sm">
                             <span class="input-group-text">K1</span>
-                            <input type="text" class="form-control">
+                            <input type="number" step=".0001" class="form-control" name="k1" placeholder="{{$rumus->k1}}" required>
                         </div>
                     </div>
                     <div class="col">
                         <div class="input-group input-group-sm">
                             <span class="input-group-text">K2</span>
-                            <input type="text" class="form-control">
+                            <input type="number" step=".0001" class="form-control" name="k2" placeholder="{{$rumus->k2}}" required>
                         </div>
                     </div>
                     <div class="col">
                         <div class="input-group input-group-sm">
                             <span class="input-group-text">K3</span>
-                            <input type="text" class="form-control">
+                            <input type="number" step=".0001" class="form-control" name="k1" placeholder="{{$rumus->k1}}" required>
                         </div>
                     </div>
                     <div class="col">
-                        <button class="btn btn-sm btn-outline-primary">simpan</button>
+                        <button type="submit" class="btn btn-sm btn-outline-primary">simpan</button>
                     </div>
                 </div>
             </form>

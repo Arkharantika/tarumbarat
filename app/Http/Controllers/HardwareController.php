@@ -9,6 +9,7 @@ use Carbon\Carbon;
 
 use App\Models\Hardware;
 use App\Models\RawData;
+use App\Models\RumusRatingCurve;
 
 class HardwareController extends Controller
 {
@@ -38,6 +39,7 @@ class HardwareController extends Controller
 
     public function HardwareDetailTable($id)
     {
+        $rumus = RumusRatingCurve::all()->last();
         $chance = strval($id);
         $awal=null;
         $akhir=null;
@@ -51,7 +53,7 @@ class HardwareController extends Controller
                     ->orderBy('hari', 'desc')
                     ->get();
         // return $records;
-        return view('hardwaredetailtable',compact('records','chance','recorddetail','awal','akhir','pilihannya'));
+        return view('hardwaredetailtable',compact('records','chance','recorddetail','awal','akhir','pilihannya','rumus'));
     }
 
     public function HardwareDetailGraph($id)
@@ -198,7 +200,7 @@ class HardwareController extends Controller
 
     public function SelectDataFromDateRange(Request $request,$id)
     {
-        // return $request;
+        $rumus = RumusRatingCurve::all()->last();
         $chance = strval($id);
         $awal = $request->startdate;
         $akhir = $request->enddate;
@@ -221,7 +223,7 @@ class HardwareController extends Controller
                     ->orderBy('hari', 'desc')
                     ->get();
 
-            return view('hardwaredetailtable',compact('records','chance','recorddetail','awal','akhir','pilihannya'));
+            return view('hardwaredetailtable',compact('records','chance','recorddetail','awal','akhir','pilihannya','rumus'));
             // return $records;
         }
         if ($request->pilihan == 'interval jam') {
@@ -237,7 +239,7 @@ class HardwareController extends Controller
                 ->get();
             // return $records;
 
-            return view('hardwaredetailtable', compact('records', 'chance', 'recorddetail', 'awal', 'akhir', 'pilihannya'));
+            return view('hardwaredetailtable', compact('records', 'chance', 'recorddetail', 'awal', 'akhir', 'pilihannya','rumus'));
         }
 
         if ($request->pilihan == 'interval 10') {
@@ -254,7 +256,7 @@ class HardwareController extends Controller
 
                 // return $records;
         
-            return view('hardwaredetailtable', compact('records', 'chance', 'recorddetail', 'awal', 'akhir', 'pilihannya'));
+            return view('hardwaredetailtable', compact('records', 'chance', 'recorddetail', 'awal', 'akhir', 'pilihannya','rumus'));
         }
 
         if ($request->pilihan == 'interval 30mnt') {
@@ -271,7 +273,7 @@ class HardwareController extends Controller
 
                 // return $records;
         
-            return view('hardwaredetailtable', compact('records', 'chance', 'recorddetail', 'awal', 'akhir', 'pilihannya'));
+            return view('hardwaredetailtable', compact('records', 'chance', 'recorddetail', 'awal', 'akhir', 'pilihannya','rumus'));
         }
         
         if($request->pilihan == 'interval kirim')
@@ -283,11 +285,11 @@ class HardwareController extends Controller
                     ->where('trs_raw_d_gpa.kd_sensor', 'waterlevel')
                     ->whereBetween('trs_raw_d_gpa.tlocal', [$startDate, $endDate])
                     ->select(DB::raw('(trs_raw_d_gpa.tlocal) as hari'), DB::raw('(trs_raw_d_gpa.value) as nilai'))
-                    ->groupBy('hari')
+                    // ->groupBy('hari')
                     ->orderBy('hari', 'desc')
                     ->get();
     
-                    return view('hardwaredetailtable',compact('records','chance','recorddetail','awal','akhir','pilihannya'));
+                    return view('hardwaredetailtable',compact('records','chance','recorddetail','awal','akhir','pilihannya','rumus'));
         }
         if($request->pilihan == 'bulanan')
         {
@@ -305,7 +307,7 @@ class HardwareController extends Controller
                 ->orderBy('hari', 'desc')
                 ->get();
             // return $records;
-            return view('hardwaredetailtable',compact('records','chance','recorddetail','awal','akhir','pilihannya'));
+            return view('hardwaredetailtable',compact('records','chance','recorddetail','awal','akhir','pilihannya','rumus'));
         }
 
     }

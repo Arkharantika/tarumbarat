@@ -207,6 +207,7 @@
                             </thead>
                             <tbody>
                                 <?php $no=1; ?>
+                                <?php $Q=0; ?>
                                 @foreach ($records as $row)
                                 <tr>
                                     <td>{{$no++}}</td>
@@ -216,7 +217,8 @@
                                     @else
                                     <td>{{number_format(($row->nilai),4)}}</td>
                                     @endif
-                                    <td></td>
+                                    <?php $Q=($rumus->k1)*pow(($row->nilai)+($rumus->k2),($rumus->k3)); ?>
+                                    <td>{{($Q)}}</td>
                                     <td></td>
                                 </tr>
                                 @endforeach
