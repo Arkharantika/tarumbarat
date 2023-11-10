@@ -16,7 +16,7 @@
                 <div class="card-header" style="background:silver;">
                     <p class="card-text"></p>
                 </div>
-                <img src="{{asset('images/telemetry_copy.jpg')}}" class="card-img-top" alt="..."
+                <img src="{{asset('images/'.$recorddetail->pos_img)}}" class="card-img-top" alt="..."
                     style="max-width: 100%;height: auto;">
             </div>
 
