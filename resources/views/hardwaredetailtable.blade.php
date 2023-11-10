@@ -224,7 +224,7 @@
                                     <td>{{number_format(($row->nilai),4)}}</td>
                                     @endif
                                     <?php $Q=($rumus->k1)*pow(($row->nilai)+($rumus->k2),($rumus->k3)); ?>
-                                    <td>{{($Q)}}</td>
+                                    <td>{{number_format(($Q),4)}}</td>
                                     <td></td>
                                 </tr>
                                 @endforeach
