@@ -155,6 +155,7 @@ class HomeController extends Controller
                 'kd_desa'    => $request->kd_desa,
                 'no_gsm'    => $request->no_gsm,
                 'type'    => 'manual',
+                'pos_type'    => 'non',
     
             ]);
     

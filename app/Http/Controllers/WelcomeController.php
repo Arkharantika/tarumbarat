@@ -17,6 +17,11 @@ class WelcomeController extends Controller
         $ars=[];
         $ars_max=[];
         $ars_min=[];
+
+        $non_ars=[];
+        $non_ars_max=[];
+        $non_ars_min=[];
+
         $a=0;
         $hardware = Hardware::all();
         foreach($hardware as $now => $value)
@@ -33,10 +38,23 @@ class WelcomeController extends Controller
                 // $ars_max[$now] = 1; 
                 // $ars_min[$now] = 0; 
             }
+
+            $sink2 = $value->kd_hardware;
+            $records2 = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('trs_raw_d_gpa.kd_sensor','waterlevel')->where('mst_hardware.kd_hardware',$value->kd_hardware)->where('mst_hardware.pos_type','non')->get()->last();
+            $valuemax2 = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('trs_raw_d_gpa.kd_sensor','waterlevel')->where('mst_hardware.kd_hardware',$value->kd_hardware)->where('mst_hardware.pos_type','non')->max('value');;
+            $valuemin2 = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('trs_raw_d_gpa.kd_sensor','waterlevel')->where('mst_hardware.kd_hardware',$value->kd_hardware)->where('mst_hardware.pos_type','non')->min('value');;
+            // $b = $value->kd_hardware;
+            if (isset($records2)) {
+                $non_ars[$now] = $records2; 
+                $non_ars_max[$now] = $valuemax2; 
+                $non_ars_min[$now] = $valuemin2; 
+                // $ars_max[$now] = 1; 
+                // $ars_min[$now] = 0; 
+            }
         }
-        // return $ars;
+        // return $non_ars;
         // return response()->json($ars); 
-        return view('welcome',compact('ars','ars_max','ars_min'));
+        return view('welcome',compact('ars','ars_max','ars_min','non_ars','non_ars_max','non_ars_min'));
     }
 
     public function LandingPage()

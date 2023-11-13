@@ -141,11 +141,19 @@
 
     const valmax = @json($ars_max);
     const valmin = @json($ars_min);
+    const valmax2 = @json($non_ars_max);
+    const valmin2 = @json($non_ars_min);
 
     var data_example = [
         { lat: -10.2500114, lng: 123.9895103, name: 'Marker 1',vmax:20,vmin:20,daterecord:20, intivalue:30,kentang:4150 }
         // Add more data here...
     ];
+
+    var data_example2 = [
+        { lat: -10.2500114, lng: 123.9895103, name: 'Marker 1',vmax:20,vmin:20,daterecord:20, intivalue:30,kentang:4150 }
+        // Add more data here...
+    ];
+
     @foreach($ars as $kentang => $record)
         var ref_id = "{{ $kentang }}"; 
         var jujukan_id = {{ $record->kd_hardware }}; 
@@ -160,7 +168,24 @@
         data_example.push(newData);
     @endforeach
 
+    @foreach($non_ars as $kentang2 => $record2)
+        var ref_id2 = "{{ $kentang2 }}"; 
+        var jujukan_id2 = {{ $record2->kd_hardware }}; 
+        var lats2 = {{$record2->latitude}}
+        var longs2 = {{$record2->longitude}}
+        var valuenya2 = "{{$record2->value}}"
+        var valuemax2 = valmax2[ref_id2];
+        var valuemin2 = valmin2[ref_id2];
+        // console.log(lats);
+        var newData2 = { lat: lats2, lng: longs2, name: '{{$record2->pos_name}}',vmax:valuemax2,vmin:valuemin2,daterecord:'{{$record2->tlocal}}', intivalue:valuenya2, kentang:jujukan_id2 }
+        console.log("newdata is here>>"+newData2)
+        console.log(newData2)
+        data_example2.push(newData2);
+    @endforeach
+
+    
     console.log("kampret >>>")
+    console.log(data_example2)
     //console.log(data_example[0]["name"]);
 
     // <==== BAGIAN DEMO ===>
@@ -207,6 +232,18 @@
         zoom: 10,
         layers: [osm,contoh,kentangGoreng]
     });
+
+    const contoh2 = L.layerGroup();
+    for (var i = 0; i < data_example2.length; i++) {
+        var marker3 = L.marker([data_example2[i]["lat"], data_example2[i]["lng"]],{icon:redIcon}).bindPopup("<hr style='margin-bottom:5px;margin-top:5px;color:black;'><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Nama Pos :<b>"+data_example2[i]["name"]+"</b></div><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Koordinat : BT "+data_example2[i].lat+", LS "+data_example2[i].lng+"</div><table class='table table-bordered' style='margin-bottom:5px;'><thead class='colorthead thead-dark'><tr><th scope=col' style='vertical-align: text-top;'>Parameter</th><th style='vertical-align: text-top;width:10rem;'>Nilai</th><th scope='col'>Data Max Sesaat</th><th scope='col'>Data Min Sesaat</th></tr></thead><tbody><tr><td>TMA</td><td>"+(data_example2[i].intivalue/100).toFixed(2)+" m</td><td class='text-white' style='background:#a31919' >"+(data_example2[i].vmax).toFixed(2)+" m</td><td class='text-white' style='background:#ff8c40;'>"+(data_example2[i].vmin).toFixed(2)+" m</td></tr><tr><td>Debit</td><td> m<sup>3</sup>/s</td><td class='text-white' style='background:#a31919' > m<sup>3</sup>/s</td><td class='text-white' style='background:#ff8c40;'> m<sup>3</sup>/s</td></tr></tbody></table><div class='mt-1'><div class='text-danger' style='margin-bottom:15px;font-style:italic;font-size:12px;'>Data Terakhir : "+data_example2[i].daterecord+" &nbsp <i class='bx bxs-calendar'></i></div><a class='btn btn-sm btn-secondary text-light' href='{{ url('/hardwaretable/') }}/"+data_example2[i].kentang+"'>> check detail </div>",{closeButton: false}).on('mouseover', function () {
+                this.openPopup();
+            }).openPopup();
+        // console.log([[data_example2[i]["lat"]],[data_example2[i]["lng"]]])
+        marker3.addTo(contoh2);
+    }
+
+    // var marker2 = L.marker([-6, 107],{icon:redIcon})
+    //     marker2.addTo(contoh2);
 
     /*==============================================
                 GEOJSON
@@ -300,10 +337,15 @@
                 map.removeLayer(contoh);
             }
 
+            // if (manualVisible) {
+            //     map.addLayer(cities);
+            // } else {
+            //     map.removeLayer(cities);
+            // }
             if (manualVisible) {
-                map.addLayer(cities);
+                map.addLayer(contoh2);
             } else {
-                map.removeLayer(cities);
+                map.removeLayer(contoh2);
             }
 
         }
