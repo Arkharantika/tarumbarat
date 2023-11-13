@@ -119,7 +119,7 @@
                     <div class="container mt-3">
 
                     <div style="display:flex; justify-content:space-between;">
-                            <button id="downloadChartButton" class="btn btn-outline-secondary mb-3"> Download Chart</button>
+                            <button id="downloadChartButton" class="btn btn-sm btn-outline-secondary mb-3"> Download Chart 1</button>
                             <form action="{{url('/hardwaregraphrange/'.$chance)}}" method="post">
                                 @method('POST')
                                 @csrf
@@ -183,6 +183,9 @@
                                 </div>
                             </div>
                     </div>
+                    
+                    <button id="downloadChartButton2" class="btn btn-sm btn-outline-secondary mb-3"> Download Chart 2</button>
+
                     <div class="col mb-4">
                             <div class="card">
                                 <div class="card-header text-center">
@@ -212,8 +215,10 @@
     var nilaivalue = [];
     var nilaihari = [];
     var nilaikosong = [];
+    var exoteric = [];
     @foreach($records as $row => $kentang)
-        var nilainya = "{{($kentang->nilai)/100}}"
+        var nilainya = "{{($kentang->nilai)/100}}";
+        var exodus = {{$Q=($recorddetail->k1)*pow(($kentang->nilai)+($recorddetail->k2),($recorddetail->k3));}};
         if (nilainya == null)
         {
             nilainya === 0;
@@ -223,6 +228,7 @@
         nilaivalue.push(nilainya)
         nilaihari.push(harinya)
         nilaikosong.push(kosong)
+        exoteric.push(exodus)
     @endforeach
     // console.log(nilaivalue);
     console.log(nilaihari)
@@ -258,7 +264,7 @@
             labels: nilaihari,
             datasets: [{
                 label: '2023',
-                data: nilaikosong,
+                data: exoteric,
                 borderColor: 'rgba(100, 0, 120, 0.5)',
                 borderWidth: 2,
                 pointBackgroundColor: 'rgba(100, 0, 120, 0.5)',
@@ -281,7 +287,17 @@
             var chartBase64 = chart2.toBase64Image();
             var downloadLink = document.createElement('a');
             downloadLink.href = chartBase64;
-            downloadLink.download = 'chart.png';
+            downloadLink.download = 'chart1.png';
+            downloadLink.click();
+        });
+
+    var downloadButton2 = document.getElementById('downloadChartButton2');
+        downloadButton2.addEventListener('click', function () {
+            // Convert the chart to a base64 image and create a download link
+            var chartBase64 = chart3.toBase64Image();
+            var downloadLink = document.createElement('a');
+            downloadLink.href = chartBase64;
+            downloadLink.download = 'chart2.png';
             downloadLink.click();
         });
 </script>
