@@ -199,7 +199,7 @@
                             </form>
                         </div>
                         <div class="text-center mt-1 mb-1">
-                            <button class="btn btn-outline-dark" disabled><b>Q</b><sub>Debit</sub> = <b>K<sub>1</sub></b>*(TMA+<b>K<sub>2</sub></b>)<sup><b>K<sub>3</sub></b></sup> &nbsp&nbsp || &nbsp&nbsp <b>K</b> saat ini = (K<sub>1</sub> : <b>{{$rumus->k1}}</b>), (K<sub>2</sub> : <b>{{$rumus->k2}}</b>),(K<sub>3</sub> : <b>{{$rumus->k3}}</b>)</button>
+                            <button class="btn btn-outline-dark" disabled><b>Q</b><sub>Debit</sub> = <b>K<sub>1</sub></b>*(TMA+<b>K<sub>2</sub></b>)<sup><b>K<sub>3</sub></b></sup> &nbsp&nbsp || &nbsp&nbsp <b>K</b> Pos ini = (K<sub>1</sub> : <b>{{$recorddetail->k1}}</b>), (K<sub>2</sub> : <b>{{$recorddetail->k2}}</b>),(K<sub>3</sub> : <b>{{$recorddetail->k3}}</b>)</button>
                         </div>
                         <table id="example2" class="table table-striped table-bordered text-center">
                             <thead>
@@ -223,7 +223,7 @@
                                     @else
                                     <td>{{number_format(($row->nilai),4)}}</td>
                                     @endif
-                                    <?php $Q=($rumus->k1)*pow(($row->nilai)+($rumus->k2),($rumus->k3)); ?>
+                                    <?php $Q=($recorddetail->k1)*pow(($row->nilai)+($recorddetail->k2),($recorddetail->k3)); ?>
                                     <td>{{number_format(($Q),4)}}</td>
                                     <td></td>
                                 </tr>

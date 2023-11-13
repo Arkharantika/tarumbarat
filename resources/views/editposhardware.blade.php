@@ -132,6 +132,30 @@
                         <input type="text" class="form-control" value="{{$check->kd_desa}}" name="kd_desa" id="nis" required>
                     </div>
                 </div>
+                <div class="row mb-3">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Nilai K1</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        <input type="number" step=".0001" class="form-control" name="k1" placeholder="{{$check->k1}}" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Nilai K2</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        <input type="number" step=".0001" class="form-control" name="k2" placeholder="{{$check->k2}}" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Nilai K3</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        <input type="number" step=".0001" class="form-control" name="k3" placeholder="{{$check->k3}}" required>
+                    </div>
+                </div>
                 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
                     <button type="submit" id="covid" class="btn btn-primary"
                         onclick="return confirm('Yakin data sudah benar?')">Simpan</button>

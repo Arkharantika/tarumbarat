@@ -87,7 +87,7 @@ class HomeController extends Controller
     
     public function changePos(Request $request,$id)
     {
-        // return $request;
+        // return $request->k2;
         $check = Hardware::where('kd_hardware',$id)->get()->last();
         $ganti = Hardware::where('kd_hardware',$id)->update([
             "pos_name" => $request->pos_name,
@@ -99,6 +99,9 @@ class HomeController extends Controller
             "kd_kabupaten" => $request->kd_kabupaten,
             "kd_kecamatan" => $request->kd_kecamatan,
             "kd_desa" => $request->kd_desa,
+            "k1" => $request->k1,
+            "k2" => $request->k2,
+            "k3" => $request->k3,
         ]);
 
         return redirect('/dataposhidrologi')->with('message','Data berhasil di update !');

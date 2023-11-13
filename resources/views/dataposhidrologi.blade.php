@@ -43,7 +43,7 @@
     <hr />
     <p class="mb-0 text-uppercase display-6 text-center">Manajemen Data Pos Hidrologi</p>
     <hr />
-    <div class="card">
+    <!-- <div class="card">
         <div class="card-header"></div>
         <div class="card-body">
             <span>
@@ -81,7 +81,7 @@
                 </div>
             </form>
         </div>
-    </div>
+    </div> -->
     <div class="card">
         <div class="card-header"></div>
         <div class="card-body">
