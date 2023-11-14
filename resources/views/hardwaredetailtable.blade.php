@@ -12,12 +12,12 @@
         <div class="card-body" style="display:flex;">
             <!-- <img src="{{asset('images/telemetry_copy.jpg')}}" alt=""> -->
 
-            <div class="card shadow mt-4" style="width: 18rem;">
+            <div class="card shadow mt-4" style="width: 18rem; height:300px;">
                 <div class="card-header" style="background:silver;">
                     <p class="card-text"></p>
                 </div>
-                <img src="{{asset('images/'.$recorddetail->pos_img)}}" class="card-img-top" alt="..."
-                    style="max-width: 100%;height: auto;">
+                <img src="{{asset('images/gambar_btb_29.jpg')}}" class="card-img-top" alt="..."
+                    style="width: 100%;height: 100%;object-fit:cover;">
             </div>
 
             <div class="container mt-1 " style="">
@@ -174,18 +174,18 @@
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <input type="date" class="form-control" id="fixedWidthInput"
-                                                    value="{{$awal}}" name="startdate" style="width: 200px;" required>
+                                                    value="{{$awal}}" name="startdate" style="width: 150px;" required>
                                             </div>
                                         </div>
                                     </div>
                                     &nbsp&nbsp
-                                    <button class="btn btn-secondary mb-3" disabled>Tanggal akhir</button>
+                                    <button class="btn btn-sm btn-secondary mb-3" disabled>Tanggal akhir</button>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <!-- <label for="fixedWidthInput">Fixed Width Input:</label> -->
                                                 <input type="date" class="form-control" id="fixedWidthInput"
-                                                    value="{{$akhir}}" name="enddate" style="width: 200px;" required>
+                                                    value="{{$akhir}}" name="enddate" style="width: 150px;" required>
                                             </div>
                                         </div>
                                     </div>
@@ -193,7 +193,7 @@
                                     <!-- <button></button> -->
                                     <button type="submit" class="btn btn-primary mb-3"> Cari <i
                                             class='bx bx-search'></i></button> &nbsp
-                                    <button class="btn btn-success mb-3" formaction="{{url('/exportdata/'.$chance)}}">Download Excel</button>
+                                    <button class="btn btn-sm btn-success mb-3" formaction="{{url('/exportdata/'.$chance)}}">Download Excel</button>
 
                                 </div>
                             </form>
