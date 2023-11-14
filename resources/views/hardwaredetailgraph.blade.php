@@ -12,12 +12,12 @@
         <div class="card-body" style="display:flex;">
             <!-- <img src="{{asset('images/telemetry_copy.jpg')}}" alt=""> -->
 
-            <div class="card shadow mt-4" style="width: 18rem;">
+            <div class="card shadow mt-4" style="width: 18rem; height:300px;">
                 <div class="card-header" style="background:silver;">
                     <p class="card-text"></p>
                 </div>
                 <img src="{{asset('images/'.$recorddetail->pos_img)}}" class="card-img-top" alt="..."
-                    style="max-width: 100%;height: auto;">
+                style="width: 100%;height: 100%;object-fit:cover;">
             </div>
 
             <div class="container mt-1 " style="">
@@ -119,7 +119,6 @@
                     <div class="container mt-3">
 
                     <div style="display:flex; justify-content:space-between;">
-                            <button id="downloadChartButton" class="btn btn-sm btn-outline-secondary mb-3"> Download Chart 1</button>
                             <form action="{{url('/hardwaregraphrange/'.$chance)}}" method="post">
                                 @method('POST')
                                 @csrf
@@ -146,33 +145,40 @@
                                         </div>
                                     </div>
                                     &nbsp&nbsp
-                                    <button class="btn btn-secondary mb-3" disabled>Tanggal awal</button>
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="">Tanggal Mulai ></span>
+                                    </div>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <input type="date" class="form-control" id="fixedWidthInput"
-                                                    value="{{$awal}}" name="startdate" style="width: 200px;" required>
+                                                    value="{{$awal}}" name="startdate" style="width: auto;" required>
                                             </div>
                                         </div>
                                     </div>
                                     &nbsp&nbsp
-                                    <button class="btn btn-secondary mb-3" disabled>Tanggal akhir</button>
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="">Tanggal Berhenti ></span>
+                                    </div>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <!-- <label for="fixedWidthInput">Fixed Width Input:</label> -->
                                                 <input type="date" class="form-control" id="fixedWidthInput"
-                                                    value="{{$akhir}}" name="enddate" style="width: 200px;" required>
+                                                    value="{{$akhir}}" name="enddate" style="width: auto;" required>
                                             </div>
                                         </div>
                                     </div>
                                     &nbsp&nbsp
                                     <!-- <button></button> -->
-                                    <button type="submit" class="btn btn-primary mb-3"> Cari <i class='bx bx-search'></i></button>
+                                    <button type="submit" class="btn btn-primary mb-3"><i
+                                            class='bx bx-search'></i></button>
                                 </div>
                             </form>
                         </div>
                         
+                        
+                    <button id="downloadChartButton" class="btn btn-sm btn-outline-success mb-3"> <i class='bx bxs-download'></i>Download Chart 1 </button>
                     <div class="col mb-4">
                             <div class="card">
                                 <div class="card-header text-center">
@@ -184,8 +190,7 @@
                             </div>
                     </div>
                     
-                    <button id="downloadChartButton2" class="btn btn-sm btn-outline-secondary mb-3"> Download Chart 2</button>
-
+                    <button id="downloadChartButton2" class="btn btn-sm btn-outline-success mb-3"> <i class='bx bxs-download'></i>Download Chart 2 </button>
                     <div class="col mb-4">
                             <div class="card">
                                 <div class="card-header text-center">

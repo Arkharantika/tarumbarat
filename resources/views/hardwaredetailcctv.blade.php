@@ -12,12 +12,12 @@
         <div class="card-body" style="display:flex;">
             <!-- <img src="{{asset('images/telemetry_copy.jpg')}}" alt=""> -->
 
-            <div class="card shadow mt-4" style="width: 18rem;">
+            <div class="card shadow mt-4" style="width: 18rem; height:300px;">
                 <div class="card-header" style="background:silver;">
                     <p class="card-text"></p>
                 </div>
                 <img src="{{asset('images/'.$recorddetail->pos_img)}}" class="card-img-top" alt="..."
-                    style="max-width: 100%;height: auto;">
+                style="width: 100%;height: 100%;object-fit:cover;">
             </div>
 
             <div class="container mt-1 " style="">

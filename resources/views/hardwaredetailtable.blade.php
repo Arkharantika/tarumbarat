@@ -133,16 +133,6 @@
                         <!-- Content for Tab 2 -->
                         <div style="display:flex; justify-content:space-between;">
                             <!-- <a href="#" class="btn btn-success mb-3">Import Data</a> -->
-                            <div style="display:flex;">
-                                <!-- <button type="button" class="btn btn-secondary mb-3" data-toggle="modal"
-                                    data-target="#importData">
-                                    Import Data
-                                </button>&nbsp -->
-                                <!-- <button type="button" class="btn btn-success mb-3" data-toggle=""
-                                    data-target="">
-                                    Import Data
-                                </button> -->
-                            </div>
                             <form action="{{url('/hardwaredaterange/'.$chance)}}" method="post">
                                 @method('POST')
                                 @csrf
@@ -169,36 +159,40 @@
                                         </div>
                                     </div>
                                     &nbsp&nbsp
-                                    <button class="btn btn-secondary mb-3" disabled>Tanggal awal</button>
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="">Tanggal Mulai ></span>
+                                    </div>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <input type="date" class="form-control" id="fixedWidthInput"
-                                                    value="{{$awal}}" name="startdate" style="width: 150px;" required>
+                                                    value="{{$awal}}" name="startdate" style="width: auto;" required>
                                             </div>
                                         </div>
                                     </div>
                                     &nbsp&nbsp
-                                    <button class="btn btn-sm btn-secondary mb-3" disabled>Tanggal akhir</button>
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="">Tanggal Berhenti ></span>
+                                    </div>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <!-- <label for="fixedWidthInput">Fixed Width Input:</label> -->
                                                 <input type="date" class="form-control" id="fixedWidthInput"
-                                                    value="{{$akhir}}" name="enddate" style="width: 150px;" required>
+                                                    value="{{$akhir}}" name="enddate" style="width: auto;" required>
                                             </div>
                                         </div>
                                     </div>
                                     &nbsp&nbsp
                                     <!-- <button></button> -->
-                                    <button type="submit" class="btn btn-primary mb-3"> Cari <i
-                                            class='bx bx-search'></i></button> &nbsp
-                                    <button class="btn btn-sm btn-success mb-3" formaction="{{url('/exportdata/'.$chance)}}">Download Excel</button>
+                                    <button type="submit" class="btn btn-primary mb-3"><i
+                                            class='bx bx-search'></i></button> &nbsp&nbsp
+                                    <button class="btn btn-success mb-3" formaction="{{url('/exportdata/'.$chance)}}"><i class='bx bxs-download'></i></button>
 
                                 </div>
                             </form>
                         </div>
-                        <div class="text-center mt-1 mb-1">
+                        <div class="text-center mt-2 mb-2">
                             <button class="btn btn-outline-dark" disabled><b>Q</b><sub>Debit</sub> = <b>K<sub>1</sub></b>*(TMA+<b>K<sub>2</sub></b>)<sup><b>K<sub>3</sub></b></sup> &nbsp&nbsp || &nbsp&nbsp <b>K</b> Pos ini = (K<sub>1</sub> : <b>{{$recorddetail->k1}}</b>), (K<sub>2</sub> : <b>{{$recorddetail->k2}}</b>),(K<sub>3</sub> : <b>{{$recorddetail->k3}}</b>)</button>
                         </div>
                         <table id="example2" class="table table-striped table-bordered text-center">
