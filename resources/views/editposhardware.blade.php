@@ -134,7 +134,47 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col-sm-3">
-                        <h6 class="mb-0">Nilai K1</h6>
+                        <h6 class="mb-0">Nomor Pos</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        <input type="text" class="form-control" value="{{$check->nomor_pos}}" name="nomor_pos" id="nis" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Tahun Dibangun</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        <input type="text" class="form-control" value="{{$check->thn_dibangun}}" name="thn_dibangun" id="nis" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Dibangun Oleh</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        <input type="text" class="form-control" value="{{$check->pendiri}}" name="pendiri" id="nis" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Wilayah Sungai</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        <input type="text" class="form-control" value="{{$check->wilayah_sungai}}" name="wilayah_sungai" id="nis" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Elevasi</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        <input type="text" class="form-control" value="{{$check->elevasi}}" name="elevasi" id="nis" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Konstanta <b>a</b></h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                         <input type="number" step=".0001" class="form-control" name="k1" placeholder="{{$check->k1}}" required>
@@ -142,7 +182,7 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col-sm-3">
-                        <h6 class="mb-0">Nilai K2</h6>
+                        <h6 class="mb-0">Konstanta <b>b</b></h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                         <input type="number" step=".0001" class="form-control" name="k2" placeholder="{{$check->k2}}" required>
@@ -150,10 +190,19 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col-sm-3">
-                        <h6 class="mb-0">Nilai K3</h6>
+                        <h6 class="mb-0">Konstanta <b>c</b></h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                         <input type="number" step=".0001" class="form-control" name="k3" placeholder="{{$check->k3}}" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Foto POS</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        <input type="file" class="form-control" id="foto_pos" name="foto_pos"
+                            data-toggle="custom-file-input" accept=".jpg, .jpeg" multiple>
                     </div>
                 </div>
                 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">

@@ -87,7 +87,41 @@ class HomeController extends Controller
     
     public function changePos(Request $request,$id)
     {
-        // return $request->k2;
+        // return $request;
+
+        $ktp = $request->file('foto_pos');
+        
+        if($ktp == null){
+            $nama_ktp = null;
+            $check = Hardware::where('kd_hardware',$id)->get()->last();
+            $ganti = Hardware::where('kd_hardware',$id)->update([
+                "pos_name" => $request->pos_name,
+                "location" => $request->location,
+                "latitude" => $request->latitude,
+                "longitude" => $request->longitude,
+                "no_gsm" => $request->no_gsm,
+                "kd_provinsi" => $request->kd_provinsi,
+                "kd_kabupaten" => $request->kd_kabupaten,
+                "kd_kecamatan" => $request->kd_kecamatan,
+                "kd_desa" => $request->kd_desa,
+                "k1" => $request->k1,
+                "k2" => $request->k2,
+                "k3" => $request->k3,
+                "nomor_pos" => $request->nomor_pos,
+                "thn_dibangun" => $request->thn_dibangun,
+                "pendiri" => $request->pendiri,
+                "wilayah_sungai" => $request->wilayah_sungai,
+                "elevasi" => $request->elevasi,
+                // "foto_pos" => $nama_ktp,
+            ]);
+    
+            return redirect('/hardwaretable/'.$id)->with('message','Data berhasil di update !');
+        }else{
+            $nama_ktp = $id.".".$ktp->getClientOriginalExtension();
+            $ktp_upload = 'images';
+            $ktp->move($ktp_upload,$nama_ktp);
+        }
+
         $check = Hardware::where('kd_hardware',$id)->get()->last();
         $ganti = Hardware::where('kd_hardware',$id)->update([
             "pos_name" => $request->pos_name,
@@ -102,9 +136,15 @@ class HomeController extends Controller
             "k1" => $request->k1,
             "k2" => $request->k2,
             "k3" => $request->k3,
+            "foto_pos" => $nama_ktp,
+            "nomor_pos" => $request->nomor_pos,
+            "thn_dibangun" => $request->thn_dibangun,
+            "pendiri" => $request->pendiri,
+            "wilayah_sungai" => $request->wilayah_sungai,
+            "elevasi" => $request->elevasi,
         ]);
 
-        return redirect('/dataposhidrologi')->with('message','Data berhasil di update !');
+        return redirect('/hardwaretable/'.$id)->with('message','Data berhasil di update !');
     }
 
     public function deletepos($kd)

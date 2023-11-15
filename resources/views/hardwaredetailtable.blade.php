@@ -16,7 +16,7 @@
                 <div class="card-header" style="background:silver;">
                     <p class="card-text"></p>
                 </div>
-                <img src="{{asset('images/gambar_btb_29.jpg')}}" class="card-img-top" alt="..."
+                <img src="{{asset('images/'.$recorddetail->foto_pos)}}" class="card-img-top" alt="..."
                     style="width: 100%;height: 100%;object-fit:cover;">
             </div>
 
