@@ -33,7 +33,7 @@
                 <br>
                 <div class="row row-cols-6">
                     <div><b>> Nomor Pos</b></div>
-                    <div style="width:250px;">: 06.14.02060010089</div>
+                    <div style="width:250px;">: {{$recorddetail->nomor_pos}}</div>
                     <!-- <div></div> -->
                     <div style="width:200px;"><b>> ID Hardware </b></div>
                     <div style="width:200px;">: {{$chance}}</div>
@@ -44,7 +44,7 @@
                     <div style="width:250px;">: {{$recorddetail->kd_desa}}</div>
                     <!-- <div></div> -->
                     <div style="width:200px;"><b>> Tahun Dibangun</b></div>
-                    <div style="width:200px;">: 2023</div>
+                    <div style="width:200px;">: {{$recorddetail->thn_dibangun}}</div>
                     <div></div>
                 </div>
                 <div class="row row-cols-6">
@@ -52,7 +52,7 @@
                     <div style="width:250px;">: {{$recorddetail->kd_kecamatan}}</div>
                     <!-- <div></div> -->
                     <div style="width:200px;"><b>> Didirikan Oleh </b></div>
-                    <div style="width:200px;">: BINTEK SDA</div>
+                    <div style="width:200px;">: {{$recorddetail->pendiri}}</div>
                     <div></div>
                 </div>
                 <div class="row row-cols-6">
@@ -60,7 +60,7 @@
                     <div style="width:250px;">: {{$recorddetail->kd_kabupaten}}</div>
                     <!-- <div></div> -->
                     <div style="width:200px;"><b>> Wilayah Sungai </b></div>
-                    <div style="width:200px;">: Ciliwung - Cisadane</div>
+                    <div style="width:200px;">: {{$recorddetail->wilayah_sungai}}</div>
                     <div></div>
                 </div>
                 <div class="row row-cols-6">
@@ -68,7 +68,7 @@
                     <div style="width:250px;">: {{$recorddetail->kd_provinsi}}</div>
                     <!-- <div></div> -->
                     <div style="width:200px;"><b>> Elevasi </b></div>
-                    <div style="width:200px;">: </div>
+                    <div style="width:200px;">: {{$recorddetail->elevasi}}</div>
                     <div></div>
                 </div>
                 <div class="row row-cols-6">
