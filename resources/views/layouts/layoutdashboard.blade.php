@@ -177,7 +177,7 @@
         }
 
         .leaflet-control-layers-expanded {
-            height: 80px;
+            height: 100px;
             width: 250px;
             padding-top: 30px;
             background: linear-gradient(to bottom, #6c757d 15%, white 15%);
@@ -197,7 +197,7 @@
 
         .tombolmenu{
             position: absolute;
-            top: 120px;
+            top: 130px;
             right: 25px;
             /* background-color: rgba(255, 255, 255, 0.8); */
             /* padding: 10px; */

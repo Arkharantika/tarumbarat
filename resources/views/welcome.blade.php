@@ -121,6 +121,7 @@
 @section('CustomScripts')
 <script src="{{asset('sungai.js')}}"></script>
 <script src="{{asset('wilayah.js')}}"></script>
+<script src="{{asset('tambahan_wilayah.js')}}"></script>
 <script>
     // var redPin = L.icon({
     //     iconUrl: "{{asset('images/redpin.png')}}",
@@ -279,12 +280,34 @@
             color:'#20B2AA'
         }
     }).addTo(kentangGoreng);
+
+    var polygonData2 = L.geoJSON(tambahan_wilayah, {
+        onEachFeature: function (feature, layer) {
+            layer.bindPopup("<hr style='margin-bottom:5px;margin-top:5px;color:black;'><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Wilayah :<b> "+feature.properties.DAKER+" </b></div><table class='table table-bordered' style='margin-bottom:5px;'><thead class='colorthead thead-dark'><tr><th></th><th></th></tr></thead><tbody><tr><td style='font-size:10px;background:white;height:15px'>Luas </td><td style='font-size:10px;background:white;height:15px'> "+feature.properties.Luas_Km+" </td></tr><tr><td style='font-size:10px;background:white;height:15px'>Unit </td><td style='font-size:10px;background:white;height:15px'> "+feature.properties.unit+" </td></tr></tbody></table>",{closeButton: false}).on('mouseover', function () {
+                layer.setStyle({
+                    fillOpacity: 0.4,
+                    fillColor:'#F08080'
+                })
+                this.openPopup();
+            }).on('mouseout', function (e) {
+                layer.setStyle({
+                fillOpacity: 0.2,
+                fillColor:'#008B8B'
+                });
+            });
+        },
+        style: {
+            fillColor: '#008B8B',
+            color:'#1E90FF'
+        }
+    }).addTo(kentangGoreng);
+
     // console.log("jungul woy"+kentang)
     const overlays = {
         // 'POS Tatonas':contoh,
         // 'POS PJT II': cities,
-        'Area Kerja BWS': polygonData,
-        // 'Area Saluran': lineData,
+        'Wilayah DAS': polygonData,
+        'Wilayah Daerah Kerja': polygonData2,
     };
 
     // const layerControl = L.control.layers(null, overlays).addTo(map);
