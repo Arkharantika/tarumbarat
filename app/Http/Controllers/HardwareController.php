@@ -52,6 +52,19 @@ class HardwareController extends Controller
                     ->select(DB::raw('(trs_raw_d_gpa.tlocal) as hari'), DB::raw('(trs_raw_d_gpa.value) as nilai'))
                     ->orderBy('hari', 'desc')
                     ->get();
+
+        $records = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')
+                    ->where('mst_hardware.kd_hardware', $id)
+                    ->where('trs_raw_d_gpa.kd_sensor', 'waterlevel')
+                    ->select(
+                        DB::raw('(trs_raw_d_gpa.tlocal) as hari'),
+                        DB::raw('(trs_raw_d_gpa.value) as nilai'),
+                        DB::raw('(trs_raw_d_gpa.kd_hardware) as hwname')
+                    )
+                    ->groupBy('hwname', 'hari','nilai')
+                    ->orderBy('hari', 'desc')
+                    ->get();
+                
         // return $records;
         return view('hardwaredetailtable',compact('records','chance','recorddetail','awal','akhir','pilihannya','rumus'));
     }
@@ -286,6 +299,18 @@ class HardwareController extends Controller
                     ->whereBetween('trs_raw_d_gpa.tlocal', [$startDate, $endDate])
                     ->select(DB::raw('(trs_raw_d_gpa.tlocal) as hari'), DB::raw('(trs_raw_d_gpa.value) as nilai'))
                     // ->groupBy('hari')
+                    ->orderBy('hari', 'desc')
+                    ->get();
+            $records = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')
+                    ->where('mst_hardware.kd_hardware', $id)
+                    ->where('trs_raw_d_gpa.kd_sensor', 'waterlevel')
+                    ->whereBetween('trs_raw_d_gpa.tlocal', [$startDate, $endDate])
+                    ->select(
+                        DB::raw('(trs_raw_d_gpa.tlocal) as hari'),
+                        DB::raw('(trs_raw_d_gpa.value) as nilai'),
+                        DB::raw('(trs_raw_d_gpa.kd_hardware) as hwname')
+                    )
+                    ->groupBy('hwname', 'hari','nilai')
                     ->orderBy('hari', 'desc')
                     ->get();
     
