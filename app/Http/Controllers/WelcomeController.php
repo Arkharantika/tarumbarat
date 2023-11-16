@@ -26,11 +26,19 @@ class WelcomeController extends Controller
         $hardware = Hardware::all();
         foreach($hardware as $now => $value)
         {
+            $currentDate = now()->toDateString();
+            // return $currentDate;
             $sink = $value->kd_hardware;
             $records = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('trs_raw_d_gpa.kd_sensor','waterlevel')->where('mst_hardware.kd_hardware',$value->kd_hardware)->where('mst_hardware.pos_type','telemetry')->get()->last();
-            $valuemax = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('trs_raw_d_gpa.kd_sensor','waterlevel')->where('mst_hardware.kd_hardware',$value->kd_hardware)->where('mst_hardware.pos_type','telemetry')->max('value');;
-            $valuemin = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('trs_raw_d_gpa.kd_sensor','waterlevel')->where('mst_hardware.kd_hardware',$value->kd_hardware)->where('mst_hardware.pos_type','telemetry')->min('value');;
+            $valuemax = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('trs_raw_d_gpa.kd_sensor','waterlevel')->where('mst_hardware.kd_hardware',$value->kd_hardware)->where('mst_hardware.pos_type','telemetry')->whereDate('trs_raw_d_gpa.tlocal', $currentDate)->max('value');
+            $valuemin = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('trs_raw_d_gpa.kd_sensor','waterlevel')->where('mst_hardware.kd_hardware',$value->kd_hardware)->where('mst_hardware.pos_type','telemetry')->whereDate('trs_raw_d_gpa.tlocal', $currentDate)->min('value');
             // $b = $value->kd_hardware;
+            if (!isset($valuemax)){
+                $valuemax= 0;
+            }
+            if (!isset($valuemin)){
+                $valuemin= 0;
+            }
             if (isset($records)) {
                 $ars[$now] = $records; 
                 $ars_max[$now] = $valuemax; 
@@ -41,9 +49,15 @@ class WelcomeController extends Controller
 
             $sink2 = $value->kd_hardware;
             $records2 = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('trs_raw_d_gpa.kd_sensor','waterlevel')->where('mst_hardware.kd_hardware',$value->kd_hardware)->where('mst_hardware.pos_type','non')->get()->last();
-            $valuemax2 = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('trs_raw_d_gpa.kd_sensor','waterlevel')->where('mst_hardware.kd_hardware',$value->kd_hardware)->where('mst_hardware.pos_type','non')->max('value');;
-            $valuemin2 = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('trs_raw_d_gpa.kd_sensor','waterlevel')->where('mst_hardware.kd_hardware',$value->kd_hardware)->where('mst_hardware.pos_type','non')->min('value');;
+            $valuemax2 = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('trs_raw_d_gpa.kd_sensor','waterlevel')->where('mst_hardware.kd_hardware',$value->kd_hardware)->where('mst_hardware.pos_type','non')->whereDate('trs_raw_d_gpa.tlocal', $currentDate)->max('value');;
+            $valuemin2 = Hardware::join('trs_raw_d_gpa', 'trs_raw_d_gpa.kd_hardware', '=', 'mst_hardware.kd_hardware')->where('trs_raw_d_gpa.kd_sensor','waterlevel')->where('mst_hardware.kd_hardware',$value->kd_hardware)->where('mst_hardware.pos_type','non')->whereDate('trs_raw_d_gpa.tlocal', $currentDate)->min('value');;
             // $b = $value->kd_hardware;
+            if (!isset($valuemax2)){
+                $valuemax2= 0;
+            }
+            if (!isset($valuemin2)){
+                $valuemin2= 0;
+            }
             if (isset($records2)) {
                 $non_ars[$now] = $records2; 
                 $non_ars_max[$now] = $valuemax2; 
