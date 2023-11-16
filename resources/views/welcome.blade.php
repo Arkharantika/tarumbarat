@@ -146,12 +146,12 @@
     const valmin2 = @json($non_ars_min);
 
     var data_example = [
-        { lat: -10.2500114, lng: 123.9895103, name: 'Marker 1',vmax:20,vmin:20,daterecord:20, intivalue:30,kentang:4150 }
+        { lat: -10.2500114, lng: 123.9895103, name: 'Marker 1',vmax:20,vmin:20,daterecord:20, intivalue:30,kentang:4150,debit:10,debitmax:10,debitmin:10,k1:1,k2:2,k3:3  }
         // Add more data here...
     ];
 
     var data_example2 = [
-        { lat: -10.2500114, lng: 123.9895103, name: 'Marker 1',vmax:20,vmin:20,daterecord:20, intivalue:30,kentang:4150 }
+        { lat: -10.2500114, lng: 123.9895103, name: 'Marker 1',vmax:20,vmin:20,daterecord:20, intivalue:30,kentang:4150,debit:10,debitmax:10,debitmin:10,k1:1,k2:2,k3:3 }
         // Add more data here...
     ];
 
@@ -163,8 +163,11 @@
         var valuenya = "{{$record->value}}"
         var valuemax = valmax[ref_id];
         var valuemin = valmin[ref_id];
-        // console.log(lats);
-        var newData = { lat: lats, lng: longs, name: '{{$record->pos_name}}',vmax:valuemax,vmin:valuemin,daterecord:'{{$record->tlocal}}', intivalue:valuenya, kentang:jujukan_id }
+        var k1 = {{$record->k1}};
+        var k2 = {{$record->k2}};
+        var k3 = {{$record->k3}};
+        // console.log("bojoku=>"+bojonegoro);
+        var newData = { lat: lats, lng: longs, name: '{{$record->pos_name}}',vmax:valuemax,vmin:valuemin,daterecord:'{{$record->tlocal}}', intivalue:valuenya, kentang:jujukan_id,debit:10,debitmax:10,debitmin:10,k1:k1,k2:k2,k3:k3 }
         console.log(newData)
         data_example.push(newData);
     @endforeach
@@ -177,8 +180,11 @@
         var valuenya2 = "{{$record2->value}}"
         var valuemax2 = valmax2[ref_id2];
         var valuemin2 = valmin2[ref_id2];
+        var k12 = {{$record->k1}};
+        var k22 = {{$record->k2}};
+        var k32 = {{$record->k3}};
         // console.log(lats);
-        var newData2 = { lat: lats2, lng: longs2, name: '{{$record2->pos_name}}',vmax:valuemax2,vmin:valuemin2,daterecord:'{{$record2->tlocal}}', intivalue:valuenya2, kentang:jujukan_id2 }
+        var newData2 = { lat: lats2, lng: longs2, name: '{{$record2->pos_name}}',vmax:valuemax2,vmin:valuemin2,daterecord:'{{$record2->tlocal}}', intivalue:valuenya2, kentang:jujukan_id2,debit:10,debitmax:10,debitmin:10,k1:k12,k2:k22,k3:k32 }
         console.log("newdata is here>>"+newData2)
         console.log(newData2)
         data_example2.push(newData2);
@@ -218,7 +224,7 @@
     
     const contoh = L.layerGroup();
     for (var i = 0; i < data_example.length; i++) {
-        var marker = L.marker([data_example[i]["lat"], data_example[i]["lng"]],{icon:redIcon}).bindPopup("<hr style='margin-bottom:5px;margin-top:5px;color:black;'><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Nama Pos :<b>"+data_example[i]["name"]+"</b></div><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Koordinat : BT "+data_example[i].lat+", LS "+data_example[i].lng+"</div><table class='table table-bordered' style='margin-bottom:5px;'><thead class='colorthead thead-dark'><tr><th scope=col' style='vertical-align: text-top;'>Parameter</th><th style='vertical-align: text-top;width:10rem;'>Nilai</th><th scope='col'>Data Max Sesaat</th><th scope='col'>Data Min Sesaat</th></tr></thead><tbody><tr><td>TMA</td><td>"+(data_example[i].intivalue/100).toFixed(2)+" m</td><td class='text-white' style='background:#a31919' >"+(data_example[i].vmax).toFixed(2)+" m</td><td class='text-white' style='background:#ff8c40;'>"+(data_example[i].vmin).toFixed(2)+" m</td></tr><tr><td>Debit</td><td> m<sup>3</sup>/s</td><td class='text-white' style='background:#a31919' > m<sup>3</sup>/s</td><td class='text-white' style='background:#ff8c40;'> m<sup>3</sup>/s</td></tr></tbody></table><div class='mt-1'><div class='text-danger' style='margin-bottom:15px;font-style:italic;font-size:12px;'>Data Terakhir : "+data_example[i].daterecord+" &nbsp <i class='bx bxs-calendar'></i></div><a class='btn btn-sm btn-secondary text-light' href='{{ url('/hardwaretable/') }}/"+data_example[i].kentang+"'>> check detail </div>",{closeButton: false}).on('mouseover', function () {
+        var marker = L.marker([data_example[i]["lat"], data_example[i]["lng"]],{icon:redIcon}).bindPopup("<hr style='margin-bottom:5px;margin-top:5px;color:black;'><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Nama Pos :<b>"+data_example[i]["name"]+"</b></div><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Koordinat : BT "+data_example[i].lat+", LS "+data_example[i].lng+"</div><table class='table table-bordered' style='margin-bottom:5px;'><thead class='colorthead thead-dark'><tr><th scope=col' style='vertical-align: text-top;'>Parameter</th><th style='vertical-align: text-top;width:10rem;'>Nilai</th><th scope='col'>Data Max Sesaat</th><th scope='col'>Data Min Sesaat</th></tr></thead><tbody><tr><td>TMA</td><td>"+(data_example[i].intivalue)+" m</td><td class='text-white' style='background:#a31919' >"+(data_example[i].vmax).toFixed(2)+" m</td><td class='text-white' style='background:#ff8c40;'>"+(data_example[i].vmin).toFixed(2)+" m</td></tr><tr><td>Debit</td><td>"+(data_example[i].k1*Math.pow(parseFloat(data_example[i].intivalue) + parseFloat(data_example[i].k2),data_example[i].k3)).toFixed(2)+" m<sup>3</sup>/s</td><td class='text-white' style='background:#a31919' >"+(data_example[i].k1*Math.pow(data_example[i].vmax+data_example[i].k2,data_example[i].k3)).toFixed(2)+" m<sup>3</sup>/s</td><td class='text-white' style='background:#ff8c40;'>"+(data_example[i].k1*Math.pow(data_example[i].vmin+data_example[i].k2,data_example[i].k3)).toFixed(2)+" m<sup>3</sup>/s</td></tr></tbody></table><div class='mt-1'><div class='text-danger' style='margin-bottom:15px;font-style:italic;font-size:12px;'>Data Terakhir : "+data_example[i].daterecord+" &nbsp <i class='bx bxs-calendar'></i></div><a class='btn btn-sm btn-secondary text-light' href='{{ url('/hardwaretable/') }}/"+data_example[i].kentang+"'>> check detail </div>",{closeButton: false}).on('mouseover', function () {
                 this.openPopup();
             }).openPopup();
         marker.addTo(contoh);
@@ -236,7 +242,7 @@
 
     const contoh2 = L.layerGroup();
     for (var i = 0; i < data_example2.length; i++) {
-        var marker3 = L.marker([data_example2[i]["lat"], data_example2[i]["lng"]],{icon:redIcon}).bindPopup("<hr style='margin-bottom:5px;margin-top:5px;color:black;'><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Nama Pos :<b>"+data_example2[i]["name"]+"</b></div><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Koordinat : BT "+data_example2[i].lat+", LS "+data_example2[i].lng+"</div><table class='table table-bordered' style='margin-bottom:5px;'><thead class='colorthead thead-dark'><tr><th scope=col' style='vertical-align: text-top;'>Parameter</th><th style='vertical-align: text-top;width:10rem;'>Nilai</th><th scope='col'>Data Max Sesaat</th><th scope='col'>Data Min Sesaat</th></tr></thead><tbody><tr><td>TMA</td><td>"+(data_example2[i].intivalue/100).toFixed(2)+" m</td><td class='text-white' style='background:#a31919' >"+(data_example2[i].vmax).toFixed(2)+" m</td><td class='text-white' style='background:#ff8c40;'>"+(data_example2[i].vmin).toFixed(2)+" m</td></tr><tr><td>Debit</td><td> m<sup>3</sup>/s</td><td class='text-white' style='background:#a31919' > m<sup>3</sup>/s</td><td class='text-white' style='background:#ff8c40;'> m<sup>3</sup>/s</td></tr></tbody></table><div class='mt-1'><div class='text-danger' style='margin-bottom:15px;font-style:italic;font-size:12px;'>Data Terakhir : "+data_example2[i].daterecord+" &nbsp <i class='bx bxs-calendar'></i></div><a class='btn btn-sm btn-secondary text-light' href='{{ url('/hardwaretable/') }}/"+data_example2[i].kentang+"'>> check detail </div>",{closeButton: false}).on('mouseover', function () {
+        var marker3 = L.marker([data_example2[i]["lat"], data_example2[i]["lng"]],{icon:redIcon}).bindPopup("<hr style='margin-bottom:5px;margin-top:5px;color:black;'><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Nama Pos :<b>"+data_example2[i]["name"]+"</b></div><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Koordinat : BT "+data_example2[i].lat+", LS "+data_example2[i].lng+"</div><table class='table table-bordered' style='margin-bottom:5px;'><thead class='colorthead thead-dark'><tr><th scope=col' style='vertical-align: text-top;'>Parameter</th><th style='vertical-align: text-top;width:10rem;'>Nilai</th><th scope='col'>Data Max Sesaat</th><th scope='col'>Data Min Sesaat</th></tr></thead><tbody><tr><td>TMA</td><td>"+(data_example2[i].intivalue)+" m</td><td class='text-white' style='background:#a31919' >"+(data_example2[i].vmax).toFixed(2)+" m</td><td class='text-white' style='background:#ff8c40;'>"+(data_example2[i].vmin).toFixed(2)+" m</td></tr><tr><td>Debit</td><td>"+(data_example2[i].k1*Math.pow(data_example2[i].intivalue+data_example2[i].k2,data_example2[i].k3)).toFixed(2)+" m<sup>3</sup>/s</td><td class='text-white' style='background:#a31919' >"+(data_example2[i].k1*Math.pow(data_example2[i].vmax+data_example2[i].k2,data_example2[i].k3)).toFixed(2)+" m<sup>3</sup>/s</td><td class='text-white' style='background:#ff8c40;'>"+(data_example2[i].k1*Math.pow(data_example2[i].vmin+data_example2[i].k2,data_example2[i].k3)).toFixed(2)+" m<sup>3</sup>/s</td></tr></tbody></table><div class='mt-1'><div class='text-danger' style='margin-bottom:15px;font-style:italic;font-size:12px;'>Data Terakhir : "+data_example2[i].daterecord+" &nbsp <i class='bx bxs-calendar'></i></div><a class='btn btn-sm btn-secondary text-light' href='{{ url('/hardwaretable/') }}/"+data_example2[i].kentang+"'>> check detail </div>",{closeButton: false}).on('mouseover', function () {
                 this.openPopup();
             }).openPopup();
         // console.log([[data_example2[i]["lat"]],[data_example2[i]["lng"]]])

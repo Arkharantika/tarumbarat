@@ -193,7 +193,7 @@
                             </form>
                         </div>
                         <div class="text-center mt-2 mb-2">
-                            <button class="btn btn-outline-dark" disabled><b>Q</b><sub>Debit</sub> = <b>K<sub>1</sub></b>*(TMA+<b>K<sub>2</sub></b>)<sup><b>K<sub>3</sub></b></sup> &nbsp&nbsp || &nbsp&nbsp <b>K</b> Pos ini = (K<sub>1</sub> : <b>{{$recorddetail->k1}}</b>), (K<sub>2</sub> : <b>{{$recorddetail->k2}}</b>),(K<sub>3</sub> : <b>{{$recorddetail->k3}}</b>)</button>
+                            <button class="btn btn-outline-dark" disabled><b>Q</b><sub>Debit</sub> = <b>a<sub>1</sub></b>*(TMA+<b>b<sub>2</sub></b>)<sup><b>c<sub>3</sub></b></sup> &nbsp&nbsp || &nbsp&nbsp <b>Konstanta</b> Pos ini = (<b>a<sub>1</sub></b> : {{$recorddetail->k1}}), (<b>b<sub>2</sub></b> : {{$recorddetail->k2}}),(<b>c<sub>3</sub></b> : {{$recorddetail->k3}})</button>
                         </div>
                         <table id="example2" class="table table-striped table-bordered text-center">
                             <thead>
