@@ -48,6 +48,46 @@
         .swal2-select{
             height: 35px;
         }
+        .card-bar {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            z-index: 1000;
+            width: 700px;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .card-bar img {
+            max-width: 100%;
+            max-height: 100%;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        .tutung {
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .tutung:hover {
+            transform: scale(1.2);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+            font-size: 20px;
+            color: #333;
+        }
+
     </style>
 
 </head>

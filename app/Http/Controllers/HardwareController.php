@@ -100,9 +100,10 @@ class HardwareController extends Controller
                     ->select(DB::raw('(trs_raw_d_gpa.tlocal) as hari'), DB::raw('(trs_raw_d_gpa.value) as nilai'))
                     ->get();
         // return $records;
-        $recordcctv = Hardware::join('image_ftp','image_ftp.img_num','=','mst_hardware.cctv')->get()->last();
-        // return $recordcctv;
-        return view('hardwaredetailcctv',compact('records','chance','recorddetail','awal','akhir','pilihannya','recordcctv'));
+        $recordcctv = Hardware::join('image_ftp','image_ftp.img_num','=','mst_hardware.cctv')->where('mst_hardware.kd_hardware', $id)->get()->last();
+	    $arrayimg = Hardware::join('image_ftp','image_ftp.img_num','=','mst_hardware.cctv')->where('mst_hardware.kd_hardware', $id)->get()->slice(-3);
+        //return $arrayimg;
+        return view('hardwaredetailcctv',compact('records','chance','recorddetail','awal','akhir','pilihannya','recordcctv','arrayimg'));
     }
 
     public function SelectGraphFromDateRange(Request $request,$id)

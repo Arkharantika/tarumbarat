@@ -17,7 +17,7 @@
                     <p class="card-text"></p>
                 </div>
                 <img src="{{asset('images/'.$recorddetail->foto_pos)}}" class="card-img-top" alt="..."
-                style="width: 100%;height: 100%;object-fit:cover;">
+                    style="width: 100%;height: 100%;object-fit:cover;">
             </div>
 
             <div class="container mt-1 " style="">
@@ -86,7 +86,7 @@
                     <!-- <div>kampret :</div>
                     <div>yuhu</div> -->
                     <div style="width:250px;text-align: right;">
-                    <a href="{{url('/editpos/'.$chance)}}" class="btn btn-primary btn-sm">Edit Data</a>
+                        <a href="{{url('/editpos/'.$chance)}}" class="btn btn-primary btn-sm">Edit Data</a>
                     </div>
                     <!-- <div></div> -->
                 </div>
@@ -110,8 +110,8 @@
                         aria-controls="tab3" aria-selected="false">Grafik</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" id="tab1-tab" data-toggle="" href="#tab4" role="tab"
-                        aria-controls="tab4" aria-selected="true">CCTV</a>
+                    <a class="nav-link active" id="tab1-tab" data-toggle="" href="#tab4" role="tab" aria-controls="tab4"
+                        aria-selected="true">CCTV</a>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
@@ -120,18 +120,35 @@
                         <div>
                             <div class="card">
                                 <div class="card-header"></div>
-                                <div class="card-body text-center">
-                                    @if($recorddetail->cctv == null)
-                                    <h3>
-                                        Tidak ada CCTV pada pos ini 
-                                    </h3>
-                                    <br>
-                                    <!-- c:\Users\M S I\Downloads\no-internet.png -->
-                                    <img src="{{ asset('images/no-internet.png') }}" alt="" class="rounded border border-dark" style="width:400px;">
-                                    @else
-                                    <img src="{{ url('../../contoh_pindahan/'.$recordcctv->img_name) }}" alt="">
-                                    @endif
+                                <div class="card-body d-flex justify-content-center text-center">
+                                    <div class="container">
+                                        @if($recorddetail->cctv == null)
+                                        <h3>
+                                            Tidak ada CCTV pada pos ini
+                                        </h3>
+                                        <br>
+                                        <!-- c:\Users\M S I\Downloads\no-internet.png -->
+                                        <img src="{{ asset('images/no-internet.png') }}" alt=""
+                                            class="rounded border border-dark" style="width:400px;">
+                                        @else
+                                        @foreach($arrayimg as $kentang => $hi)
+                                        <img onclick="tutungopen(this.src)" style="max-width: 20%;height: auto; cursor:pointer;"
+                                            class="tutung img-fluid rounded border border-dark mt-1"
+                                            src="{{ url('../../contoh_pindahan/'.$arrayimg[$kentang]->img_name) }}" alt="">
+                                            @endforeach
+                                        @endif
+                                        <!-- &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                    <div class="text-center">
+                                        @foreach($arrayimg as $row => $hi)
+                                        <button onclick="lightboxopen(this.innerHTML)" style="width:200px;">{{$arrayimg[$row]->img_name}}</button><br>
+                                        @endforeach
+                                    </div> -->
+                                    </div>
                                 </div>
+                            </div>
+                            <div style="display:none;" class="card-bar" id="uhuy">
+                                <span class="close-button" onclick="tutungclose()"> X </span>
+                                <img id="imgbox" src="{{ url('../../contoh_pindahan/'.$recordcctv->img_name) }}" alt="">
                             </div>
                         </div>
                     </div>
@@ -157,5 +174,33 @@
         // Scroll to the calculated position
         window.scrollTo(0, position);
     };
+
+    function tutungopen(content) {
+        console.log(content)
+        var tutungan = document.getElementById("uhuy")
+        tutungan.style.display = "flex";
+
+        var gambar = document.getElementById("imgbox")
+        var imageUrl = content;
+        gambar.src = imageUrl;
+
+    }
+
+    function tutungclose() {
+        var tutungan = document.getElementById("uhuy")
+        tutungan.style.display = "none";
+    }
+
+    function lightboxopen(content) {
+        var tutungan = document.getElementById("uhuy")
+        tutungan.style.display = "flex";
+
+        console.log(content)
+
+        var gambar = document.getElementById("imgbox")
+        var imageUrl = "../../../contoh_pindahan/" + content;
+        gambar.src = imageUrl;
+        console.log(gambar.src);
+    }
 </script>
 @endsection
