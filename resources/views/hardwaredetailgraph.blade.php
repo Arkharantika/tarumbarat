@@ -8,99 +8,89 @@
             <h3>DATA POS HARDWARE</h3>
         </div>
     </div>
+
     <div class="card">
-        <div class="card-body" style="display:flex;">
-            <!-- <img src="{{asset('images/telemetry_copy.jpg')}}" alt=""> -->
-
-            <div class="card shadow mt-4" style="width: 18rem; height:300px;">
-                <div class="card-header" style="background:silver;">
-                    <p class="card-text"></p>
-                </div>
-                <img src="{{asset('images/'.$recorddetail->foto_pos)}}" class="card-img-top" alt="..."
-                style="width: 100%;height: 100%;object-fit:cover;">
-            </div>
-
-            <div class="container mt-1 " style="">
-                <div>
-                    <hr>INFORMASI POS
-                </div>
-                <div style="">
-                    <div>
-                        <h1>POS {{$recorddetail->pos_name}}</h1>
-                        <!-- <h3>ID: {{$chance}}</h3> -->
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6 col-md-2">
+                    <div class=" card shadow mt-4" style=" height:250px;">
+                        <div class="card-header" style="background:silver;">
+                            <p class="card-text"></p>
+                        </div>
+                        <img src="{{asset('images/'.$recorddetail->foto_pos)}}" class="card-img-top" alt="..."
+                            style="width: 100%;height: 100%;object-fit:cover;">
                     </div>
                 </div>
-                <br>
-                <div class="row row-cols-6">
-                    <div><b>> Nomor Pos</b></div>
-                    <div style="width:250px;">: {{$recorddetail->nomor_pos}}</div>
-                    <!-- <div></div> -->
-                    <div style="width:200px;"><b>> ID Hardware </b></div>
-                    <div style="width:200px;">: {{$chance}}</div>
-                    <div></div>
-                </div>
-                <div class="row row-cols-6">
-                    <div><b>> Desa </b></div>
-                    <div style="width:250px;">: {{$recorddetail->kd_desa}}</div>
-                    <!-- <div></div> -->
-                    <div style="width:200px;"><b>> Tahun Dibangun</b></div>
-                    <div style="width:200px;">: {{$recorddetail->thn_dibangun}}</div>
-                    <div></div>
-                </div>
-                <div class="row row-cols-6">
-                    <div><b>> Kecamatan </b></div>
-                    <div style="width:250px;">: {{$recorddetail->kd_kecamatan}}</div>
-                    <!-- <div></div> -->
-                    <div style="width:200px;"><b>> Didirikan Oleh </b></div>
-                    <div style="width:200px;">: {{$recorddetail->pendiri}}</div>
-                    <div></div>
-                </div>
-                <div class="row row-cols-6">
-                    <div><b>> Kabupaten </b></div>
-                    <div style="width:250px;">: {{$recorddetail->kd_kabupaten}}</div>
-                    <!-- <div></div> -->
-                    <div style="width:200px;"><b>> Wilayah Sungai </b></div>
-                    <div style="width:200px;">: {{$recorddetail->wilayah_sungai}}</div>
-                    <div></div>
-                </div>
-                <div class="row row-cols-6">
-                    <div><b>> Provinsi </b></div>
-                    <div style="width:250px;">: {{$recorddetail->kd_provinsi}}</div>
-                    <!-- <div></div> -->
-                    <div style="width:200px;"><b>> Elevasi </b></div>
-                    <div style="width:200px;">: {{$recorddetail->elevasi}}</div>
-                    <div></div>
-                </div>
-                <div class="row row-cols-6">
-                    <div><b>> Koordinat </b></div>
-                    <div style="width:250px;">: LU {{$recorddetail->latitude}}</div>
-                    <!-- <div></div> -->
-                    <!-- <div>kampret :</div>
-                    <div>yuhu</div> -->
-                    <div></div>
-                </div>
-                <div class="row row-cols-6">
-                    <div></div>
-                    <div style="width:250px;">: LS {{$recorddetail->longitude}}</div>
-                    <div></div>
-                    <!-- <div>kampret :</div>
-                    <div>yuhu</div> -->
-                    <div style="width:250px;text-align: right;">
-                    <a href="{{url('/editpos/'.$chance)}}" class="btn btn-primary btn-sm">Edit Data</a>
+
+                <div class="col-12 col-sm-6 col-md-10">
+                    <div class="container mt-1">
+                        <div>
+                            <hr>INFORMASI POS
+                        </div>
+                        <div style="">
+                            <div>
+                                <h1>POS {{$recorddetail->pos_name}}</h1>
+                            </div>
+                        </div>
+                        <div></div>
+                        <div class="row">
+                            <div class="col-6 col-sm-3"><b>Nomor Pos</b></div>
+                            <div class="col-6 col-sm-3">: {{$recorddetail->nomor_pos}}</div>
+                            <div class="col-6 col-sm-3"><b>ID Hardware </b></div>
+                            <div class="col-6 col-sm-3">: {{$chance}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-sm-3"><b>Desa </b></div>
+                            <div class="col-6 col-sm-3">: {{$recorddetail->kd_desa}}</div>
+                            <div class="col-6 col-sm-3"><b>Tahun Dibangun</b></div>
+                            <div class="col-6 col-sm-3">: {{$recorddetail->thn_dibangun}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-sm-3"><b>Kecamatan </b></div>
+                            <div class="col-6 col-sm-3">: {{$recorddetail->kd_kecamatan}}</div>
+                            <div class="col-6 col-sm-3"><b>Didirikan Oleh </b></div>
+                            <div class="col-6 col-sm-3">: {{$recorddetail->pendiri}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-sm-3"><b>Kabupaten </b></div>
+                            <div class="col-6 col-sm-3">: {{$recorddetail->kd_kabupaten}}</div>
+                            <div class="col-6 col-sm-3"><b>Wilayah Sungai </b></div>
+                            <div class="col-6 col-sm-3">: {{$recorddetail->wilayah_sungai}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-sm-3"><b>Provinsi </b></div>
+                            <div class="col-6 col-sm-3">: {{$recorddetail->kd_provinsi}}</div>
+                            <div class="col-6 col-sm-3"><b>Elevasi </b></div>
+                            <div class="col-6 col-sm-3">: {{$recorddetail->elevasi}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-sm-3"><b>Koordinat </b></div>
+                            <div class="col-6 col-sm-3">: LU {{$recorddetail->latitude}}</div>
+                            <div class="col-6 col-sm-3"></div>
+                            <div class="col-6 col-sm-3"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-sm-3"></div>
+                            <div class="col-6 col-sm-3">: LS {{$recorddetail->longitude}}</div>
+                            <div class="col-6 col-sm-3"></div>
+                            <div class="col-6 col-sm-3">
+                                <a href="{{url('/editpos/'.$chance)}}" class="btn btn-primary btn-sm">Edit Data</a>
+                            </div>
+                        </div>
                     </div>
-                    <!-- <div></div> -->
                 </div>
             </div>
         </div>
     </div>
+
     <div class="card">
         <div class="card-body">
 
             <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <!-- <li class="nav-item">
+                <!--<li class="nav-item">
                     <a class="nav-link" id="" data-toggle="" href="{{url('/hardware/'.$chance)}}" role="tab"
-                        aria-controls="tab1">Informasi</a>
-                </li> -->
+                        aria-controls="tab1">Informasi</a>-->
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" id="" data-toggle="" href="{{url('/hardwaretable/'.$chance)}}" role="tab"
                         aria-controls="tab2" aria-selected="false">Data Telemetry</a>
@@ -110,21 +100,21 @@
                         aria-controls="tab3" aria-selected="true">Grafik</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="" data-toggle="" href="{{url('/hardwarecctv/'.$chance)}}" role="" aria-controls=""
-                        aria-selected="false">CCTV</a>
+                    <a class="nav-link" id="" data-toggle="" href="{{url('/hardwarecctv/'.$chance)}}" role=""
+                        aria-controls="" aria-selected="false">CCTV</a>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">
                     <div class="container mt-3">
 
-                    <div style="display:flex; justify-content:space-between;">
+                        <div class="">
                             <form action="{{url('/hardwaregraphrange/'.$chance)}}" method="post">
                                 @method('POST')
                                 @csrf
                                 <!-- <input type="text"> -->
-                                <div style="display:flex;">
-                                    <div class="row">
+                                <div class="row">
+                                    <div class="col-6 col-sm-3 mb-1">
                                         <!-- <div class="col-sm-3"> -->
                                         <div class="form-group">
                                             <select class="form-select" aria-label="" name="pilihan" id="option"
@@ -136,50 +126,41 @@
                                                 <option value="harian">interval harian</option>
                                                 <option value="bulanan">interval bulanan</option>
                                                 @if ($pilihannya==null)
-                                                <option value="interval kirim" selected >interval kirim</option>
+                                                <option value="interval kirim" selected>interval kirim</option>
                                                 @else
-                                                <option value="{{$pilihannya}}" selected >{{$pilihannya}}</option>
+                                                <option value="{{$pilihannya}}" selected>{{$pilihannya}}</option>
                                                 @endif
                                             </select>
                                             <!-- </div> -->
                                         </div>
                                     </div>
-                                    &nbsp&nbsp
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="">Tanggal Mulai ></span>
+
+                                    <div class="btn-group col-6 col-sm-3 mb-1" role="group" style="height:40px">
+                                        <button type="button" class="btn btn-secondary btn-sm sm-3" disabled>
+                                            Mulai</button>
+                                        <input type="date" class="form-control sm-3" id="fixedWidthInput"
+                                            value="{{$awal}}" name="startdate" style="width: auto;" required>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <div class="form-group">
-                                                <input type="date" class="form-control" id="fixedWidthInput"
-                                                    value="{{$awal}}" name="startdate" style="width: auto;" required>
-                                            </div>
-                                        </div>
+
+                                    <div class="btn-group col-6 col-sm-3 mb-1" role="group" style="height:40px">
+                                        <button type="button" class="btn btn-secondary btn-sm sm-3"
+                                            disabled>Berhenti</button>
+                                        <input type="date" class="form-control sm-3" id="fixedWidthInput"
+                                            value="{{$akhir}}" name="enddate" style="width: auto;" required>
                                     </div>
-                                    &nbsp&nbsp
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="">Tanggal Berhenti ></span>
+
+                                    <div class="btn-group col-6 col-sm-3 mb-1" role="group" style="height:40px">
+                                        <button type="submit" class="btn btn-primary btn-sm"><i
+                                                class='bx bx-search'></i> Cari</button>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <div class="form-group">
-                                                <!-- <label for="fixedWidthInput">Fixed Width Input:</label> -->
-                                                <input type="date" class="form-control" id="fixedWidthInput"
-                                                    value="{{$akhir}}" name="enddate" style="width: auto;" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    &nbsp&nbsp
-                                    <!-- <button></button> -->
-                                    <button type="submit" class="btn btn-primary mb-3"><i
-                                            class='bx bx-search'></i></button>
+
                                 </div>
                             </form>
                         </div>
-                        
-                        
-                    <button id="downloadChartButton" class="btn btn-sm btn-outline-success mb-3"> <i class='bx bxs-download'></i>Download Chart 1 </button>
-                    <div class="col mb-4">
+
+                        <button id="downloadChartButton" class="btn btn-sm btn-outline-success mb-3"> <i
+                                class='bx bxs-download'></i>Download Chart 1 </button>
+                        <div class="col mb-4">
                             <div class="card">
                                 <div class="card-header text-center">
                                     Tinggi Muka Air (m)
@@ -188,10 +169,11 @@
                                     <canvas id="chart2"></canvas>
                                 </div>
                             </div>
-                    </div>
-                    
-                    <button id="downloadChartButton2" class="btn btn-sm btn-outline-success mb-3"> <i class='bx bxs-download'></i>Download Chart 2 </button>
-                    <div class="col mb-4">
+                        </div>
+
+                        <button id="downloadChartButton2" class="btn btn-sm btn-outline-success mb-3"> <i
+                                class='bx bxs-download'></i>Download Chart 2 </button>
+                        <div class="col mb-4">
                             <div class="card">
                                 <div class="card-header text-center">
                                     Debit Air (m<sup>3</sup>/s)
@@ -201,29 +183,28 @@
                                 </div>
                             </div>
                         </div>
-                </div>
-                <div class="tab-pane fade" id="tab4" role="tabpanel" aria-labelledby="tab4-tab">
-                    <div class="container mt-3">
-                        CCTV
+                    </div>
+                    <div class="tab-pane fade" id="tab4" role="tabpanel" aria-labelledby="tab4-tab">
+                        <div class="container mt-3">
+                            CCTV
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-</div>
 @endsection
 
 @section('CustomScripts')
 <script>
-    
     var nilaivalue = [];
     var nilaihari = [];
     var nilaikosong = [];
     var exoteric = [];
     @foreach($records as $row => $kentang)
-        var nilainya = "{{($kentang->nilai)/100}}";
-        var exodus = {{$Q=($recorddetail->k1)*pow(($kentang->nilai)+($recorddetail->k2),($recorddetail->k3));}};
+        var nilainya = "{{$kentang->nilai}}";
+	var exodus = {{$Q=($recorddetail->k1)*pow(($kentang->nilai)+($recorddetail->k2),($recorddetail->k3));}};
         if (nilainya == null)
         {
             nilainya === 0;
@@ -233,7 +214,7 @@
         nilaivalue.push(nilainya)
         nilaihari.push(harinya)
         nilaikosong.push(kosong)
-        exoteric.push(exodus)
+	exoteric.push(exodus)
     @endforeach
     // console.log(nilaivalue);
     console.log(nilaihari)
@@ -254,6 +235,7 @@
         },
         options: {
             maintainAspectRatio: false,
+            responsive: true,
             scales: {
                 y: {
                     beginAtZero: false
@@ -278,6 +260,7 @@
         },
         options: {
             maintainAspectRatio: false,
+            responsive: true,
             scales: {
                 y: {
                     beginAtZero: false
@@ -287,24 +270,24 @@
     });
 
     var downloadButton = document.getElementById('downloadChartButton');
-        downloadButton.addEventListener('click', function () {
-            // Convert the chart to a base64 image and create a download link
-            var chartBase64 = chart2.toBase64Image();
-            var downloadLink = document.createElement('a');
-            downloadLink.href = chartBase64;
-            downloadLink.download = 'chart1.png';
-            downloadLink.click();
-        });
+    downloadButton.addEventListener('click', function () {
+        // Convert the chart to a base64 image and create a download link
+        var chartBase64 = chart2.toBase64Image();
+        var downloadLink = document.createElement('a');
+        downloadLink.href = chartBase64;
+        downloadLink.download = 'chart1.png';
+        downloadLink.click();
+    });
 
     var downloadButton2 = document.getElementById('downloadChartButton2');
-        downloadButton2.addEventListener('click', function () {
-            // Convert the chart to a base64 image and create a download link
-            var chartBase64 = chart3.toBase64Image();
-            var downloadLink = document.createElement('a');
-            downloadLink.href = chartBase64;
-            downloadLink.download = 'chart2.png';
-            downloadLink.click();
-        });
+    downloadButton2.addEventListener('click', function () {
+        // Convert the chart to a base64 image and create a download link
+        var chartBase64 = chart3.toBase64Image();
+        var downloadLink = document.createElement('a');
+        downloadLink.href = chartBase64;
+        downloadLink.download = 'chart2.png';
+        downloadLink.click();
+    });
 </script>
 <script>
     n = new Date();

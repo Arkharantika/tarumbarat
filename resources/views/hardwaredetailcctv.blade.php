@@ -8,99 +8,89 @@
             <h3>DATA POS HARDWARE</h3>
         </div>
     </div>
+
     <div class="card">
-        <div class="card-body" style="display:flex;">
-            <!-- <img src="{{asset('images/telemetry_copy.jpg')}}" alt=""> -->
-
-            <div class="card shadow mt-4" style="width: 18rem; height:300px;">
-                <div class="card-header" style="background:silver;">
-                    <p class="card-text"></p>
-                </div>
-                <img src="{{asset('images/'.$recorddetail->foto_pos)}}" class="card-img-top" alt="..."
-                    style="width: 100%;height: 100%;object-fit:cover;">
-            </div>
-
-            <div class="container mt-1 " style="">
-                <div>
-                    <hr>INFORMASI POS
-                </div>
-                <div style="">
-                    <div>
-                        <h1>POS {{$recorddetail->pos_name}}</h1>
-                        <!-- <h3>ID: {{$chance}}</h3> -->
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6 col-md-2">
+                    <div class=" card shadow mt-4" style=" height:250px;">
+                        <div class="card-header" style="background:silver;">
+                            <p class="card-text"></p>
+                        </div>
+                        <img src="{{asset('images/'.$recorddetail->foto_pos)}}" class="card-img-top" alt="..."
+                            style="width: 100%;height: 100%;object-fit:cover;">
                     </div>
                 </div>
-                <br>
-                <div class="row row-cols-6">
-                    <div><b>> Nomor Pos</b></div>
-                    <div style="width:250px;">: {{$recorddetail->nomor_pos}}</div>
-                    <!-- <div></div> -->
-                    <div style="width:200px;"><b>> ID Hardware </b></div>
-                    <div style="width:200px;">: {{$chance}}</div>
-                    <div></div>
-                </div>
-                <div class="row row-cols-6">
-                    <div><b>> Desa </b></div>
-                    <div style="width:250px;">: {{$recorddetail->kd_desa}}</div>
-                    <!-- <div></div> -->
-                    <div style="width:200px;"><b>> Tahun Dibangun</b></div>
-                    <div style="width:200px;">: {{$recorddetail->thn_dibangun}}</div>
-                    <div></div>
-                </div>
-                <div class="row row-cols-6">
-                    <div><b>> Kecamatan </b></div>
-                    <div style="width:250px;">: {{$recorddetail->kd_kecamatan}}</div>
-                    <!-- <div></div> -->
-                    <div style="width:200px;"><b>> Didirikan Oleh </b></div>
-                    <div style="width:200px;">: {{$recorddetail->pendiri}}</div>
-                    <div></div>
-                </div>
-                <div class="row row-cols-6">
-                    <div><b>> Kabupaten </b></div>
-                    <div style="width:250px;">: {{$recorddetail->kd_kabupaten}}</div>
-                    <!-- <div></div> -->
-                    <div style="width:200px;"><b>> Wilayah Sungai </b></div>
-                    <div style="width:200px;">: {{$recorddetail->wilayah_sungai}}</div>
-                    <div></div>
-                </div>
-                <div class="row row-cols-6">
-                    <div><b>> Provinsi </b></div>
-                    <div style="width:250px;">: {{$recorddetail->kd_provinsi}}</div>
-                    <!-- <div></div> -->
-                    <div style="width:200px;"><b>> Elevasi </b></div>
-                    <div style="width:200px;">: {{$recorddetail->elevasi}}</div>
-                    <div></div>
-                </div>
-                <div class="row row-cols-6">
-                    <div><b>> Koordinat </b></div>
-                    <div style="width:250px;">: LU {{$recorddetail->latitude}}</div>
-                    <!-- <div></div> -->
-                    <!-- <div>kampret :</div>
-                    <div>yuhu</div> -->
-                    <div></div>
-                </div>
-                <div class="row row-cols-6">
-                    <div></div>
-                    <div style="width:250px;">: LS {{$recorddetail->longitude}}</div>
-                    <div></div>
-                    <!-- <div>kampret :</div>
-                    <div>yuhu</div> -->
-                    <div style="width:250px;text-align: right;">
-                        <a href="{{url('/editpos/'.$chance)}}" class="btn btn-primary btn-sm">Edit Data</a>
+
+                <div class="col-12 col-sm-6 col-md-10">
+                    <div class="container mt-1">
+                        <div>
+                            <hr>INFORMASI POS
+                        </div>
+                        <div style="">
+                            <div>
+                                <h1>POS {{$recorddetail->pos_name}}</h1>
+                            </div>
+                        </div>
+                        <div></div>
+                        <div class="row">
+                            <div class="col-6 col-sm-3"><b>Nomor Pos</b></div>
+                            <div class="col-6 col-sm-3">: {{$recorddetail->nomor_pos}}</div>
+                            <div class="col-6 col-sm-3"><b>ID Hardware </b></div>
+                            <div class="col-6 col-sm-3">: {{$chance}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-sm-3"><b>Desa </b></div>
+                            <div class="col-6 col-sm-3">: {{$recorddetail->kd_desa}}</div>
+                            <div class="col-6 col-sm-3"><b>Tahun Dibangun</b></div>
+                            <div class="col-6 col-sm-3">: {{$recorddetail->thn_dibangun}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-sm-3"><b>Kecamatan </b></div>
+                            <div class="col-6 col-sm-3">: {{$recorddetail->kd_kecamatan}}</div>
+                            <div class="col-6 col-sm-3"><b>Didirikan Oleh </b></div>
+                            <div class="col-6 col-sm-3">: {{$recorddetail->pendiri}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-sm-3"><b>Kabupaten </b></div>
+                            <div class="col-6 col-sm-3">: {{$recorddetail->kd_kabupaten}}</div>
+                            <div class="col-6 col-sm-3"><b>Wilayah Sungai </b></div>
+                            <div class="col-6 col-sm-3">: {{$recorddetail->wilayah_sungai}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-sm-3"><b>Provinsi </b></div>
+                            <div class="col-6 col-sm-3">: {{$recorddetail->kd_provinsi}}</div>
+                            <div class="col-6 col-sm-3"><b>Elevasi </b></div>
+                            <div class="col-6 col-sm-3">: {{$recorddetail->elevasi}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-sm-3"><b>Koordinat </b></div>
+                            <div class="col-6 col-sm-3">: LU {{$recorddetail->latitude}}</div>
+                            <div class="col-6 col-sm-3"></div>
+                            <div class="col-6 col-sm-3"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-sm-3"></div>
+                            <div class="col-6 col-sm-3">: LS {{$recorddetail->longitude}}</div>
+                            <div class="col-6 col-sm-3"></div>
+                            <div class="col-6 col-sm-3">
+                                <a href="{{url('/editpos/'.$chance)}}" class="btn btn-primary btn-sm">Edit Data</a>
+                            </div>
+                        </div>
                     </div>
-                    <!-- <div></div> -->
                 </div>
             </div>
         </div>
     </div>
+
     <div class="card">
         <div class="card-body">
 
             <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <!-- <li class="nav-item">
+                <!--<li class="nav-item">
                     <a class="nav-link" id="" data-toggle="" href="{{url('/hardware/'.$chance)}}" role="tab"
                         aria-controls="tab1" aria-selected="false">Informasi</a>
-                </li> -->
+                </li>-->
                 <li class="nav-item">
                     <a class="nav-link" id="" data-toggle="" href="{{url('/hardwaretable/'.$chance)}}" role="tab"
                         aria-controls="tab2" aria-selected="false">Data Telemetry</a>
@@ -118,6 +108,38 @@
                 <div class="tab-pane fade show active" id="tab4" role="tabpanel" aria-labelledby="tab4-tab">
                     <div class="container mt-3">
                         <div>
+                            <!-- SEARCH FORM -->
+                            <div class="">
+                                <form action="{{url('/hardwarecctvrange/'.$chance)}}" method="post">
+                                    @method('POST')
+                                    @csrf
+                                    <!-- <input type="text"> -->
+                                    <div class="row">
+
+                                        <div class="btn-group col-6 col-sm-3 mb-1" role="group" style="height:40px">
+                                            <button type="button" class="btn btn-secondary btn-sm sm-3" disabled>
+                                                Mulai</button>
+                                            <input type="date" class="form-control sm-3" id="fixedWidthInput"
+                                                value="{{$awal}}" name="startdate" style="width: auto;" required>
+                                        </div>
+
+                                        <div class="btn-group col-6 col-sm-3 mb-1" role="group" style="height:40px">
+                                            <button type="button" class="btn btn-secondary btn-sm sm-3"
+                                                disabled>Berhenti</button>
+                                            <input type="date" class="form-control sm-3" id="fixedWidthInput"
+                                                value="{{$akhir}}" name="enddate" style="width: auto;" required>
+                                        </div>
+
+                                        <div class="btn-group col-6 col-sm-3 mb-1" role="group" style="height:40px">
+                                            <button type="submit" class="btn btn-primary btn-sm"><i
+                                                    class='bx bx-search'></i> Cari</button>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- BATAS AKHIR SEARCH FORM -->
+
                             <div class="card">
                                 <div class="card-header"></div>
                                 <div class="card-body d-flex justify-content-center text-center">
@@ -132,10 +154,11 @@
                                             class="rounded border border-dark" style="width:400px;">
                                         @else
                                         @foreach($arrayimg as $kentang => $hi)
-                                        <img onclick="tutungopen(this.src)" style="max-width: 20%;height: auto; cursor:pointer;"
+                                        <img onclick="tutungopen(this.src)"
+                                            style="max-width: 20%;height: auto;cursor:pointer;"
                                             class="tutung img-fluid rounded border border-dark mt-1"
                                             src="{{ url('../../contoh_pindahan/'.$arrayimg[$kentang]->img_name) }}" alt="">
-                                            @endforeach
+                                        @endforeach
                                         @endif
                                         <!-- &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                     <div class="text-center">
@@ -148,8 +171,10 @@
                             </div>
                             <div style="display:none;" class="card-bar" id="uhuy">
                                 <span class="close-button" onclick="tutungclose()"> X </span>
-                                <img id="imgbox" src="{{ url('../../contoh_pindahan/'.$recordcctv->img_name) }}" alt="">
+                                <img id="imgbox" src="{{ url('../../ftp_logger/totalcamera/'.$recordcctv->img_name) }}"
+                                    alt="">
                             </div>
+
                         </div>
                     </div>
                 </div>

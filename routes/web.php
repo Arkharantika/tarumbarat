@@ -42,6 +42,7 @@ Route::get('/hardwarecctv/{id}', [HardwareController::class, 'HardwareDetailCCTV
 
 Route::post('/hardwaredaterange/{id}', [HardwareController::class, 'SelectDataFromDateRange'])->name('SelectDataFromDateRange');
 Route::post('/hardwaregraphrange/{id}', [HardwareController::class, 'SelectGraphFromDateRange'])->name('SelectGraphFromDateRange');
+Route::post('/hardwarecctvrange/{id}', [HardwareController::class, 'SelectCCTVFromDateRange'])->name('SelectCCTVFromDateRange');
 // Route::post('/hardwaredaterange/{id}')
 
 // >>> FOR HOME
