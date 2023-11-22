@@ -103,7 +103,12 @@ class HardwareController extends Controller
         // return $records;
         $recordcctv = Hardware::join('image_ftp','image_ftp.img_num','=','mst_hardware.cctv')->where('mst_hardware.kd_hardware', $id)->get()->last();
         $arrayimg = Hardware::join('image_ftp','image_ftp.img_num','=','mst_hardware.cctv')->where('mst_hardware.kd_hardware', $id)->get()->slice(-3);
-        //return $arrayimg;
+        if (!isset($recordcctv)){
+            $recordcctv= ["img_name"=>"volvo"];
+        }
+        // $kentang = Hardware::where("kd_hardware",$id)->get();
+        // $kentang = Hardware::all();
+        // return $kentang;
         return view('hardwaredetailcctv',compact('records','chance','recorddetail','awal','akhir','pilihannya','recordcctv','arrayimg'));
     }
 
