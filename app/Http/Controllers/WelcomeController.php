@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\Hardware;
 use App\Models\RawData;
 
+use App\Models\BagiInduk;
+use App\Models\BagiSekunder;
+use App\Models\Bendung;
+use App\Models\TitikLokasiAirBaku;
+
 class WelcomeController extends Controller
 {
     public function index()
@@ -68,7 +73,12 @@ class WelcomeController extends Controller
         }
         // return $non_ars;
         // return response()->json($ars); 
-        return view('welcome',compact('ars','ars_max','ars_min','non_ars','non_ars_max','non_ars_min'));
+        $bagiInduk = BagiInduk::all();
+        $bagiSekunder = BagiSekunder::all();
+        $bendung = Bendung::all();
+        $titikLokasi = TitikLokasiAirBaku::all();
+        // return $bendung;
+        return view('welcome',compact('ars','ars_max','ars_min','non_ars','non_ars_max','non_ars_min','bagiInduk','bagiSekunder','bendung','titikLokasi'));
     }
 
     public function LandingPage()

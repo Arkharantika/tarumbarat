@@ -129,6 +129,10 @@
     // });
 
     var redIcon = L.divIcon({className: 'leaflet-div-ser',iconSize:[20,20]});
+    var iconmerah = L.icon({iconUrl: '{{asset('images/iconmerah.png')}}',iconSize: [20, 20] })
+    var iconhijau = L.icon({iconUrl: '{{asset('images/iconhijau.png')}}',iconSize: [20, 20] })
+    var iconbiru = L.icon({iconUrl: '{{asset('images/iconbiru.png')}}',iconSize: [20, 20] })
+    var iconkuning = L.icon({iconUrl: '{{asset('images/iconkuning.png')}}',iconSize: [20, 20] })
 
     const cities = L.layerGroup();
     const mLittleton = L.marker([-6.483933471250634, 107.38204782273243],{icon: redIcon}).bindPopup('BM 1, Jembatan Merah').addTo(cities);
@@ -153,6 +157,22 @@
     var data_example2 = [
         { lat: -10.2500114, lng: 123.9895103, name: 'Marker 1',vmax:20,vmin:20,daterecord:20, intivalue:30,kentang:4150,debit:10,debitmax:10,debitmin:10,k1:1,k2:2,k3:3 }
         // Add more data here...
+    ];
+
+    var data_bagi_induk = [
+        { lat: -10.2500114, lng: 123.9895103, name: 'Marker 1' }
+    ];
+
+    var data_bagi_sekunder = [
+        { lat: -10.2500114, lng: 123.9895103, name: 'Marker 1' }
+    ];
+
+    var data_bendung = [
+        { lat: -10.2500114, lng: 123.9895103, name: 'Marker 1' }
+    ];
+
+    var data_titik_lokasi = [
+        { lat: -10.2500114, lng: 123.9895103, name: 'Marker 1' }
     ];
 
     @foreach($ars as $kentang => $record)
@@ -191,9 +211,42 @@
         data_example2.push(newData2);
     @endforeach
 
+    @foreach($bagiInduk as $peng => $rugat)
+        var nama_bangunan = "{{ $rugat->nama_bangunan }}";
+        var lat = {{$rugat->y}};
+        var lng = {{$rugat->x}};
+        var dataBaru = { lat: lat, lng: lng, name: nama_bangunan }
+        data_bagi_induk.push(dataBaru)
+    @endforeach
+
+    @foreach($bagiSekunder as $peng2 => $rugat2)
+        var nama_bangunan2 = "{{ $rugat2->nama_bendung }}";
+        var lat2 = {{$rugat2->y}};
+        var lng2 = {{$rugat2->x}};
+        var dataBaru2 = { lat: lat2, lng: lng2, name: nama_bangunan2 }
+        data_bagi_sekunder.push(dataBaru2)
+    @endforeach
+
+    @foreach($bendung as $peng3 => $rugat3)
+        var nama_bangunan3 = "{{ $rugat3->name }}";
+        var lat3 = {{$rugat3->y}};
+        var lng3 = {{$rugat3->x}};
+        var dataBaru3 = { lat: lat3, lng: lng3, name: nama_bangunan3 }
+        data_bendung.push(dataBaru3)
+    @endforeach
+
+    @foreach($titikLokasi as $peng4 => $rugat4)
+        var nama_bangunan4 = "{{ $rugat4->name }}";
+        var lat4 = {{$rugat4->y}};
+        var lng4 = {{$rugat4->x}};
+        var dataBaru4 = { lat: lat4, lng: lng4, name: nama_bangunan4 }
+        data_titik_lokasi.push(dataBaru4)
+    @endforeach
+
     
     console.log("kampret >>>")
-    console.log(data_example2)
+    console.log(data_titik_lokasi)
+    // console.log(data_example2)
     //console.log(data_example[0]["name"]);
 
     // <==== BAGIAN DEMO ===>
@@ -250,6 +303,40 @@
         marker3.addTo(contoh2);
     }
 
+    const contoh_bagi_induk = L.layerGroup();
+    for (var i = 0; i < data_bagi_induk.length; i++) {
+        var marker_bagi_induk = L.marker([data_bagi_induk[i]["lat"], data_bagi_induk[i]["lng"]],{icon:iconmerah}).bindPopup("",{closeButton: false}).on('mouseover', function () {
+                this.openPopup();
+            }).openPopup();
+        marker_bagi_induk.addTo(contoh_bagi_induk);
+    }
+
+    const contoh_bagi_sekunder = L.layerGroup();
+    for (var i = 0; i < data_bagi_sekunder.length; i++) {
+        var marker_bagi_sekunder = L.marker([data_bagi_sekunder[i]["lat"], data_bagi_sekunder[i]["lng"]],{icon:iconhijau}).bindPopup("",{closeButton: false}).on('mouseover', function () {
+                this.openPopup();
+            }).openPopup();
+        marker_bagi_sekunder.addTo(contoh_bagi_sekunder);
+    }
+
+    const contoh_bendung = L.layerGroup();
+    for (var i = 0; i < data_bendung.length; i++) {
+        var marker_bendung = L.marker([data_bendung[i]["lat"], data_bendung[i]["lng"]],{icon:iconbiru}).bindPopup("",{closeButton: false}).on('mouseover', function () {
+                this.openPopup();
+            }).openPopup();
+        marker_bendung.addTo(contoh_bendung);
+    }
+
+    const contoh_titik_lokasi = L.layerGroup();
+    for (var i = 0; i < data_titik_lokasi.length; i++) {
+        var marker_titik = L.marker([data_titik_lokasi[i]["lat"], data_titik_lokasi[i]["lng"]],{icon:iconkuning}).bindPopup("",{closeButton: false}).on('mouseover', function () {
+                this.openPopup();
+            }).openPopup();
+        marker_titik.addTo(contoh_titik_lokasi);
+    }
+
+    
+
     // var marker2 = L.marker([-6, 107],{icon:redIcon})
     //     marker2.addTo(contoh2);
 
@@ -286,7 +373,7 @@
             fillColor: '#7FFFD4',
             color:'#20B2AA'
         }
-    }).addTo(kentangGoreng);
+    });
 
     var polygonData2 = L.geoJSON(tambahan_wilayah, {
         onEachFeature: function (feature, layer) {
@@ -307,7 +394,7 @@
             fillColor: '#008B8B',
             color:'#1E90FF'
         }
-    }).addTo(kentangGoreng);
+    });
 
     // console.log("jungul woy"+kentang)
     const overlays = {
@@ -315,6 +402,10 @@
         // 'POS PJT II': cities,
         'Wilayah DAS': polygonData,
         'Wilayah Daerah Kerja': polygonData2,
+        'Titik Bagi Induk': contoh_bagi_induk ,
+        'Titik Bagi Sekunder': contoh_bagi_sekunder ,
+        'Lokasi Bendung': contoh_bendung ,
+        'Lokasi Air Baku': contoh_titik_lokasi ,
     };
 
     // const layerControl = L.control.layers(null, overlays).addTo(map);
