@@ -160,19 +160,19 @@
     ];
 
     var data_bagi_induk = [
-        { lat: -10.2500114, lng: 123.9895103, name: 'Marker 1' }
+        // { lat: -10.2500114, lng: 123.9895103, name: 'Marker 1' }
     ];
 
     var data_bagi_sekunder = [
-        { lat: -10.2500114, lng: 123.9895103, name: 'Marker 1' }
+        // { lat: -10.2500114, lng: 123.9895103, name: 'Marker 1' }
     ];
 
     var data_bendung = [
-        { lat: -10.2500114, lng: 123.9895103, name: 'Marker 1' }
+        // { lat: -10.2500114, lng: 123.9895103, name: 'Marker 1' }
     ];
 
     var data_titik_lokasi = [
-        { lat: -10.2500114, lng: 123.9895103, name: 'Marker 1' }
+        // { lat: -10.2500114, lng: 123.9895103, name: 'Marker 1' }
     ];
 
     @foreach($ars as $kentang => $record)
@@ -213,25 +213,37 @@
 
     @foreach($bagiInduk as $peng => $rugat)
         var nama_bangunan = "{{ $rugat->nama_bangunan }}";
+        var kode = "{{ $rugat->kode }}";
+        var luas = "{{ $rugat->luas_area }}";
+        var debit = "{{ $rugat->debit }}";
+        var jumlah_pintu = "{{ $rugat->jumlah_pintu }}";
+        var main_intake = "{{ $rugat->main_intake }}";
         var lat = {{$rugat->y}};
         var lng = {{$rugat->x}};
-        var dataBaru = { lat: lat, lng: lng, name: nama_bangunan }
+        var dataBaru = { lat: lat, lng: lng, name: nama_bangunan, luas:luas, debit:debit, jumlah_pintu:jumlah_pintu, main_intake:main_intake, kode:kode }
         data_bagi_induk.push(dataBaru)
     @endforeach
 
     @foreach($bagiSekunder as $peng2 => $rugat2)
-        var nama_bangunan2 = "{{ $rugat2->nama_bendung }}";
+        var nama_bangunan2 = "{{ $rugat2->nama_ss }}";
+        var kode2 = "{{ $rugat2->kode_bangunan }}";
         var lat2 = {{$rugat2->y}};
         var lng2 = {{$rugat2->x}};
-        var dataBaru2 = { lat: lat2, lng: lng2, name: nama_bangunan2 }
+        var saluran_induk = "{{$rugat2->saluran_induk}}";
+        var type = "{{$rugat2->type}}";
+        var jumlah_pintu2 = "{{ $rugat->jumlah_pintu }}";
+        var pengamat = "{{ $rugat->pengamat }}";
+        var dataBaru2 = { lat: lat2, lng: lng2, name: nama_bangunan2, jumlah_pintu:jumlah_pintu, saluran_induk:saluran_induk, kode:kode2, type:type, pengamat:pengamat }
         data_bagi_sekunder.push(dataBaru2)
     @endforeach
 
     @foreach($bendung as $peng3 => $rugat3)
-        var nama_bangunan3 = "{{ $rugat3->name }}";
+        var nama_bangunan3 = "{{ $rugat3->nama_bendung }}";
         var lat3 = {{$rugat3->y}};
         var lng3 = {{$rugat3->x}};
-        var dataBaru3 = { lat: lat3, lng: lng3, name: nama_bangunan3 }
+        var lokasi = "{{$rugat3->lokasi}}";
+        var elevasi = "{{$rugat3->elevation}}";
+        var dataBaru3 = { lat: lat3, lng: lng3, name: nama_bangunan3, lokasi:lokasi, elevasi:elevasi }
         data_bendung.push(dataBaru3)
     @endforeach
 
@@ -239,14 +251,16 @@
         var nama_bangunan4 = "{{ $rugat4->name }}";
         var lat4 = {{$rugat4->y}};
         var lng4 = {{$rugat4->x}};
-        var dataBaru4 = { lat: lat4, lng: lng4, name: nama_bangunan4 }
+        var lokasi4 = "{{$rugat4->lokasi}}";
+        var divisi = "{{$rugat4->divisi}}";
+        var intake_max = "{{$rugat4->intake_max}}";
+        var dataBaru4 = { lat: lat4, lng: lng4, name: nama_bangunan4, lokasi:lokasi4, divisi:divisi, intake_max:intake_max }
         data_titik_lokasi.push(dataBaru4)
     @endforeach
 
     
     console.log("kampret >>>")
     console.log(data_titik_lokasi)
-    // console.log(data_example2)
     //console.log(data_example[0]["name"]);
 
     // <==== BAGIAN DEMO ===>
@@ -278,7 +292,7 @@
     
     const contoh = L.layerGroup();
     for (var i = 0; i < data_example.length; i++) {
-        var marker = L.marker([data_example[i]["lat"], data_example[i]["lng"]],{icon:redIcon}).bindPopup("<hr style='margin-bottom:5px;margin-top:5px;color:black;'><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Nama Pos :<b>"+data_example[i]["name"]+"</b></div><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Koordinat : BT "+data_example[i].lat+", LS "+data_example[i].lng+"</div><table class='table table-bordered' style='margin-bottom:5px;'><thead class='colorthead thead-dark'><tr><th scope=col' style='vertical-align: text-bottom;'>Parameter</th><th class='w-auto' style='vertical-align: text-top;'>Nilai</th><th scope='col' style='vertical-align: text-top;'>Data Max Sesaat</th><th scope='col' style='vertical-align: text-top;'>Data Min Sesaat</th></tr></thead><tbody><tr><td>TMA</td><td>"+(data_example[i].intivalue)+" m</td><td class='text-white' style='background:#a31919' >"+(data_example[i].vmax).toFixed(2)+" m</td><td class='text-white' style='background:#ff8c40;'>"+(data_example[i].vmin).toFixed(2)+" m</td></tr><tr><td>Debit</td><td>"+(data_example[i].k1*Math.pow(parseFloat(data_example[i].intivalue) + parseFloat(data_example[i].k2),data_example[i].k3)).toFixed(2)+"&nbspm<sup>3</sup>/s</td><td class='text-white' style='background:#a31919' >"+(data_example[i].k1*Math.pow(data_example[i].vmax+data_example[i].k2,data_example[i].k3)).toFixed(2)+"&nbspm<sup>3</sup>/s</td><td class='text-white' style='background:#ff8c40;'>"+(data_example[i].k1*Math.pow(data_example[i].vmin+data_example[i].k2,data_example[i].k3)).toFixed(2)+"&nbspm<sup>3</sup>/s</td></tr></tbody></table><div class='mt-1'><div class='text-danger' style='margin-bottom:15px;font-style:italic;font-size:12px;'>Data Terakhir : "+data_example[i].daterecord+" &nbsp <i class='bx bxs-calendar'></i></div><a class='btn btn-sm btn-secondary text-light' href='{{ url('/hardwaretable/') }}/"+data_example[i].kentang+"'>> check detail </div>",{closeButton: false}).on('mouseover', function () {
+        var marker = L.marker([data_example[i]["lat"], data_example[i]["lng"]],{icon:redIcon}).bindPopup("<hr style='margin-bottom:5px;margin-top:5px;color:black;'><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Nama Pos :<b>"+data_example[i]["name"]+"</b></div><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Koordinat : BT "+data_example[i].lat+", LS "+data_example[i].lng+"</div><table class='table table-bordered' style='margin-bottom:5px;'><thead class='colorthead thead-dark'><tr><th scope=col' style='vertical-align: text-bottom;'>Parameter</th><th class='w-auto' style='vertical-align: text-top;'>Nilai</th><th scope='col' style='vertical-align: text-top;'>Data Max Sesaat</th><th scope='col' style='vertical-align: text-top;'>Data Min Sesaat</th></tr></thead><tbody><tr><td>TMA</td><td>"+(data_example[i].intivalue)+" m</td><td class='text-white' style='background:#a31919' >"+(data_example[i].vmax).toFixed(2)+" m</td><td class='text-white' style='background:#ff8c40;'>"+(data_example[i].vmin).toFixed(2)+" m</td></tr><tr><td>Debit</td><td>"+(data_example[i].k1*Math.pow(parseFloat(data_example[i].intivalue) + parseFloat(data_example[i].k2),data_example[i].k3)).toFixed(2)+"&nbspm<sup>3</sup>/s</td><td class='text-white' style='background:#a31919' >"+(data_example[i].k1*Math.pow(data_example[i].vmax+data_example[i].k2,data_example[i].k3)).toFixed(2)+"&nbspm<sup>3</sup>/s</td><td class='text-white' style='background:#ff8c40;'>"+(data_example[i].k1*Math.pow(data_example[i].vmin+data_example[i].k2,data_example[i].k3)).toFixed(2)+"&nbspm<sup>3</sup>/s</td></tr></tbody></table><div class='mt-1'><div class='text-danger' style='margin-bottom:15px;font-style:italic;font-size:12px;'>Data Terakhir : "+data_example[i].daterecord+" &nbsp <i class='bx bxs-calendar'></i></div><a class='btn btn-sm btn-secondary text-light' href='{{ url('/hardwaretable/') }}/"+data_example[i].kentang+"'>> check detail </div>",{'className' : 'custom-popup',closeButton: false}).on('mouseover', function () {
                 this.openPopup();
             }).openPopup();
         marker.addTo(contoh);
@@ -305,7 +319,7 @@
 
     const contoh_bagi_induk = L.layerGroup();
     for (var i = 0; i < data_bagi_induk.length; i++) {
-        var marker_bagi_induk = L.marker([data_bagi_induk[i]["lat"], data_bagi_induk[i]["lng"]],{icon:iconmerah}).bindPopup("",{closeButton: false}).on('mouseover', function () {
+        var marker_bagi_induk = L.marker([data_bagi_induk[i]["lat"], data_bagi_induk[i]["lng"]],{icon:iconmerah}).bindPopup("<hr style='margin-bottom:5px;margin-top:5px;color:black;'><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Nama Titik :<b> "+data_bagi_induk[i]["name"]+" </b></div><table class='table table-bordered' style='margin-bottom:5px;'><thead class='colorthead thead-dark'><tr><th></th><th></th></tr></thead><tbody><tr><td style='font-size:10px;background:white;height:15px'>Kode </td><td style='font-size:10px;background:white;height:15px'> "+data_bagi_induk[i]["kode"]+" </td></tr><tr><td style='font-size:10px;background:white;height:15px'>Luas Area </td><td style='font-size:10px;background:white;height:15px'> "+data_bagi_induk[i]["luas"]+" </td></tr><tr><td style='font-size:10px;background:white;height:15px'>Debit </td><td style='font-size:10px;background:white;height:15px'> "+data_bagi_induk[i]["debit"]+" </td></tr><tr><td style='font-size:10px;background:white;height:15px'>Jumlah Pintu </td><td style='font-size:10px;background:white;height:15px'> "+data_bagi_induk[i]["jumlah_pintu"]+" </td></tr><tr><td style='font-size:10px;background:white;height:15px'>Main Intake </td><td style='font-size:10px;background:white;height:15px'> "+data_bagi_induk[i]["main_intake"]+" </td></tr></tbody></table>",{closeButton: false}).on('mouseover', function () {
                 this.openPopup();
             }).openPopup();
         marker_bagi_induk.addTo(contoh_bagi_induk);
@@ -313,7 +327,7 @@
 
     const contoh_bagi_sekunder = L.layerGroup();
     for (var i = 0; i < data_bagi_sekunder.length; i++) {
-        var marker_bagi_sekunder = L.marker([data_bagi_sekunder[i]["lat"], data_bagi_sekunder[i]["lng"]],{icon:iconhijau}).bindPopup("",{closeButton: false}).on('mouseover', function () {
+        var marker_bagi_sekunder = L.marker([data_bagi_sekunder[i]["lat"], data_bagi_sekunder[i]["lng"]],{icon:iconhijau}).bindPopup("<hr style='margin-bottom:5px;margin-top:5px;color:black;'><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Nama Titik :<b> "+data_bagi_sekunder[i]["name"]+" </b></div><table class='table table-bordered' style='margin-bottom:5px;'><thead class='colorthead thead-dark'><tr><th></th><th></th></tr></thead><tbody><tr><td style='font-size:10px;background:white;height:15px'>Kode </td><td style='font-size:10px;background:white;height:15px'> "+data_bagi_sekunder[i]["kode"]+" </td></tr><tr><td style='font-size:10px;background:white;height:15px'>Saluran Induk </td><td style='font-size:10px;background:white;height:15px'> "+data_bagi_sekunder[i]["saluran_induk"]+" </td></tr><tr><td style='font-size:10px;background:white;height:15px'>Tipe </td><td style='font-size:10px;background:white;height:15px'> "+data_bagi_sekunder[i]["type"]+" </td></tr><tr><td style='font-size:10px;background:white;height:15px'>Jumlah Pintu </td><td style='font-size:10px;background:white;height:15px'> "+data_bagi_sekunder[i]["jumlah_pintu"]+" </td></tr><tr><td style='font-size:10px;background:white;height:15px'>pengamat </td><td style='font-size:10px;background:white;height:15px'> "+data_bagi_sekunder[i]["pengamat"]+" </td></tr></tbody></table>",{closeButton: false}).on('mouseover', function () {
                 this.openPopup();
             }).openPopup();
         marker_bagi_sekunder.addTo(contoh_bagi_sekunder);
@@ -321,7 +335,7 @@
 
     const contoh_bendung = L.layerGroup();
     for (var i = 0; i < data_bendung.length; i++) {
-        var marker_bendung = L.marker([data_bendung[i]["lat"], data_bendung[i]["lng"]],{icon:iconbiru}).bindPopup("",{closeButton: false}).on('mouseover', function () {
+        var marker_bendung = L.marker([data_bendung[i]["lat"], data_bendung[i]["lng"]],{icon:iconbiru}).bindPopup("<hr style='margin-bottom:5px;margin-top:5px;color:black;'><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Nama Bendung :<b> "+data_bendung[i]["name"]+" </b></div><table class='table table-bordered' style='margin-bottom:5px;'><thead class='colorthead thead-dark'><tr><th></th><th></th></tr></thead><tbody><tr><td style='font-size:10px;background:white;height:15px'>Lokasi </td><td style='font-size:10px;background:white;height:15px'> "+data_bendung[i]["lokasi"]+" </td></tr><tr><td style='font-size:10px;background:white;height:15px'>Elevasi </td><td style='font-size:10px;background:white;height:15px'> "+data_bendung[i]["elevasi"]+" </td></tr><tr><td style='font-size:10px;background:white;height:15px'>Koordinat </td><td style='font-size:10px;background:white;height:15px'> "+data_bendung[i]["lat"]+","+data_bendung[i]["lng"]+" </td></tr></tbody></table>",{closeButton: false}).on('mouseover', function () {
                 this.openPopup();
             }).openPopup();
         marker_bendung.addTo(contoh_bendung);
@@ -329,13 +343,11 @@
 
     const contoh_titik_lokasi = L.layerGroup();
     for (var i = 0; i < data_titik_lokasi.length; i++) {
-        var marker_titik = L.marker([data_titik_lokasi[i]["lat"], data_titik_lokasi[i]["lng"]],{icon:iconkuning}).bindPopup("",{closeButton: false}).on('mouseover', function () {
+        var marker_titik = L.marker([data_titik_lokasi[i]["lat"], data_titik_lokasi[i]["lng"]],{icon:iconkuning}).bindPopup("<hr style='margin-bottom:5px;margin-top:5px;color:black;'><div class='text-primary' style='margin-bottom:5px;font-style:italic;font-size:12px;'>Nama :<b> "+data_titik_lokasi[i]["name"]+" </b></div><table class='table table-bordered' style='margin-bottom:5px;'><thead class='colorthead thead-dark'><tr><th></th><th></th></tr></thead><tbody><tr><td style='font-size:10px;background:white;height:15px'>Lokasi </td><td style='font-size:10px;background:white;height:15px'> "+data_titik_lokasi[i]["lokasi"]+" </td></tr><tr><td style='font-size:10px;background:white;height:15px'>Divisi </td><td style='font-size:10px;background:white;height:15px'> "+data_titik_lokasi[i]["divisi"]+" </td></tr><tr><td style='font-size:10px;background:white;height:15px'>Koordinat </td><td style='font-size:10px;background:white;height:15px'> "+data_titik_lokasi[i]["lat"]+","+data_titik_lokasi[i]["lng"]+" </td></tr><tr><td style='font-size:10px;background:white;height:15px'>Intake Max </td><td style='font-size:10px;background:white;height:15px'> "+data_titik_lokasi[i]["intake_max"]+" </td></tr></tbody></table>",{closeButton: false}).on('mouseover', function () {
                 this.openPopup();
             }).openPopup();
         marker_titik.addTo(contoh_titik_lokasi);
     }
-
-    
 
     // var marker2 = L.marker([-6, 107],{icon:redIcon})
     //     marker2.addTo(contoh2);
@@ -410,6 +422,7 @@
 
     // const layerControl = L.control.layers(null, overlays).addTo(map);
     const layerControl = L.control.layers(null, overlays,{ collapsed: false }).addTo(map);
+    L.control.scale().addTo(map);
 
     const openTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,

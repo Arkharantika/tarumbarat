@@ -70,21 +70,8 @@
             color: white;
         }
 
-        .custom-popup {
-            background-color: #ffffff;
-            /* Background color */
-            border: 2px solid #999999;
-            /* Border */
-            border-radius: 10px;
-            /* Border radius */
-            padding: 10px;
-            /* Padding */
-            /* Add any other styles you want */
-        }
-
         .leaflet-popup-content-wrapper {
             border-radius: 0.5rem;
-            /* background:#edfaef; */
             font-size: 13px;
             background: linear-gradient(to top, #66ffff 0%, #ffffff 50%);
         }
@@ -225,6 +212,13 @@
             transform: translateY(4px);
             outline: none;
         }
+
+        .custom-popup .leaflet-popup-content-wrapper{
+            width: 400px;
+            /* height:200px; */
+            /* border-radius:5%; */
+        }
+
     </style>
 </head>
 
