@@ -150,12 +150,12 @@
     const valmin2 = @json($non_ars_min);
 
     var data_example = [
-        { lat: -10.2500114, lng: 123.9895103, name: 'Marker 1',vmax:20,vmin:20,daterecord:20, intivalue:30,kentang:4150,debit:10,debitmax:10,debitmin:10,k1:1,k2:2,k3:3 }
+        // { lat: -10.2500114, lng: 123.9895103, name: 'Marker 1',vmax:20,vmin:20,daterecord:20, intivalue:30,kentang:4150,debit:10,debitmax:10,debitmin:10,k1:1,k2:2,k3:3 }
         // Add more data here...
     ];
 
     var data_example2 = [
-        { lat: -10.2500114, lng: 123.9895103, name: 'Marker 1',vmax:20,vmin:20,daterecord:20, intivalue:30,kentang:4150,debit:10,debitmax:10,debitmin:10,k1:1,k2:2,k3:3 }
+        // { lat: -10.2500114, lng: 123.9895103, name: 'Marker 1',vmax:20,vmin:20,daterecord:20, intivalue:30,kentang:4150,debit:10,debitmax:10,debitmin:10,k1:1,k2:2,k3:3 }
         // Add more data here...
     ];
 
@@ -260,7 +260,7 @@
 
     
     console.log("kampret >>>")
-    console.log(data_titik_lokasi)
+    console.log(data_example2)
     //console.log(data_example[0]["name"]);
 
     // <==== BAGIAN DEMO ===>
@@ -421,8 +421,10 @@
     };
 
     // const layerControl = L.control.layers(null, overlays).addTo(map);
-    const layerControl = L.control.layers(null, overlays,{ collapsed: false }).addTo(map);
-    L.control.scale().addTo(map);
+    const layerControl = L.control.layers(null, overlays,{ collapsed: false}).addTo(map);
+    // layerControl.setPosition('topleft');
+
+    L.control.scale({ position: 'topleft' }).addTo(map);
 
     const openTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,

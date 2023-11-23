@@ -72,7 +72,7 @@
 
         .leaflet-popup-content-wrapper {
             border-radius: 0.5rem;
-            font-size: 13px;
+            font-size: 12px;
             background: linear-gradient(to top, #66ffff 0%, #ffffff 50%);
         }
 
@@ -164,16 +164,17 @@
         }
 
         .leaflet-control-layers-expanded {
-            height: 180px;
+            height: 220px;
             width: 250px;
             padding-top: 30px;
-            background: linear-gradient(to bottom, #6c757d 15%, white 15%);
+            right: 250px;
+            background: linear-gradient(to bottom, #6c757d 12%, white 12%);
         }
 
         .card-bar {
             position: absolute;
-            top: 120px;
-            right: 25px;
+            top: 30px;
+            right: 30px;
             background-color: rgba(255, 255, 255, 0.8);
             padding: 10px;
             border: 1px solid #ccc;
@@ -184,14 +185,14 @@
 
         .tombolmenu{
             position: absolute;
-            top: 250px;
-            right: 25px;
+            top: 30px;
+            right: 30px;
             /* background-color: rgba(255, 255, 255, 0.8); */
             /* padding: 10px; */
             /* border: 1px solid #ccc; */
             /* border-radius: 5px; */
             z-index: 1000; /* Ensure the card-bar appears above the map */
-            width:180px;
+            width:230px;
             padding: 10px 15px;
             font-size: 15px;
             text-align: center;
@@ -212,7 +213,7 @@
             transform: translateY(4px);
             outline: none;
         }
-
+        
         .custom-popup .leaflet-popup-content-wrapper{
             width: 400px;
             /* height:200px; */
