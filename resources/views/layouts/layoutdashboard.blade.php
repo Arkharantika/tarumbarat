@@ -179,11 +179,12 @@
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            z-index: 1000; /* Ensure the card-bar appears above the map */
-            width:250px;
+            z-index: 1000;
+            /* Ensure the card-bar appears above the map */
+            width: 250px;
         }
 
-        .tombolmenu{
+        .tombolmenu {
             position: absolute;
             top: 30px;
             right: 30px;
@@ -191,8 +192,9 @@
             /* padding: 10px; */
             /* border: 1px solid #ccc; */
             /* border-radius: 5px; */
-            z-index: 1000; /* Ensure the card-bar appears above the map */
-            width:230px;
+            z-index: 1000;
+            /* Ensure the card-bar appears above the map */
+            width: 230px;
             padding: 10px 15px;
             font-size: 15px;
             text-align: center;
@@ -205,7 +207,9 @@
             box-shadow: 0 3px #999;
         }
 
-        .tombolmenu:hover {background-color: #3e8e41}
+        .tombolmenu:hover {
+            background-color: #3e8e41
+        }
 
         .tombolmenu:active {
             background-color: #3e8e41;
@@ -213,13 +217,17 @@
             transform: translateY(4px);
             outline: none;
         }
-        
-        .custom-popup .leaflet-popup-content-wrapper{
+
+        .custom-popup .leaflet-popup-content-wrapper {
             width: 400px;
             /* height:200px; */
             /* border-radius:5%; */
         }
 
+        .custom-width-modal {
+            max-width: 100%;
+            /* Adjust the width as needed */
+        }
     </style>
 </head>
 
@@ -296,8 +304,76 @@
             <div class="wrapper">
                 <!-- <hr> -->
                 <nav class="navbar card-body " style="display: flex;justify-content: flex-start; background:white;">
-                    <div id="map" class="border border-light"></div>
 
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="position: absolute;top: 30px;right: 50%;z-index: 1000;">
+                        Rekapitulasi Data Pos Hari Ini
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="table-responsive">
+                                        <table id="example2" class="table table-striped table-bordered text-center">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="2"></th>
+                                                    <th colspan="3">Tinggi Muka Air Hari Ini (m)</th>
+                                                    <th colspan="3">Debit (m<sup>3</sup>/s)</th>
+                                                    <th colspan="1"></th>
+                                                </tr>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama Pos</th>
+                                                    <th>Nilai</th>
+                                                    <th>Max</th>
+                                                    <th>Min</th>
+                                                    <th>Nilai </th>
+                                                    <th>Max</th>
+                                                    <th>Min</th>
+                                                    <th>Update Terakhir</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php $no=1; ?>
+                                                @foreach($ars as $ken => $wow)
+                                                <?php $Q=($wow->k1)*pow(($wow->value)+($wow->k2),($wow->k3)); ?>
+                                                <?php $Qmax=($wow->k1)*pow(($ars_max[$ken])+($wow->k2),($wow->k3)); ?>
+                                                <?php $Qmin=($wow->k1)*pow(($ars_min[$ken])+($wow->k2),($wow->k3)); ?>
+                                                <tr>
+                                                    <td>{{$no++}}</td>
+                                                    <td>{{$wow->pos_name}}</td>
+                                                    <td>{{number_format($wow->value,2)}}</td>
+                                                    <td>{{number_format($ars_max[$ken],2)}}</td>
+                                                    <td>{{number_format($ars_min[$ken],2)}}</td>
+                                                    <td>{{number_format(($Q),2)}}</td>
+                                                    <td>{{number_format(($Qmax),2)}}</td>
+                                                    <td>{{number_format(($Qmin),2)}}</td>
+                                                    <td>{{$wow->tlocal}}</td>
+                                                </tr>
+                                                @endforeach
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="map" class="border border-light">
+
+                    </div>
                     <!-- test card -->
                     <!-- <div class="tombolmenu">
                         menu >>
@@ -312,14 +388,15 @@
                             <div></div>
                             <div></div>
                             <div style="width:10px;"></div>
-                            <div><button onclick="minimize()" id="btnminimize" class="btn btn-sm btn-outline-secondary" > >> </button></div>
+                            <div><button onclick="minimize()" id="btnminimize" class="btn btn-sm btn-outline-secondary">
+                                    >> </button></div>
                         </div>
                         <div class="card-header text-center">
                             <h2>PJT PUPR</h2>
                         </div>
                         <div class="card-body">
                             <label>
-                                <input type="checkbox" id="tombolTMA" onclick="tampilTMA()" > <b>POS TMA</b> 
+                                <input type="checkbox" id="tombolTMA" onclick="tampilTMA()"> <b>POS TMA</b>
                             </label>
                             <br>
                             <div id="showTMA" style="display:none;margin-left:20px;">
@@ -340,7 +417,8 @@
                                 </label> -->
                             </div>
                             <label>
-                                <input type="checkbox" id="tombolCurahHujan" onclick="tampilCurahHujan()" > <b>POS Curah Hujan</b> 
+                                <input type="checkbox" id="tombolCurahHujan" onclick="tampilCurahHujan()"> <b>POS Curah
+                                    Hujan</b>
                             </label>
                             <br>
                             <div id="showCurahHujan" style="display:none;margin-left:20px;">
@@ -361,7 +439,8 @@
                                 </label> -->
                             </div>
                             <label>
-                                <input type="checkbox" id="tombolKlimatologi" onclick="tampilKlimatologi()" > <b>POS Klimatologi</b> 
+                                <input type="checkbox" id="tombolKlimatologi" onclick="tampilKlimatologi()"> <b>POS
+                                    Klimatologi</b>
                             </label>
                             <br>
                             <div id="showKlimatologi" style="display:none;margin-left:20px;">
@@ -388,7 +467,7 @@
                         </div>
                         <div class="card-body">
                             <label>
-                                <input type="checkbox" id="" onclick="" > <b>POS TMA</b> 
+                                <input type="checkbox" id="" onclick=""> <b>POS TMA</b>
                             </label>
                             <br>
                             <div id="" style="display:none;margin-left:20px;">
@@ -409,7 +488,7 @@
                                 </label> -->
                             </div>
                             <label>
-                                <input type="checkbox" id="" onclick="" > <b>POS Curah Hujan</b> 
+                                <input type="checkbox" id="" onclick=""> <b>POS Curah Hujan</b>
                             </label>
                             <br>
                             <div id="" style="display:none;margin-left:20px;">
@@ -430,7 +509,7 @@
                                 </label> -->
                             </div>
                             <label>
-                                <input type="checkbox" id="" onclick="" > <b>POS Klimatologi</b> 
+                                <input type="checkbox" id="" onclick=""> <b>POS Klimatologi</b>
                             </label>
                             <br>
                             <div id="" style="display:none;margin-left:20px;">
@@ -548,50 +627,48 @@
                 }
             })
         }
-        function tampilTMA()
-        {
+
+        function tampilTMA() {
             var checktomboltma = document.getElementById("tombolTMA");
             var listCBXtma = document.getElementById("showTMA");
 
-            if(checktomboltma.checked){
+            if (checktomboltma.checked) {
                 listCBXtma.style.display = "block";
-            }else{
+            } else {
                 listCBXtma.style.display = "none";
             }
         }
-        function tampilCurahHujan()
-        {
-            var checktombolCH= document.getElementById("tombolCurahHujan");
+
+        function tampilCurahHujan() {
+            var checktombolCH = document.getElementById("tombolCurahHujan");
             var listCBXch = document.getElementById("showCurahHujan");
 
-            if(checktombolCH.checked){
+            if (checktombolCH.checked) {
                 listCBXch.style.display = "block";
-            }else{
+            } else {
                 listCBXch.style.display = "none";
             }
         }
-        function tampilKlimatologi()
-        {
-            var checktombolKlm= document.getElementById("tombolKlimatologi");
+
+        function tampilKlimatologi() {
+            var checktombolKlm = document.getElementById("tombolKlimatologi");
             var listCBXklm = document.getElementById("showKlimatologi");
 
-            if(checktombolKlm.checked){
+            if (checktombolKlm.checked) {
                 listCBXklm.style.display = "block";
-            }else{
+            } else {
                 listCBXklm.style.display = "none";
             }
         }
-        
-        function minimize()
-        {
+
+        function minimize() {
             var cardnya = document.getElementById("cardnyadong");
             var tombolopen = document.getElementById("openmenu");
             cardnya.style.display = "none";
             tombolopen.style.display = "block";
         }
 
-        function openize()
-        {
+        function openize() {
             var cardnya = document.getElementById("cardnyadong");
             var tombolopen = document.getElementById("openmenu");
             cardnya.style.display = "block";
